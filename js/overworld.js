@@ -77,7 +77,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.FieldTwo)
+    this.startMap(window.OverworldMaps.MainMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
@@ -88,7 +88,7 @@ startMap(mapConfig) {
     this.startGameLoop()
 
     // this.map.startCutscene([
-    //   { type: 'changeMap', map: 'WoodsOne'},
+    //   { type: 'changeMap', map: 'MainMap'},
     //   // { type: 'textMessage', text: 'Hello friend, welcome!'},
     // ])
   }
