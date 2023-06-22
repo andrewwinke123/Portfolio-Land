@@ -21,14 +21,14 @@ class Overworld {
       })
 
       //Establish camera person
-      let cameraPerson;
+      let cameraPerson
     if (this.map.stationaryCamera) {
       cameraPerson = {
         x: 0,
         y: 0,
-      };
+      }
     } else {
-      cameraPerson = this.map.gameObjects.hero;
+      cameraPerson = this.map.gameObjects.hero
     }
 
       //Lower layer

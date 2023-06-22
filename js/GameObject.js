@@ -8,6 +8,7 @@ class GameObject {
     this.sprite = new Sprite({
       gameObject: this,
       src: config.src || '/img/characters/people/little-goblin.png',
+      size: config.size,
     })
 
     this.behaviorLoop = config.behaviorLoop || []

@@ -21,11 +21,11 @@ body {
 .game-container {
   position: relative;
   width: 300px;
-  height: 200px;
+  height: 235px;
   margin: 0 auto;
   outline: 1px solid white;
 
-  transform: scale(3) translateY(50%);
+  transform: scale(3) translateY(35%);
 }
 
 .game-container canvas {

@@ -94,16 +94,16 @@ class OverworldMap {
 window.OverworldMaps = {
   MainMap: {
     lowerSrc: '/img/maps/pixle-portfolio.png',
-    upperSrc: '',
+    upperSrc: '/img/maps/pixle-portfolio-upper.png',
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(5),
-        y: utils.widthGrid(6),
+        x: utils.widthGrid(16),
+        y: utils.widthGrid(10),
       }),
       wizard: new Person({
-        x: utils.widthGrid(7),
-        y: utils.widthGrid(7),
+        x: utils.widthGrid(21),
+        y: utils.widthGrid(40),
         src: '/img/characters/people/wizard.png'
       })
     },
@@ -114,8 +114,6 @@ window.OverworldMaps = {
       [utils.asGridCoord(6,6)]: [
         {
           events: [
-
-
             { who: 'wizard', type: 'walk', direction: 'right'},
             { who: 'wizard', type: 'stand', direction: 'down', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -126,23 +124,30 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(25,35)]: [
+      [utils.asGridCoord(34,40)]: [
         {
           events: [
             { type: 'changeMap', map: 'AboutMeMap'}
+          ]
+        }
+      ],
+      [utils.asGridCoord(12,40)]: [
+        {
+          events: [
+            { type: 'changeMap', map: 'ConstructionMap'}
           ]
         }
       ]
     }
   },
   AboutMeMap: {
-    lowerSrc: '/img/maps/pixle-portfolio-page-2.png',
+    lowerSrc: '/img/maps/pixle-portfolio-page-2-test.png',
     upperSrc: '',
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(-1),
-        y: utils.widthGrid(22),
+        x: utils.widthGrid(9),
+        y: utils.widthGrid(41),
       }),
       wizard: new Person({
         x: utils.widthGrid(7),
@@ -157,26 +162,23 @@ window.OverworldMaps = {
       [utils.asGridCoord(6,6)]: [
         {
           events: [
-
-
             { who: 'wizard', type: 'walk', direction: 'right'},
             { who: 'wizard', type: 'stand', direction: 'down', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
             { who: 'wizard', type: 'walk', direction: 'up'},
-
             { who: 'hero', type: 'walk', direction: 'down'},
             { who: 'hero', type: 'walk', direction: 'left'},
           ]
         }
       ],
-      [utils.asGridCoord(24,22)]: [
+      [utils.asGridCoord(33,41)]: [
         {
           events: [
             { type: 'changeMap', map: 'ContactMeMap'}
           ]
         }
       ],
-      [utils.asGridCoord(-2,22)]: [
+      [utils.asGridCoord(9,41)]: [
         {
           events: [
             { type: 'changeMap', map: 'MainMap'}
@@ -191,8 +193,8 @@ window.OverworldMaps = {
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.widthGrid(0),
-          y: utils.widthGrid(20),
+          x: utils.widthGrid(9),
+          y: utils.widthGrid(41),
         }),
         wizard: new Person({
           x: utils.widthGrid(9),
@@ -207,8 +209,6 @@ window.OverworldMaps = {
         [utils.asGridCoord(6,6)]: [
           {
             events: [
-  
-  
               { who: 'wizard', type: 'walk', direction: 'right'},
               { who: 'wizard', type: 'stand', direction: 'down', time: 500},
               { type: 'textMessage', text:'hey, watch out' },
@@ -219,10 +219,50 @@ window.OverworldMaps = {
             ]
           }
         ],
-        [utils.asGridCoord(0,20)]: [
+        [utils.asGridCoord(9,41)]: [
           {
             events: [
               { type: 'changeMap', map: 'AboutMeMap'}
+            ]
+          }
+        ]
+      }
+  },
+    ConstructionMap: {
+      lowerSrc: '/img/maps/pixle-portfolio-construction.png',
+      upperSrc: '',
+      gameObjects: {
+        hero: new Person({
+          isPlayerControlled: true,
+          x: utils.widthGrid(22),
+          y: utils.widthGrid(40),
+        }),
+        wizard: new Person({
+          x: utils.widthGrid(9),
+          y: utils.widthGrid(7),
+          src: '/img/characters/people/wizard.png'
+        })
+      },
+      walls: {
+        [utils.asGridCoord(10,7)]: true,
+      },
+      cutsceneSpaces: {
+        [utils.asGridCoord(6,6)]: [
+          {
+            events: [
+              { who: 'wizard', type: 'walk', direction: 'right'},
+              { who: 'wizard', type: 'stand', direction: 'down', time: 500},
+              { type: 'textMessage', text:'hey, watch out' },
+              { who: 'wizard', type: 'walk', direction: 'up'},
+              { who: 'hero', type: 'walk', direction: 'down'},
+              { who: 'hero', type: 'walk', direction: 'left'},
+            ]
+          }
+        ],
+        [utils.asGridCoord(22,40)]: [
+          {
+            events: [
+              { type: 'changeMap', map: 'MainMap'}
             ]
           }
         ]
