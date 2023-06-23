@@ -72,9 +72,14 @@ class OverworldMap {
   checkForFootstepsCutscene() {
     const hero = this.gameObjects['hero']
     const match = this.cutsceneSpaces[ `${hero.x}, ${hero.y}` ]
-    if (!this.isCutscenePlaying && match) {
-      this.startCutscene( match[0].events )
-    }
+    const enterKeyListener = new KeyPressListener("Enter", () => {
+      if (!this.isCutscenePlaying && match) {
+        this.startCutscene(match[0].events)
+      }
+    })
+    setTimeout(() => {
+      enterKeyListener.unbind()
+    }, 200)
   }
 
   
