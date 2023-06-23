@@ -111,16 +111,12 @@ window.OverworldMaps = {
       [utils.asGridCoord(10,7)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(6,6)]: [
+      [utils.asGridCoord(10,10)]: [
         {
           events: [
-            { who: 'wizard', type: 'walk', direction: 'right'},
-            { who: 'wizard', type: 'stand', direction: 'down', time: 500},
+            { who: 'chest', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
-            { who: 'wizard', type: 'walk', direction: 'up'},
-
-            { who: 'hero', type: 'walk', direction: 'down'},
-            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }
       ],
@@ -141,7 +137,7 @@ window.OverworldMaps = {
     }
   },
   AboutMeMap: {
-    lowerSrc: '/img/maps/pixle-portfolio-page-2-test.png',
+    lowerSrc: '/img/maps/pixle-portfolio-page-2.png',
     upperSrc: '',
     gameObjects: {
       hero: new Person({
@@ -153,21 +149,51 @@ window.OverworldMaps = {
         x: utils.widthGrid(7),
         y: utils.widthGrid(22),
         src: '/img/characters/people/wizard.png'
-      })
+      }),
+      chest: new Person({
+        x: utils.widthGrid(21),
+        y: utils.widthGrid(40.5),
+        src: '/img/characters/chest.png'
+      }),
+      chest2: new Person({
+        x: utils.widthGrid(25),
+        y: utils.widthGrid(40.5),
+        src: '/img/characters/chest.png'
+      }),
+      chest3: new Person({
+        x: utils.widthGrid(29),
+        y: utils.widthGrid(40.5),
+        src: '/img/characters/chest.png'
+      }),
     },
     walls: {
       [utils.asGridCoord(10,7)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(6,6)]: [
+      [utils.asGridCoord(21,41)]: [
         {
           events: [
-            { who: 'wizard', type: 'walk', direction: 'right'},
-            { who: 'wizard', type: 'stand', direction: 'down', time: 500},
+            { who: 'chest', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
-            { who: 'wizard', type: 'walk', direction: 'up'},
-            { who: 'hero', type: 'walk', direction: 'down'},
-            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'right'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(25,41)]: [
+        {
+          events: [
+            { who: 'chest2', type: 'stand', direction: 'right', time: 500},
+            { type: 'textMessage', text:'hey, watch out' },
+            { who: 'hero', type: 'walk', direction: 'right'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(29,41)]: [
+        {
+          events: [
+            { who: 'chest3', type: 'stand', direction: 'right', time: 500},
+            { type: 'textMessage', text:'hey, watch out' },
+            { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }
       ],

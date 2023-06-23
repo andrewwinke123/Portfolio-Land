@@ -8,7 +8,6 @@ class GameObject {
     this.sprite = new Sprite({
       gameObject: this,
       src: config.src || '/img/characters/people/little-goblin.png',
-      size: config.size,
     })
 
     this.behaviorLoop = config.behaviorLoop || []
@@ -19,7 +18,7 @@ class GameObject {
 
   mount(map) {
     this.isMounted = true
-    map.addWall(this.x, this.y)
+    // map.addWall(this.x, this.y)
 
     //if behavior, start after a short delay
     setTimeout(() => {

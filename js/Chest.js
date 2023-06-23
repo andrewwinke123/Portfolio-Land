@@ -2,13 +2,20 @@ class Chest extends GameObject {
   constructor(config) {
     super(config)
     this.sprite = new Sprite({
-      gameObjects: this,
-      src: '/images/characters/hi-andrew.png',
+      gameObject: this,
+      src: '/img/characters/chest.png',
       animations: {
-        'closed' : [ [0,0] ],
-        'open' : [ [1,0] ],
+        'closed-down' : [ [0,0] ],
+        'open-down' : [ [1,0] ],
       },
-      currentAnimation: 'closed'
+      currentAnimation: 'closed-down'
     })
+    this.storyFlag = config.storyFlag
   }
+
+  // update() {
+  //   this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag]
+  //   ? 'closed-down'
+  //   : 'open-down'
+  // }
 }
