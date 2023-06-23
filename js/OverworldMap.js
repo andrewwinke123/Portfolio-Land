@@ -73,7 +73,7 @@ class OverworldMap {
     
     setTimeout(() => {
       enterKeyListener.unbind()
-    }, 200)
+    }, 400)
   }
   
 
@@ -95,7 +95,7 @@ class OverworldMap {
     }
   }
 
-  
+
   addWall(x,y) {
     this.walls[`${x}, ${y}`] = true
   }
@@ -129,11 +129,42 @@ window.OverworldMaps = {
       [utils.asGridCoord(10,7)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(10,10)]: [
+      [utils.asGridCoord(23,40)]: [
         {
+          requiresEnter: true,
           events: [
-            { who: 'chest', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage', text:'hey, watch out' },
+            { who: 'wizard', type: 'stand', direction: 'right', time: 500},
+            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+            { who: 'hero', type: 'walk', direction: 'right'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(22,40)]: [
+        {
+          requiresEnter: true,
+          events: [
+            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+            { who: 'hero', type: 'walk', direction: 'right'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(21,40)]: [
+        {
+          requiresEnter: true,
+          events: [
+            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+            { who: 'hero', type: 'walk', direction: 'right'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(20,40)]: [
+        {
+          requiresEnter: true,
+          events: [
+            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
             { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }
