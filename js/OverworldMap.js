@@ -64,22 +64,35 @@ class OverworldMap {
     const match = Object.values(this.gameObjects).find(object => {
       return `${object.x}, ${object.y}` === `${nextCoords.x}, ${nextCoords.y}`
     })
-    if (!this.isCutscenePlaying && match && match.talking.length) {
-      this.startCutscene(match.talking[0].events)
-    }
-  }
-
-  checkForFootstepsCutscene() {
-    const hero = this.gameObjects['hero']
-    const match = this.cutsceneSpaces[ `${hero.x}, ${hero.y}` ]
+  
     const enterKeyListener = new KeyPressListener("Enter", () => {
-      if (!this.isCutscenePlaying && match) {
-        this.startCutscene(match[0].events)
+      if (!this.isCutscenePlaying && match && match.talking.length) {
+        this.startCutscene(match.talking[0].events)
       }
     })
+    
     setTimeout(() => {
       enterKeyListener.unbind()
     }, 200)
+  }
+  
+
+  checkForCutscene() {
+    const hero = this.gameObjects['hero']
+    const match = this.cutsceneSpaces[ `${hero.x}, ${hero.y}` ]
+  
+    if(match && match[0].requiresEnter) { // If the cutscene requires 'Enter' key to be pressed
+      const enterKeyListener = new KeyPressListener("Enter", () => {
+        if (!this.isCutscenePlaying && match) {
+          this.startCutscene(match[0].events)
+        }
+      })
+      setTimeout(() => {
+        enterKeyListener.unbind()
+      }, 200)
+    } else if (!this.isCutscenePlaying && match) { // If the cutscene doesn't require 'Enter' key to be pressed
+      this.startCutscene(match[0].events)
+    }
   }
 
   
@@ -177,6 +190,7 @@ window.OverworldMaps = {
     cutsceneSpaces: {
       [utils.asGridCoord(21,41)]: [
         {
+          requiresEnter: true,
           events: [
             { who: 'chest', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -186,6 +200,7 @@ window.OverworldMaps = {
       ],
       [utils.asGridCoord(25,41)]: [
         {
+          requiresEnter: true,
           events: [
             { who: 'chest2', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -195,6 +210,7 @@ window.OverworldMaps = {
       ],
       [utils.asGridCoord(29,41)]: [
         {
+          requiresEnter: true,
           events: [
             { who: 'chest3', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -204,6 +220,7 @@ window.OverworldMaps = {
       ],
       [utils.asGridCoord(33,41)]: [
         {
+          requiresEnter: false,
           events: [
             { type: 'changeMap', map: 'ContactMeMap'}
           ]
@@ -211,6 +228,7 @@ window.OverworldMaps = {
       ],
       [utils.asGridCoord(9,41)]: [
         {
+          requiresEnter: false,
           events: [
             { type: 'changeMap', map: 'MainMap'}
           ]

@@ -65,7 +65,7 @@ bindHeroPositionCheck() {
   document.addEventListener('PersonWalkingComplete', e => {
     if (e.detail.whoId === 'hero') {
       //heros position has changed
-      this.map.checkForFootstepsCutscene()
+      this.map.checkForCutscene()
     }
   })
 }
@@ -86,10 +86,5 @@ startMap(mapConfig) {
     this.directionInput.init()
     
     this.startGameLoop()
-
-    // this.map.startCutscene([
-    //   { type: 'changeMap', map: 'MainMap'},
-    //   // { type: 'textMessage', text: 'Hello friend, welcome!'},
-    // ])
   }
 }
