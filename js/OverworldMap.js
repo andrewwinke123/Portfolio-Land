@@ -65,35 +65,46 @@ class OverworldMap {
       return `${object.x}, ${object.y}` === `${nextCoords.x}, ${nextCoords.y}`
     })
   
-    const enterKeyListener = new KeyPressListener("Enter", () => {
+    const actionListener = (key) => {
       if (!this.isCutscenePlaying && match && match.talking.length) {
         this.startCutscene(match.talking[0].events)
       }
-    })
-    
+    };
+  
+    const enterKeyListener = new KeyPressListener("Enter", actionListener);
+    const spaceKeyListener = new KeyPressListener("Space", actionListener);
+  
     setTimeout(() => {
       enterKeyListener.unbind()
+      spaceKeyListener.unbind()
     }, 400)
   }
+  
   
 
   checkForCutscene() {
     const hero = this.gameObjects['hero']
-    const match = this.cutsceneSpaces[ `${hero.x}, ${hero.y}` ]
+    const match = this.cutsceneSpaces[`${hero.x}, ${hero.y}`]
   
-    if(match && match[0].requiresEnter) { // If the cutscene requires 'Enter' key to be pressed
-      const enterKeyListener = new KeyPressListener("Enter", () => {
+    if(match && match[0].requiresEnter) {
+      const actionListener = () => {
         if (!this.isCutscenePlaying && match) {
           this.startCutscene(match[0].events)
         }
-      })
+      }
+  
+      const enterKeyListener = new KeyPressListener("Enter", actionListener);
+      const spaceKeyListener = new KeyPressListener("Space", actionListener);
+  
       setTimeout(() => {
         enterKeyListener.unbind()
+        spaceKeyListener.unbind()
       }, 200)
-    } else if (!this.isCutscenePlaying && match) { // If the cutscene doesn't require 'Enter' key to be pressed
+    } else if (!this.isCutscenePlaying && match) {
       this.startCutscene(match[0].events)
     }
   }
+  
 
 
   addWall(x,y) {
