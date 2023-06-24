@@ -99,7 +99,7 @@ class OverworldMap {
       setTimeout(() => {
         enterKeyListener.unbind()
         spaceKeyListener.unbind()
-      }, 200)
+      })
     } else if (!this.isCutscenePlaying && match) {
       this.startCutscene(match[0].events)
     }
@@ -213,7 +213,7 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(12,40)]: [
+      [utils.asGridCoord(13,40)]: [
         {
           events: [
             { type: 'changeMap', map: 'ConstructionMap'}
@@ -260,7 +260,7 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage', text:'hey, watch out' },
+            { type: 'textMessage2', text:'hey, watch out' },
             { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }
@@ -269,7 +269,7 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest2', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage', text:'hey, watch out' },
+            { type: 'textMessage2', text:'hey, watch out' },
             { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }
@@ -278,7 +278,7 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage', text:'hey, watch out' },
+            { type: 'textMessage2', text:'hey, watch out' },
             { who: 'hero', type: 'walk', direction: 'right'},
           ]
         }

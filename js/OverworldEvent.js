@@ -61,15 +61,29 @@ class OverworldEvent {
   }
 
   changeMap(resolve) {
-    const sceneTransition = new SceneTransition()
-    sceneTransition.init(document.querySelector('.game-container'), () => {
-      this.map.overworld.startMap( window.OverworldMaps[this.event.map] )
-      resolve()
-
-      sceneTransition.fadeOut()
-    })
-
+    // replace this with your logic to change map
+    console.log('Map changing to:', this.event.map);
+    resolve();
   }
+
+  textMessage(resolve) {
+    const textMessage = new TextMessage({
+      text: this.event.text,
+      onComplete: resolve,
+    });
+    textMessage.init(/* provide container element here */);
+  }
+
+  textMessage2(resolve) {
+    const textMessage2 = new TextMessage2({
+      text: this.event.text,
+      onComplete: resolve,
+    });
+    textMessage2.init(document.querySelector('.game-container'));  // Passed '.game-container' as container
+  }
+  
+
+
 
   init() {
     return new Promise(resolve => {
