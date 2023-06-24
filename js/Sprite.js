@@ -26,6 +26,10 @@ class Sprite {
 
     //Reference game object
     this.gameObject = config.gameObject
+
+    //Configure frame dimensions
+    this.frameWidth = config.frameWidth || 32
+    this.frameHeight = config.frameHeight || 32 
   }
 
   get frame() {
@@ -63,11 +67,12 @@ class Sprite {
     const [frameX, frameY] = this.frame
 
     this.isLoaded && ctx.drawImage(this.image,
-      frameX * 32, frameY * 32,
-      32,32,
-      x,y,
-      32,32
+      frameX * this.frameWidth, frameY * this.frameHeight, // source x, y
+      this.frameWidth, this.frameHeight, // source width, height
+      x, y, // destination x, y
+      this.frameWidth, this.frameHeight // destination width, height
     )
     this.updateAnimationProgress()
   }
+
 }

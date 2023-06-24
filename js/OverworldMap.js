@@ -122,7 +122,7 @@ class OverworldMap {
 
 window.OverworldMaps = {
   MainMap: {
-    lowerSrc: '/img/maps/pixle-portfolio.png',
+    lowerSrc: '/img/maps/pixle-portfolio-test.png',
     upperSrc: '/img/maps/pixle-portfolio-upper.png',
     gameObjects: {
       hero: new Person({
@@ -133,53 +133,79 @@ window.OverworldMaps = {
       wizard: new Person({
         x: utils.widthGrid(21),
         y: utils.widthGrid(40),
-        src: '/img/characters/people/wizard.png'
-      })
+        src: '/img/characters/people/wizard.png',
+        talking: [
+          {
+            events: [
+              { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.', faceHero: 'wizard' }
+            ]
+          }
+        ]
+      }),
+      // andrew: new Person({
+      //   x: utils.widthGrid(14),
+      //   y: utils.widthGrid(15),
+      //   src: '/img/characters/hi-andrew.png',
+      //   frameWidth: 120,
+      //   frameHeight: 120,
+      //   behaviorLoop: [
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'walk', direction: 'up'},
+      //     { type: 'stand', direction: 'down', time: 5000000},
+      //   ],
+      // })
     },
     walls: {
       [utils.asGridCoord(10,7)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(23,40)]: [
-        {
-          requiresEnter: true,
-          events: [
-            { who: 'wizard', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
-            { who: 'hero', type: 'walk', direction: 'right'},
-          ]
-        }
-      ],
-      [utils.asGridCoord(22,40)]: [
-        {
-          requiresEnter: true,
-          events: [
-            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
-            { who: 'hero', type: 'walk', direction: 'right'},
-          ]
-        }
-      ],
-      [utils.asGridCoord(21,40)]: [
-        {
-          requiresEnter: true,
-          events: [
-            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
-            { who: 'hero', type: 'walk', direction: 'right'},
-          ]
-        }
-      ],
-      [utils.asGridCoord(20,40)]: [
-        {
-          requiresEnter: true,
-          events: [
-            { who: 'wizard', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
-            { who: 'hero', type: 'walk', direction: 'right'},
-          ]
-        }
-      ],
+      // [utils.asGridCoord(23,40)]: [
+      //   {
+      //     requiresEnter: true,
+      //     events: [
+      //       { who: 'wizard', type: 'stand', direction: 'right', time: 500},
+      //       { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+      //       { who: 'hero', type: 'walk', direction: 'right'},
+      //     ]
+      //   }
+      // ],
+      // [utils.asGridCoord(22,40)]: [
+      //   {
+      //     requiresEnter: true,
+      //     events: [
+      //       { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+      //       { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+      //       { who: 'hero', type: 'walk', direction: 'right'},
+      //     ]
+      //   }
+      // ],
+      // [utils.asGridCoord(21,40)]: [
+      //   {
+      //     requiresEnter: true,
+      //     events: [
+      //       { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+      //       { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+      //       { who: 'hero', type: 'walk', direction: 'right'},
+      //     ]
+      //   }
+      // ],
+      // [utils.asGridCoord(20,40)]: [
+      //   {
+      //     requiresEnter: true,
+      //     events: [
+      //       { who: 'wizard', type: 'stand', direction: 'left', time: 500},
+      //       { type: 'textMessage', text:'Welcome traveler! Ye old game shack is to the left. The About Me page is to the right.' },
+      //       { who: 'hero', type: 'walk', direction: 'right'},
+      //     ]
+      //   }
+      // ],
       [utils.asGridCoord(34,40)]: [
         {
           events: [
@@ -197,7 +223,7 @@ window.OverworldMaps = {
     }
   },
   AboutMeMap: {
-    lowerSrc: '/img/maps/pixle-portfolio-page-2.png',
+    lowerSrc: '/img/maps/pixle-portfolio-page-2-test.png',
     upperSrc: '',
     gameObjects: {
       hero: new Person({
@@ -211,18 +237,18 @@ window.OverworldMaps = {
         src: '/img/characters/people/wizard.png'
       }),
       chest: new Person({
-        x: utils.widthGrid(21),
-        y: utils.widthGrid(40.5),
+        x: utils.widthGrid(23),
+        y: utils.widthGrid(39.5),
         src: '/img/characters/chest.png'
       }),
       chest2: new Person({
         x: utils.widthGrid(25),
-        y: utils.widthGrid(40.5),
+        y: utils.widthGrid(39.5),
         src: '/img/characters/chest.png'
       }),
       chest3: new Person({
-        x: utils.widthGrid(29),
-        y: utils.widthGrid(40.5),
+        x: utils.widthGrid(27),
+        y: utils.widthGrid(39.5),
         src: '/img/characters/chest.png'
       }),
     },
@@ -230,9 +256,8 @@ window.OverworldMaps = {
       [utils.asGridCoord(10,7)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(21,41)]: [
+      [utils.asGridCoord(23,40)]: [
         {
-          requiresEnter: true,
           events: [
             { who: 'chest', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -240,9 +265,8 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(25,41)]: [
+      [utils.asGridCoord(25,40)]: [
         {
-          requiresEnter: true,
           events: [
             { who: 'chest2', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
@@ -250,9 +274,8 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(29,41)]: [
+      [utils.asGridCoord(27,40)]: [
         {
-          requiresEnter: true,
           events: [
             { who: 'chest3', type: 'stand', direction: 'right', time: 500},
             { type: 'textMessage', text:'hey, watch out' },
