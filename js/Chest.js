@@ -3,7 +3,7 @@ class Chest extends GameObject {
     super(config)
     this.sprite = new Sprite({
       gameObject: this,
-      src: '/img/characters/chest.png',
+      src: '/media/characters/chest.png',
       animations: {
         'closed-down' : [ [0,0] ],
         'open-down' : [ [1,0] ],

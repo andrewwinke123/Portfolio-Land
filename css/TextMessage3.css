@@ -1,36 +1,33 @@
-.TextMessage2 {
+.TextMessage3 {
   position: absolute;
   left: 40%;
   right: 5%;
   bottom: 35%;
-  height: 80px;
   font-size: 12px;
   padding: 4px;
   background: var(--menu-background);
   border-top: 1px solid var(--menu-border-color);
-  color: black;
+  color: var(--menu-font-color);
   box-sizing: border-box;
+  display: inline-block;
+  width: auto;
+  min-height: 20px;
 }
 
-.TextMessage2_p .first-word {
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.TextMessage2_p {
+.TextMessage3_p {
   margin: 0;
   font-size: 12px;
 }
 
-.TextMessage2 span {
+.TextMessage3 span {
   opacity: 0;
 }
 
-.TextMessage2 span.revealed {
+.TextMessage3 span.revealed {
   opacity: 1;
 }
 
-.TextMessage2_button {
+.TextMessage3_button {
   margin: 0;
   font-size: 8px;
   padding: 0;

@@ -1,8 +1,3 @@
-
-
-
-
-
 class Overworld {
   constructor(config) {
     this.element = config.element
@@ -82,7 +77,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.ConstructionMap)
+    this.startMap(window.OverworldMaps.AboutMeMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

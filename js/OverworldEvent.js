@@ -86,7 +86,23 @@ class OverworldEvent {
     textMessage2.init(document.querySelector('.game-container'))
   }
   
-
+  textMessage3(resolve) {
+    const textMessage3 = new TextMessage3({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    textMessage3.init(document.querySelector('.game-container'))
+  }
+  textMessageEducation(resolve) {
+    const textMessageEducation = new TextMessageEducation({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    textMessageEducation.init(document.querySelector('.game-container'))
+  }
+  
+  
+  
   
   init() {
     return new Promise(resolve => {

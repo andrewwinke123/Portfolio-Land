@@ -1,4 +1,4 @@
-class TextMessage {
+class TextMessage3 {
   constructor({ text, onComplete }) {
     this.text = text
     this.onComplete = onComplete
@@ -8,16 +8,16 @@ class TextMessage {
   createElement() {
     //create element
     this.element = document.createElement('div')
-    this.element.classList.add('TextMessage')
+    this.element.classList.add('TextMessage3')
     
     this.element.innerHTML = (`
-      <p class='TextMessage_p'></p>
-      <button class='TextMessage_button'>Next</button>
+      <p class='TextMessage3_p'></p>
+      <button class='TextMessage3_button'>next</button>
     `)
 
     //init typerwriter effect
     this.revealingText = new RevealingText({
-      element: this.element.querySelector('.TextMessage_p'),
+      element: this.element.querySelector('.TextMessage3_p'),
       text: this.text
     })
 
@@ -49,6 +49,7 @@ class TextMessage {
     container.appendChild(this.element)
     this.revealingText.init()
     audio.play()
+    audio.volume = 0.15
 
     setTimeout(() => {
       audio.pause()
