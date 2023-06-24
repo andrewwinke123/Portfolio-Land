@@ -223,7 +223,7 @@ window.OverworldMaps = {
     }
   },
   AboutMeMap: {
-    lowerSrc: '/img/maps/pixle-portfolio-page-2-test.png',
+    lowerSrc: '/img/maps/pixle-portfolio-page-2.png',
     upperSrc: '',
     gameObjects: {
       hero: new Person({
@@ -260,8 +260,8 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage2', text:'hey, watch out' },
-            { who: 'hero', type: 'walk', direction: 'right'},
+            { type: 'textMessage2', text:'Skills: React, Node.js, Express.js, MongoDB, Django, Python, Graphic Design, Adobe Suite.' },
+            { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
       ],
@@ -269,8 +269,8 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest2', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage2', text:'hey, watch out' },
-            { who: 'hero', type: 'walk', direction: 'right'},
+            { type: 'textMessage2', text:'Experience: General Assembly, Wink Lighting, CentralPiedmont Community College.' },
+            { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
       ],
@@ -278,8 +278,8 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'right', time: 500},
-            { type: 'textMessage2', text:'hey, watch out' },
-            { who: 'hero', type: 'walk', direction: 'right'},
+            { type: 'textMessage2', text:'Education: General Assembly, Central Piedmon Community College.' },
+            { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
       ],

@@ -12,7 +12,7 @@ class TextMessage2 {
     
     this.element.innerHTML = (`
       <p class='TextMessage2_p'></p>
-      <button class='TextMessage2_button'>Next</button>
+      <button class='TextMessage2_button'>close</button>
     `)
 
     //init typerwriter effect
