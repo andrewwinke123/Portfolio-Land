@@ -28,8 +28,8 @@ class Sprite {
     this.gameObject = config.gameObject
 
     //Configure frame dimensions
-    this.frameWidth = config.frameWidth || 32
-    this.frameHeight = config.frameHeight || 32 
+    this.frameWidth = config.frameWidth || 64
+    this.frameHeight = config.frameHeight || 64
   }
 
   get frame() {
