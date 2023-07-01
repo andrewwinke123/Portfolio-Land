@@ -131,8 +131,82 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(15),
+        x: utils.widthGrid(12),
         y: utils.widthGrid(9),
+      }),
+      headLeft: new Person({
+        x: utils.widthGrid(23),
+        y: utils.widthGrid(8),
+        src: '/media/characters/people/head-left-character-sheet.png',
+        behaviorLoop: [
+          { who: 'headLeft', type: 'stand', direction: 'down', time: 2500},
+          { who: 'headLeft', type: 'stand', direction: 'right', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'left', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'left', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'right', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'left', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'left', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'right', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+          { who: 'headLeft', type: 'stand', direction: 'up', time: 250},
+        ]
+      }),
+      headRight: new Person({
+        x: utils.widthGrid(27),
+        y: utils.widthGrid(8),
+        src: '/media/characters/people/head-right-character-sheet.png',
+        behaviorLoop: [
+          { who: 'headRight', type: 'stand', direction: 'down', time: 2500},
+          { who: 'headRight', type: 'stand', direction: 'right', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'left', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'left', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'right', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'left', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'left', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'right', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+          { who: 'headRight', type: 'stand', direction: 'up', time: 250},
+      ]
       }),
       astronaut: new Person({
         x: utils.widthGrid(20),
@@ -140,7 +214,7 @@ window.OverworldMaps = {
         src: '/media/characters/people/astronaut-sheet.png',
         behaviorLoop: [
           { who: 'astronaut', type: 'stand', direction: 'down', time: 2000},
-            { who: 'astronaut', type: 'stand', direction: 'down', time: 2000},
+            { who: 'astronaut', type: 'stand', direction: 'down', time: 1500},
             { who: 'astronaut', type: 'stand', direction: 'right', time: 250},
             { who: 'astronaut', type: 'stand', direction: 'up', time: 250},
             { who: 'astronaut', type: 'stand', direction: 'left', time: 250},
@@ -201,7 +275,7 @@ window.OverworldMaps = {
             { who: 'resetti', type: 'stand', direction: 'left', time: 250},
             { who: 'resetti', type: 'stand', direction: 'right', time: 250},
             { who: 'resetti', type: 'stand', direction: 'down', time: 3000},
-            { who: 'resetti', type: 'stand', direction: 'down', time: 3000},
+            { who: 'resetti', type: 'stand', direction: 'down', time: 2500},
         ]
       }),
       raccoon: new Person({
@@ -209,7 +283,7 @@ window.OverworldMaps = {
         y: utils.widthGrid(16),
         src: '/media/characters/people/raccoon-window-sheet.png',
         behaviorLoop: [
-            { who: 'raccoon', type: 'stand', direction: 'down', time: 2500},
+            { who: 'raccoon', type: 'stand', direction: 'down', time: 2000},
             { who: 'raccoon', type: 'stand', direction: 'down', time: 2500},
             { who: 'raccoon', type: 'stand', direction: 'right', time: 250},
             { who: 'raccoon', type: 'stand', direction: 'up', time: 250},
@@ -242,7 +316,7 @@ window.OverworldMaps = {
         y: utils.widthGrid(26),
         src: '/media/characters/people/bards-quest-sheet.png',
         behaviorLoop: [
-          { who: 'bard', type: 'stand', direction: 'down', time: 2500},
+          { who: 'bard', type: 'stand', direction: 'down', time: 2000},
           { who: 'bard', type: 'stand', direction: 'right', time: 250},
           { who: 'bard', type: 'stand', direction: 'left', time: 1700},
           { who: 'bard', type: 'stand', direction: 'up', time: 1500},
@@ -374,7 +448,7 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(34,39)]: [
+      [utils.asGridCoord(32,39)]: [
         {
           events: [
             { type: 'changeMap', map: 'AboutMeMap'}
@@ -423,10 +497,10 @@ window.OverworldMaps = {
         x: utils.widthGrid(9),
         y: utils.widthGrid(40),
       }),
-      wizard: new Person({
-        x: utils.widthGrid(7),
-        y: utils.widthGrid(22),
-        src: '/media/characters/people/wizard-large.png'
+      andrewTruck: new Person({
+        x: utils.widthGrid(15),
+        y: utils.widthGrid(34),
+        src: '/media/characters/people/andrew-truck-sheet.png',
       }),
       chest: new Person({
         x: utils.widthGrid(23),
@@ -508,8 +582,10 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest', type: 'stand', direction: 'left', time: 500},
+            { who: 'andrewTruck', type: 'stand', direction: 'up', time: 500},
             { type: 'textMessage2', text:'Skills:  React, Node.js, Express.js, MongoDB, Django, Python, Graphic Design, Adobe Suite.' },
-            { who: 'hero', type: 'stand', direction: 'right'},
+            { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
+            { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
           ]
         }
       ],
@@ -526,7 +602,7 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage2', text:'Education:  General Assembly, Central Piedmon Community College.' },
+            { type: 'textMessage2', text:'Education:  I went to General Assembly for full-stack sofware engineering and Central Piedmon Community College for graphic design and implimentation.' },
             { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
@@ -650,7 +726,7 @@ window.OverworldMaps = {
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.widthGrid(22),
+          x: utils.widthGrid(21),
           y: utils.widthGrid(39),
         }),
         wizard: new Person({

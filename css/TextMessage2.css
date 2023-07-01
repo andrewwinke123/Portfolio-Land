@@ -3,7 +3,7 @@
   left: 40%;
   right: 5%;
   bottom: 35%;
-  height: 80px;
+  height: 110px;
   font-size: 12px;
   padding: 4px;
   background: var(--menu-background);
@@ -14,12 +14,12 @@
 
 .TextMessage2_p .first-word {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .TextMessage2_p {
   margin: 0;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .TextMessage2 span {
