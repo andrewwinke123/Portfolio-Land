@@ -31,23 +31,23 @@ class RevealingText {
 
 
     init() {
-      let characters = [];
-      let isFirstWord = true; // Flag for the first word
+      let characters = []
+      let isFirstWord = true // Flag for the first word
       this.text.split('').forEach(character => {
-        let span = document.createElement('span');
+        let span = document.createElement('span')
         if (isFirstWord) {
-          span.classList.add('first-word');
+          span.classList.add('first-word')
         }
         if (character === ' ') {
-          isFirstWord = false; // Once we hit a space, the first word is done
+          isFirstWord = false // Once we hit a space, the first word is done
         }
-        span.textContent = character;
-        this.element.appendChild(span);
+        span.textContent = character
+        this.element.appendChild(span)
         characters.push({
           span,
           delayAfter: character === ' ' ? 0 : this.speed,
-        });
-      });
+        })
+      })
     
       this.revealOneCharacter(characters);
     }

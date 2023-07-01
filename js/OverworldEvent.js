@@ -78,12 +78,12 @@ class OverworldEvent {
     textMessage.init(document.querySelector('.game-container'))
   }
 
-  textMessage2(resolve) {
-    const textMessage2 = new TextMessage2({
+  aboutMe(resolve) {
+    const aboutMe = new AboutMe({
       text: this.event.text,
       onComplete: resolve,
     })
-    textMessage2.init(document.querySelector('.game-container'))
+    aboutMe.init(document.querySelector('.game-container'))
   }
   
   textMessage3(resolve) {

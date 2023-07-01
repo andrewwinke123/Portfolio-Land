@@ -583,7 +583,7 @@ window.OverworldMaps = {
           events: [
             { who: 'chest', type: 'stand', direction: 'left', time: 500},
             { who: 'andrewTruck', type: 'stand', direction: 'up', time: 500},
-            { type: 'textMessage2', text:'Skills:  React, Node.js, Express.js, MongoDB, Django, Python, Graphic Design, Adobe Suite.' },
+            { type: 'aboutMe', text:'  '},
             { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
             { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
           ]
@@ -593,7 +593,9 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest2', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage2', text:'Experience:  General Assembly, Wink Lighting, CentralPiedmont Community College.' },
+            { type: 'aboutMe', text:'Experience:       General Assembly' },
+            { type: 'aboutMe', text:'Experience:       Wink Lighting.' },
+            { type: 'aboutMe', text:'Experience:      CentralPiedmont Community College.' },
             { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
@@ -602,7 +604,8 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'left', time: 500},
-            { type: 'textMessage2', text:'Education:  I went to General Assembly for full-stack sofware engineering and Central Piedmon Community College for graphic design and implimentation.' },
+            { type: 'aboutMe', text:'Education:  I went to General Assembly for full-stack sofware engineering.' },
+            { type: 'aboutMe', text:'     I also went to Central Piedmon Community College for graphic design and implimentation.' },
             { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }
