@@ -593,10 +593,10 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest2', type: 'stand', direction: 'left', time: 500},
-            { type: 'aboutMe', text:'Experience:       General Assembly' },
-            { type: 'aboutMe', text:'Experience:       Wink Lighting.' },
-            { type: 'aboutMe', text:'Experience:      CentralPiedmont Community College.' },
-            { who: 'hero', type: 'stand', direction: 'right'},
+            { who: 'andrewTruck', type: 'stand', direction: 'up', time: 500},
+            { type: 'experience', text:' ' },
+            { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
+            { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
           ]
         }
       ],

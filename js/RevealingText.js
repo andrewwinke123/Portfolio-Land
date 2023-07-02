@@ -10,8 +10,13 @@ class RevealingText {
 
   revealOneCharacter(list) {
     const next = list.splice(0,1)[0]
+    // Add a check for undefined here
+    if (!next) {
+      this.isDone = true
+      return
+    }
     next.span.classList.add('revealed')
-
+  
     if (list.length > 0) {
       this.timeout = setTimeout(() => {
         this.revealOneCharacter(list)
@@ -20,6 +25,7 @@ class RevealingText {
       this.isDone = true
     }
   }
+  
 
     warpToDone() {
       clearTimeout(this.timeout)
