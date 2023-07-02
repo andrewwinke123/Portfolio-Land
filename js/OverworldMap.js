@@ -47,7 +47,7 @@ class OverworldMap {
   }
 
   async startCutscene(events, restrictPlayerMovement = true) {
-    this.isCutscenePlaying = restrictPlayerMovement;
+    this.isCutscenePlaying = restrictPlayerMovement
     for (let i = 0; i < events.length; i++) {
       const eventHandler = new OverworldEvent({
         event: events[i],
@@ -73,10 +73,10 @@ class OverworldMap {
       if (!this.isCutscenePlaying && match && match.talking.length) {
         this.startCutscene(match.talking[0].events)
       }
-    };
+    }
   
-    const enterKeyListener = new KeyPressListener("Enter", actionListener);
-    const spaceKeyListener = new KeyPressListener("Space", actionListener);
+    const enterKeyListener = new KeyPressListener("Enter", actionListener)
+    const spaceKeyListener = new KeyPressListener("Space", actionListener)
   
     setTimeout(() => {
       enterKeyListener.unbind()
@@ -97,8 +97,8 @@ class OverworldMap {
         }
       }
   
-      const enterKeyListener = new KeyPressListener("Enter", actionListener);
-      const spaceKeyListener = new KeyPressListener("Space", actionListener);
+      const enterKeyListener = new KeyPressListener("Enter", actionListener)
+      const spaceKeyListener = new KeyPressListener("Space", actionListener)
   
       setTimeout(() => {
         enterKeyListener.unbind()
@@ -444,7 +444,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(16,15)]: [
         {
           events: [
-            { type: 'textMessageEducation', text:`Hi, I'm Andrew Winkenwerder.` },
+            { type: 'Education', text:`Hi, I'm Andrew Winkenwerder.` },
           ]
         }
       ],
@@ -604,8 +604,7 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'left', time: 500},
-            { type: 'aboutMe', text:'Education:  I went to General Assembly for full-stack sofware engineering.' },
-            { type: 'aboutMe', text:'     I also went to Central Piedmon Community College for graphic design and implimentation.' },
+            { type: 'education', text:' ' },
             { who: 'hero', type: 'stand', direction: 'right'},
           ]
         }

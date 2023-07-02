@@ -42,7 +42,7 @@ class Person extends GameObject{
         behavior.retry && setTimeout(() => {
           this.startBehavior(state, behavior)
         }, 10)
-        return; 
+        return 
       }
       //ready to walk
       state.map.moveWall(this.x, this.y, this.direction)

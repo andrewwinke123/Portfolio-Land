@@ -93,13 +93,14 @@ class OverworldEvent {
     })
     experience.init(document.querySelector('.game-container'))
   }
-  textMessageEducation(resolve) {
-    const textMessageEducation = new TextMessageEducation({
+  education(resolve) {
+    const educationInstance = new Education({
       text: this.event.text,
       onComplete: resolve,
     })
-    textMessageEducation.init(document.querySelector('.game-container'))
+    educationInstance.init(document.querySelector('.game-container'))
   }
+  
   
   
   

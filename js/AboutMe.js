@@ -43,8 +43,8 @@ class AboutMe {
     <button class='AboutMe_button'>close</button>
   `)
 
-  const badges = this.element.querySelectorAll('.tech-badge');
-    this.badges = Array.from(badges);
+  const badges = this.element.querySelectorAll('.tech-badge')
+    this.badges = Array.from(badges)
 
     // Create category buttons
     const categories = ['Languages', 'Frameworks', 'Databases', 'Tools', 'All']
@@ -53,7 +53,7 @@ const categoryButtons = categories.map(category => {
   button.classList.add('category-button')
   button.innerText = category
   button.addEventListener('click', () => this.filterBadges(category.toLowerCase()))
-  return button;
+  return button
 })
 
 // Append the category buttons to the 'AboutMe_categoryButtons' element

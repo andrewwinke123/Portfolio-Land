@@ -18,13 +18,13 @@ class Experience {
     <p>
     <i class="fa-solid fa-lightbulb">Wink Lighting</i>
     <i class="fa-regular fa-floppy-disk">General Assembly</i>
-    <i class="fa-solid fa-paint-roller">CPCC</i>
+    <i class="fa-solid fa-paint-roller">Central Piedmont</i>
 </p>
 
     <button class='Experience_button'>close</button>
   `)
 
-  const icons = this.element.querySelectorAll('i');
+  const icons = this.element.querySelectorAll('i')
   icons.forEach(icon => {
     icon.addEventListener('click', (event) => {
       const infoCard = document.createElement('div')

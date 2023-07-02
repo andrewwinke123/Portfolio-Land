@@ -55,7 +55,7 @@ class RevealingText {
         })
       })
     
-      this.revealOneCharacter(characters);
+      this.revealOneCharacter(characters)
     }
     
 }

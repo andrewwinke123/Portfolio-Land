@@ -1,0 +1,108 @@
+.Education i {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0 10px;
+}
+
+.Education i.fa-solid {
+  border-left: 1px solid #000;
+  padding-left: 20px; 
+}
+
+.edu-container {
+  display: flex;
+  justify-content: center; /* Change from space-between to center */
+  width: fit-content; /* Add this line to wrap content */
+  margin: auto; /* Add this line to center the container */
+}
+
+.edu-item {
+  width: auto; /* Change from 50% to auto */
+  text-align: center;
+  margin: 0 10px;
+}
+
+
+.description {
+  font-size: 10px;
+}
+
+.Education_header {
+  font-size: 14px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+.Education_p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.Education span {
+  opacity: 0;
+}
+
+.Education span.revealed {
+  opacity: 1;
+}
+
+.Education_button {
+  margin: 0;
+  font-size: 8px;
+  padding: 0;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+}
+
+.bubble {
+  position: relative;
+  background: #cfbdb1;
+  padding: 10px;
+  color: #222;
+  border-radius: 9px;
+  margin-left: 0px;
+  left: 25%;
+  bottom: 60%;
+  width: 150px;
+}
+
+.bubble:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -15px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 15px solid #cfbdb1;
+}
+
+.tech-badge {
+  height: 8px;
+}
+
+.category-button {
+  margin-right: 5px;
+}
+
+.tech-badge[data-category] {
+  display: none;
+}
+
+.category-button {
+  font-size: 8px;
+  border-radius: 5px;
+  background-color: rgb(191, 200, 226);
+}
