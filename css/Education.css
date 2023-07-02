@@ -64,7 +64,7 @@
   bottom: 0;
 }
 
-.bubble {
+.eduBubble {
   position: relative;
   background: #cfbdb1;
   padding: 10px;
@@ -76,7 +76,7 @@
   width: 150px;
 }
 
-.bubble:after {
+.eduBubble:after {
   content: '';
   display: block;
   position: absolute;

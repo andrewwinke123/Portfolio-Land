@@ -9,7 +9,7 @@ class Experience {
   createElement() {
     //create element
     this.element = document.createElement('div')
-    this.element.classList.add('Experience', 'bubble')
+    this.element.classList.add('Experience', 'exBubble')
     
     this.element.innerHTML = (`
     <h3 class='Experience_header'>Experience:</h3>

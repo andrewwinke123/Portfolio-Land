@@ -8,9 +8,10 @@ class Education {
   createElement() {
     //create element
     this.element = document.createElement('div')
-    this.element.classList.add('Education', 'bubble')
+    this.element.classList.add('Education', 'eduBubble')
     
     this.element.innerHTML = (`
+    <h3 class='Experience_header'>Education:</h3>
     <p class='Education_p'></p>
     <button class='Education_button' id='educationButton'>close</button>
     <div class="edu-container">
@@ -75,12 +76,6 @@ const gaIcon = this.element.querySelector('.fa-floppy-disk')
     this.createElement()
     container.appendChild(this.element)
     this.revealingText.init()
-    audio.play()
-    audio.volume = 0.15
 
-    setTimeout(() => {
-      audio.pause()
-      audio.currentTime = 0
-  }, 1500)
   }
 }

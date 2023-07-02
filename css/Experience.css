@@ -44,7 +44,7 @@
   bottom: 0;
 }
 
-.bubble {
+.exBubble {
   position: relative;
   background: #cfbdb1;
   padding: 10px;
@@ -55,7 +55,7 @@
   bottom: 75%;
 }
 
-.bubble:after {
+.exBubble:after {
   content: '';
   display: block;
   position: absolute;
