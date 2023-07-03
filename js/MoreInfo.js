@@ -8,7 +8,7 @@ class MoreInfo {
   createElement() {
     //create element
     this.element = document.createElement('div')
-    this.element.classList.add('moreInfo', 'infoBubble')
+    this.element.classList.add('moreInfo', 'infoBubble', 'clickable-coordinate')
     
     this.element.innerHTML = (`
     <h3 class='MoreInfo_header'>MoreInfo:</h3>

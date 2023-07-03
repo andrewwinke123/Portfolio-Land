@@ -151,11 +151,13 @@ window.OverworldMaps = {
         isPlayerControlled: true,
         x: utils.widthGrid(12),
         y: utils.widthGrid(9),
+        moreInfoText: 'HERO',
       }),
       headLeft: new Person({
         x: utils.widthGrid(23),
         y: utils.widthGrid(8),
         src: '/media/characters/people/head-left-character-sheet.png',
+        moreInfoText: 'Head left',
         behaviorLoop: [
           { who: 'headLeft', type: 'stand', direction: 'down', time: 2500},
           { who: 'headLeft', type: 'stand', direction: 'right', time: 250},
@@ -193,6 +195,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(27),
         y: utils.widthGrid(8),
         src: '/media/characters/people/head-right-character-sheet.png',
+        moreInfoText: 'Head right',
         behaviorLoop: [
           { who: 'headRight', type: 'stand', direction: 'down', time: 2500},
           { who: 'headRight', type: 'stand', direction: 'right', time: 250},
@@ -230,6 +233,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(20),
         y: utils.widthGrid(12),
         src: '/media/characters/people/astronaut-sheet.png',
+        moreInfoText: 'LAUNCH TRACKER',
         behaviorLoop: [
           { who: 'astronaut', type: 'stand', direction: 'down', time: 2000},
             { who: 'astronaut', type: 'stand', direction: 'down', time: 1500},
@@ -267,6 +271,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(20),
         y: utils.widthGrid(21),
         src: '/media/characters/people/resetti-sheet.png',
+        moreInfoText: 'SUGGESTIONBOARD',
         behaviorLoop: [
             { who: 'resetti', type: 'stand', direction: 'right', time: 250},
             { who: 'resetti', type: 'stand', direction: 'up', time: 250},
@@ -300,6 +305,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(20),
         y: utils.widthGrid(16),
         src: '/media/characters/people/raccoon-window-sheet.png',
+        moreInfoText: 'RACROOM',
         behaviorLoop: [
             { who: 'raccoon', type: 'stand', direction: 'down', time: 2000},
             { who: 'raccoon', type: 'stand', direction: 'down', time: 2500},
@@ -333,6 +339,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(20),
         y: utils.widthGrid(26),
         src: '/media/characters/people/bards-quest-sheet.png',
+        moreInfoText: `BARD'S QUEST`,
         behaviorLoop: [
           { who: 'bard', type: 'stand', direction: 'down', time: 2000},
           { who: 'bard', type: 'stand', direction: 'right', time: 250},
@@ -346,6 +353,7 @@ window.OverworldMaps = {
         x: utils.widthGrid(21),
         y: utils.widthGrid(39),
         src: '/media/characters/people/wizard-large.png',
+        moreInfoText: 'WIZARD',
         talking: [
           {
             events: [

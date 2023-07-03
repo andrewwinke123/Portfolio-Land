@@ -97,3 +97,8 @@
   font-size: 10px;
   width: 180px;
 }
+
+
+.clickable-coordinate:hover {
+  cursor: pointer;
+}

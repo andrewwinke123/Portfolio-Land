@@ -1,6 +1,8 @@
 class Person extends GameObject{
   constructor(config) {
     super(config)
+    // other initialization code
+    this.moreInfoText = config.moreInfoText || "Default info text for a person."
     this.movingProgressRemaining = 0
     this.isStanding = false
 
@@ -74,12 +76,38 @@ class Person extends GameObject{
   }
 }
 
-  updateSprite() {
-    if (this.movingProgressRemaining > 0) {
-      this.sprite.setAnimation('walk-'+this.direction)
-      return
+
+updateSprite(state) {
+
+  if (this.movingProgressRemaining > 0) {
+    this.sprite.setAnimation('walk-'+this.direction)
+    return
+  }
+  this.sprite.setAnimation('idle-'+this.direction)
+
+    if (this.isHovered) {
+      document.body.style.cursor = "pointer";
+    } else {
+      document.body.style.cursor = "default";
     }
-    this.sprite.setAnimation('idle-'+this.direction)
   }
 
+  handleClick() {
+    console.log("Person clicked");
+    // Add your logic here for handling the click event
+  }
+
+  handleMouseOver() {
+    this.isHovered = true;
+  }
+
+  handleMouseOut() {
+    this.isHovered = false;
+  }
+
+  clickableCoordinate(x, y) {
+    const offsetX = x - this.x;
+    const offsetY = y - this.y;
+    return offsetX >= 0 && offsetX < this.width && offsetY >= 0 && offsetY < this.height;
+  }
 }

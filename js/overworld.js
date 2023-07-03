@@ -94,12 +94,12 @@ startMap(mapConfig) {
       console.log('Click coordinates: ', x, y)
       const gameObject = this.map.getGameObjectAtPoint(x, y)
       
-      if (gameObject) {
+      if (gameObject && gameObject instanceof Person) {
         new MoreInfo({
-          text: 'You clicked on a Person object!',
+          text: gameObject.moreInfoText,
           onComplete: () => console.log('MoreInfo done.')
         }).init(document.body)
       }
-    })
+    })    
   }
 }
