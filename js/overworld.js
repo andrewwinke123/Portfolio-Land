@@ -77,7 +77,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.AboutMeMap)
+    this.startMap(window.OverworldMaps.MainMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
@@ -86,5 +86,20 @@ startMap(mapConfig) {
     this.directionInput.init()
     
     this.startGameLoop()
+
+    this.canvas.addEventListener('click', (event) => {
+      const rect = this.canvas.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
+      console.log('Click coordinates: ', x, y)
+      const gameObject = this.map.getGameObjectAtPoint(x, y)
+      
+      if (gameObject) {
+        new MoreInfo({
+          text: 'You clicked on a Person object!',
+          onComplete: () => console.log('MoreInfo done.')
+        }).init(document.body)
+      }
+    })
   }
 }

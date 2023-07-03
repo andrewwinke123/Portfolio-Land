@@ -122,6 +122,24 @@ class OverworldMap {
     const {x,y} = utils.nextPosition(wasX, wasY, direction)
     this.addWall(x,y)
   }
+
+  getGameObjectAtPoint(x, y) {
+    const scaledX = x / 16
+    const scaledY = y / 16
+  
+    return Object.values(this.gameObjects).find(object => {
+      const objectX = object.x / 16
+      const objectY = object.y / 16
+      const found = objectX <= scaledX &&
+                    objectY <= scaledY &&
+                    objectX + object.sprite.frameWidth / 16 >= scaledX &&
+                    objectY + object.sprite.frameHeight / 16 >= scaledY
+      if (found) {
+        console.log('Found object at point: ', object)
+      }
+      return found
+    });
+  }
 }
 
 window.OverworldMaps = {
@@ -604,8 +622,11 @@ window.OverworldMaps = {
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'left', time: 500},
+            { who: 'andrewTruck', type: 'stand', direction: 'up', time: 500},
             { type: 'education', text:' ' },
             { who: 'hero', type: 'stand', direction: 'right'},
+            { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
+            { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
           ]
         }
       ],

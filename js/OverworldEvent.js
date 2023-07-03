@@ -70,6 +70,14 @@ class OverworldEvent {
     })
   }
     
+  moreInfo(resolve) {
+    const moreInfo = new MoreInfo({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    moreInfo.init(document.querySelector('.game-container'))
+  }
+
   textMessage(resolve) {
     const textMessage = new TextMessage({
       text: this.event.text,

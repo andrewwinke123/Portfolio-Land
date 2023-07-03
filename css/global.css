@@ -31,3 +31,8 @@ body {
 .game-container canvas {
   image-rendering: pixelated;
 }
+
+.clickable-link {
+  position: relative;
+  z-index: 10;
+}
