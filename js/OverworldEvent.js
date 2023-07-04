@@ -101,6 +101,13 @@ class OverworldEvent {
     })
     experience.init(document.querySelector('.game-container'))
   }
+  education(resolve) {
+    const educationInstance = new Education({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    educationInstance.init(document.querySelector('.game-container'))
+  }
 
   launchTracker(resolve) {
     const launchTracker = new LaunchTracker({
@@ -109,14 +116,14 @@ class OverworldEvent {
     })
     launchTracker.init(document.querySelector('.game-container'))
   }
-
-  education(resolve) {
-    const educationInstance = new Education({
+  racroom(resolve) {
+    const racroom = new Racroom({
       text: this.event.text,
       onComplete: resolve,
     })
-    educationInstance.init(document.querySelector('.game-container'))
+    racroom.init(document.querySelector('.game-container'))
   }
+
   
   
   

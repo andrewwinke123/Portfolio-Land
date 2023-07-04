@@ -1,4 +1,4 @@
-class LaunchTracker {
+class Racroom {
   constructor({ text, onComplete }) {
     this.text = text
     this.onComplete = onComplete
@@ -8,20 +8,20 @@ class LaunchTracker {
   createElement() {
     //create element
     this.element = document.createElement('div')
-    this.element.classList.add('LaunchTracker', 'launchBubble')
+    this.element.classList.add('Racroom', 'racroomBubble')
     
     this.element.innerHTML = (`
-    <h3 class='LaunchTracker_header'>LaunchTracker:</h3>
-    <p class='LaunchTracker_categoryButtons'></p>
-    <p class='LaunchTracker_p'></p>
-    <a href="https://launch-tracker.fly.dev/" target="_blank">Launch Tracker</a>
+    <h3 class='Racroom_header'>Racroom:</h3>
+    <p class='Racroom_categoryButtons'></p>
+    <p class='Racroom_p'></p>
+    <a href="https://racroom.netlify.app/" target="_blank">Racroom</a>
 
-    <button class='LaunchTracker_button'>close</button>
+    <button class='Racroom_button'>close</button>
     `)
 
     //init typerwriter effect
     this.revealingText = new RevealingText({
-      element: this.element.querySelector('.LaunchTracker_p'),
+      element: this.element.querySelector('.Racroom_p'),
       text: this.text
     })
 

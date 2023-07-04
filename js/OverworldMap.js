@@ -688,6 +688,13 @@ window.OverworldMaps = {
           ]
         }
       ],
+      [utils.asGridCoord(24,18)]: [
+        {
+          events: [
+            { type: 'racroom', text:`Racroom Info.` },
+          ]
+        }
+      ],
       [utils.asGridCoord(32,39)]: [
         {
           events: [
