@@ -123,6 +123,13 @@ class OverworldEvent {
     })
     racroom.init(document.querySelector('.game-container'))
   }
+  suggestion(resolve) {
+    const suggestion = new Suggestion({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    suggestion.init(document.querySelector('.game-container'))
+  }
 
   
   
