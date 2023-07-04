@@ -698,7 +698,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(24,22)]: [
         {
           events: [
-            { type: 'suggestion', text:`Suggestions Board Info.` },
+            { type: 'suggestion', text:` ` },
           ]
         }
       ],
