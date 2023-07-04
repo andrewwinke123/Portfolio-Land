@@ -705,7 +705,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(24,27)]: [
         {
           events: [
-            { type: 'bard', text:`Bard's Quest! Info.` },
+            { type: 'bard', text:` ` },
           ]
         }
       ],
