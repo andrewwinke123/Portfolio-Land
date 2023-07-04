@@ -681,31 +681,55 @@ window.OverworldMaps = {
       [utils.asGridCoord(34,40)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(24,14)]: [
+      [utils.asGridCoord(26,14)]: [
         {
           events: [
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'stand', direction: 'up'},
             { type: 'launchTracker', text:` ` },
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'stand', direction: 'down'},
           ]
         }
       ],
-      [utils.asGridCoord(24,18)]: [
+      [utils.asGridCoord(26,18)]: [
         {
           events: [
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'stand', direction: 'up'},
             { type: 'racroom', text:` ` },
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'stand', direction: 'down'},
           ]
         }
       ],
-      [utils.asGridCoord(24,22)]: [
+      [utils.asGridCoord(26,22)]: [
         {
           events: [
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'stand', direction: 'up'},
             { type: 'suggestion', text:` ` },
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'stand', direction: 'down'},
           ]
         }
       ],
-      [utils.asGridCoord(24,27)]: [
+      [utils.asGridCoord(26,27)]: [
         {
           events: [
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'walk', direction: 'left'},
+            { who: 'hero', type: 'stand', direction: 'up'},
             { type: 'bard', text:` ` },
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'stand', direction: 'down'},
           ]
         }
       ],
