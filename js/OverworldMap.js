@@ -702,6 +702,13 @@ window.OverworldMaps = {
           ]
         }
       ],
+      [utils.asGridCoord(24,27)]: [
+        {
+          events: [
+            { type: 'bard', text:`Bard's Quest! Info.` },
+          ]
+        }
+      ],
       [utils.asGridCoord(32,39)]: [
         {
           events: [

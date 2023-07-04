@@ -130,6 +130,13 @@ class OverworldEvent {
     })
     suggestion.init(document.querySelector('.game-container'))
   }
+  bard(resolve) {
+    const bard = new Bard({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    bard.init(document.querySelector('.game-container'))
+  }
 
   
   
