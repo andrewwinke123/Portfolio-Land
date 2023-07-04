@@ -15,11 +15,13 @@ class Experience {
     <h3 class='Experience_header'>Experience:</h3>
     <p class='Experience_categoryButtons'></p>
     <p class='Experience_p'></p>
+    <div class="info-link">
     <p>
-    <i class="fa-solid fa-lightbulb">Wink Lighting</i>
-    <i class="fa-regular fa-floppy-disk">General Assembly</i>
-    <i class="fa-solid fa-paint-roller">Central Piedmont</i>
-</p>
+    <button class="experience-button"><i class="fa-solid fa-lightbulb">Wink Lighting</i></button>
+    <button class="experience-button"><i class="fa-regular fa-floppy-disk">General Assembly</i></button>
+    <button class="experience-button"><i name="cpcc" class="fa-solid fa-paint-roller">Central Piedmont</i></button>
+    </p>
+    </div>
 
     <button class='Experience_button'>close</button>
   `)

@@ -14,8 +14,12 @@
   font-size: 14px;
   margin-bottom: 0px;
   margin-top: 0px;
+  
 }
-
+.experience-button {
+  border-radius: 9px;
+  background-color: rgb(255, 221, 199);
+}
 
 .Experience_p {
   margin: 0;
@@ -72,18 +76,8 @@
   height: 8px;
 }
 
-.category-button {
-  margin-right: 5px;
-}
-
 .tech-badge[data-category] {
   display: none;
-}
-
-.category-button {
-  font-size: 8px;
-  border-radius: 5px;
-  background-color: rgb(191, 200, 226);
 }
 
 .info-card {
@@ -96,3 +90,8 @@
   font-size: 10px;
   width: 180px;
 }
+
+.info-link:hover {
+  cursor: pointer;
+}
+
