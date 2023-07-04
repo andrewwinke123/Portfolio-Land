@@ -11,9 +11,10 @@ class LaunchTracker {
     this.element.classList.add('LaunchTracker', 'launchBubble')
     
     this.element.innerHTML = (`
-    <h3 class='Experience_header'>Experience:</h3>
-    <p class='Experience_categoryButtons'></p>
-    <p class='Experience_p'></p>
+    <h3 class='LaunchTracker_header'>LaunchTracker:</h3>
+    <p class='LaunchTracker_categoryButtons'></p>
+    <p class='LaunchTracker_p'></p>
+    <button class='LaunchTracker_button'>close</button>
     `)
 
     //init typerwriter effect

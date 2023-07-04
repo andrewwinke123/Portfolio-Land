@@ -101,6 +101,15 @@ class OverworldEvent {
     })
     experience.init(document.querySelector('.game-container'))
   }
+
+  launchTracker(resolve) {
+    const launchTracker = new LaunchTracker({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    launchTracker.init(document.querySelector('.game-container'))
+  }
+
   education(resolve) {
     const educationInstance = new Education({
       text: this.event.text,

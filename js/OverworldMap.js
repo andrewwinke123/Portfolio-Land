@@ -681,10 +681,10 @@ window.OverworldMaps = {
       [utils.asGridCoord(34,40)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(16,15)]: [
+      [utils.asGridCoord(24,14)]: [
         {
           events: [
-            { type: 'Education', text:`Hi, I'm Andrew Winkenwerder.` },
+            { type: 'launchTracker', text:`Launch Tracker Info.` },
           ]
         }
       ],
