@@ -684,14 +684,14 @@ window.OverworldMaps = {
       [utils.asGridCoord(24,14)]: [
         {
           events: [
-            { type: 'launchTracker', text:`Launch Tracker Info.` },
+            { type: 'launchTracker', text:` ` },
           ]
         }
       ],
       [utils.asGridCoord(24,18)]: [
         {
           events: [
-            { type: 'racroom', text:`Racroom Info.` },
+            { type: 'racroom', text:` ` },
           ]
         }
       ],
