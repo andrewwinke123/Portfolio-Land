@@ -138,7 +138,7 @@ class OverworldMap {
         console.log('Found object at point: ', object)
       }
       return found
-    });
+    })
   }
 }
 
@@ -649,6 +649,8 @@ window.OverworldMaps = {
       [utils.asGridCoord(30,38)]: true,
       [utils.asGridCoord(31,38)]: true,
       [utils.asGridCoord(32,38)]: true,
+      [utils.asGridCoord(33,38)]: true,
+      [utils.asGridCoord(34,38)]: true,
       //walls of ground
       [utils.asGridCoord(11,39)]: true,
       [utils.asGridCoord(34,39)]: true,
@@ -703,9 +705,9 @@ window.OverworldMaps = {
       [utils.asGridCoord(9,9)]: [
         {
           events: [
-            { type: 'textMessage3', text:`Watch out!` },
-            { type: 'textMessage3', text:`You almost fell over the edge there.` },
-            { type: 'textMessage3', text:`Please back up.` },
+            { type: 'textMessage', text:`Watch out!` },
+            { type: 'textMessage', text:`You almost fell over the edge there.` },
+            { type: 'textMessage', text:`Please back up.` },
             { who: 'hero', type: 'walk', direction: 'right'},
             { who: 'hero', type: 'walk', direction: 'right'},
             { who: 'hero', type: 'stand', direction: 'down'},

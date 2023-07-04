@@ -75,11 +75,11 @@ class Sprite {
     this.updateAnimationProgress()
 
   //   if(this.gameObject instanceof Person) { // add this check if you only want to draw the bounding box for objects of the class Person
-  //   ctx.beginPath();
-  //   ctx.rect(x, y, this.frameWidth, this.frameHeight);
-  //   ctx.lineWidth = 1;
-  //   ctx.strokeStyle = 'red';
-  //   ctx.stroke();
+  //   ctx.beginPath()
+  //   ctx.rect(x, y, this.frameWidth, this.frameHeight)
+  //   ctx.lineWidth = 1
+  //   ctx.strokeStyle = 'red'
+  //   ctx.stroke()
   // }
   }
 

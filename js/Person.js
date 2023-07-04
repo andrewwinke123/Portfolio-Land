@@ -87,23 +87,23 @@ updateSprite(state) {
   this.sprite.setAnimation('idle-'+this.direction)
 
     if (this.isHovered) {
-      document.body.style.cursor = "pointer";
+      document.body.style.cursor = "pointer"
     } else {
-      document.body.style.cursor = "default";
+      document.body.style.cursor = "default"
     }
   }
 
   handleClick() {
-    console.log("Person clicked");
+    console.log("Person clicked")
     // Add your logic here for handling the click event
   }
 
   handleMouseOver() {
-    this.isHovered = true;
+    this.isHovered = true
   }
 
   handleMouseOut() {
-    this.isHovered = false;
+    this.isHovered = false
   }
 
   clickableCoordinate(x, y) {
