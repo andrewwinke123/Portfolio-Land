@@ -54,7 +54,7 @@ class Sprite {
     this.animationFrameProgress = this.animationFrameLimit
     this.currentAnimationFrame += 1
   
-    if (this.frame === undefined) { // Corrected here
+    if (this.frame === undefined) { 
       this.currentAnimationFrame = 0
     }
   }
@@ -73,6 +73,14 @@ class Sprite {
       this.frameWidth, this.frameHeight // destination width, height
     )
     this.updateAnimationProgress()
+
+  //   if(this.gameObject instanceof Person) { // add this check if you only want to draw the bounding box for objects of the class Person
+  //   ctx.beginPath();
+  //   ctx.rect(x, y, this.frameWidth, this.frameHeight);
+  //   ctx.lineWidth = 1;
+  //   ctx.strokeStyle = 'red';
+  //   ctx.stroke();
+  // }
   }
 
 }

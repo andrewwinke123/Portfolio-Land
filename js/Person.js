@@ -47,7 +47,8 @@ class Person extends GameObject{
         return 
       }
       //ready to walk
-      state.map.moveWall(this.x, this.y, this.direction)
+      //commented out code below moves the wall around NPCs
+      // state.map.moveWall(this.x, this.y, this.direction)
       this.movingProgressRemaining = 16
       this.updateSprite(state)
     }
@@ -106,8 +107,8 @@ updateSprite(state) {
   }
 
   clickableCoordinate(x, y) {
-    const offsetX = x - this.x;
-    const offsetY = y - this.y;
-    return offsetX >= 0 && offsetX < this.width && offsetY >= 0 && offsetY < this.height;
+    const offsetX = x - this.x
+    const offsetY = y - this.y
+    return offsetX >= 0 && offsetX < this.width && offsetY >= 0 && offsetY < this.height
   }
 }

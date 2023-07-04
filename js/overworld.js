@@ -22,14 +22,14 @@ class Overworld {
 
       //Establish camera person
       let cameraPerson
-    if (this.map.stationaryCamera) {
-      cameraPerson = {
-        x: 0,
-        y: 0,
+      if (this.map.stationaryCamera) {
+        cameraPerson = {
+          x: 0,
+          y: 0,
+        }
+      } else {
+        cameraPerson = this.map.gameObjects.hero
       }
-    } else {
-      cameraPerson = this.map.gameObjects.hero
-    }
 
       //Lower layer
       this.map.drawLowerImage(this.ctx, cameraPerson)
@@ -88,18 +88,19 @@ startMap(mapConfig) {
     this.startGameLoop()
 
     this.canvas.addEventListener('click', (event) => {
-      const rect = this.canvas.getBoundingClientRect()
-      const x = event.clientX - rect.left
-      const y = event.clientY - rect.top
-      console.log('Click coordinates: ', x, y)
-      const gameObject = this.map.getGameObjectAtPoint(x, y)
-      
-      if (gameObject && gameObject instanceof Person) {
-        new MoreInfo({
-          text: gameObject.moreInfoText,
-          onComplete: () => console.log('MoreInfo done.')
-        }).init(document.body)
-      }
-    })    
+  const rect = this.canvas.getBoundingClientRect()
+  const x = event.clientX - rect.left
+  const y = event.clientY - rect.top
+  console.log('Click coordinates: ', x, y)
+  const gameObject = this.map.getGameObjectAtPoint(x, y)
+  
+  if (gameObject && gameObject instanceof Person) {
+    new MoreInfo({
+      text: gameObject.moreInfoText,
+      onComplete: () => console.log('MoreInfo done.')
+    }).init(document.body)
+  }
+})
+
   }
 }
