@@ -24,6 +24,7 @@ body {
   height: 235px;
   margin: 0 auto;
   outline: 1px solid white;
+  z-index: 1;
 
   transform: scale(3) translateY(35%);
 }
@@ -39,4 +40,9 @@ body {
 
 .clickable-coordinate:hover {
   cursor: pointer;
+}
+
+#contactFormContainer {
+  position: absolute;
+  z-index: 2;
 }

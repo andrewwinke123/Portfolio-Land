@@ -112,26 +112,36 @@
 
 </script>
 <script>
+  document.addEventListener('DOMContentLoaded', (event) => {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzuoU4ImAWjTxvsTXfiF-nQDqptDnqKe7HybWtgDYJ7loS86tj1c32fI-vLrayQFnKH/exec'
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementById("msg")
 
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-    </script>
-      <input type="email" placeholder="Enter your email" />
-      <button type="submit">Submit</button>
-    </form>
+    if (form) {
+      form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+              msg.innerHTML = "Message sent successfully"
+              setTimeout(function(){
+                  msg.innerHTML = ""
+              },5000)
+              form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    } else {
+      console.error('Form is not found!')
+    }
+  })
+</script>
+
+<form name="submit-to-google-sheet">
+  <input type="text" name="Name" placeholder="Your Name" required>
+  <input type="Email" name="Email" placeholder="Your Email" required>
+  <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+  <button type="submit" class="btn btn2">Submit</button>
+</form>
   </div>
 
   <script src="/js/init.js"></script>
