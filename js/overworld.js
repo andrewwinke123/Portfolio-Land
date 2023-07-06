@@ -31,6 +31,13 @@ class Overworld {
         cameraPerson = this.map.gameObjects.hero
       }
 
+      if (this.map.isContactMeMap()) {
+        document.getElementById('contactFormContainer').style.display = 'block';
+    } else {
+        document.getElementById('contactFormContainer').style.display = 'none';
+    }
+    
+      
       //Lower layer
       this.map.drawLowerImage(this.ctx, cameraPerson)
 
@@ -77,7 +84,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.MainMap)
+    this.startMap(window.OverworldMaps.ContactMeMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

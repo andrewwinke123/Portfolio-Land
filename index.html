@@ -47,6 +47,94 @@
   <script src="/js/KeyPressListener.js"></script>
   <script src="/js/RevealingText.js"></script>
   <script src="/js/SceneTransition.js"></script>
+
+  <div id="contactFormContainer" style="display: none;">
+    <form id="contactForm" style="display: none;">
+      </html><div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i> Andrewwinke@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i> 704-641-6956</p>
+                <div class="social-icons">
+                    <!-- <a href="https://facebook.com/"><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter-square"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a> -->
+                    <a href="https://www.linkedin.com/in/andrew-winkenwerder/" target="_blank"><i class="fab fa-linkedin" ></i> Linked-in</a>
+                </div>
+                <a href="images/andrew-wink-resume.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="Email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                  </form>
+                  <span id="msg"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links")
+    var tabcontents = document.getElementsByClassName("tab-contents")
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link")
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab")
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+
+</script>
+
+<script>
+
+    var sidemeu = document.getElementById("sidemenu")
+
+    function openmenu(){
+        sidemeu.style.right = "0"
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px"
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzuoU4ImAWjTxvsTXfiF-nQDqptDnqKe7HybWtgDYJ7loS86tj1c32fI-vLrayQFnKH/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    </script>
+      <input type="email" placeholder="Enter your email" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
   <script src="/js/init.js"></script>
+
 </body>
 </html>
