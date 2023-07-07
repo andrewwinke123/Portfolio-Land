@@ -32,10 +32,11 @@ class Overworld {
       }
 
       if (this.map.isContactMeMap()) {
-        document.getElementById('contactFormContainer').style.display = 'block';
-    } else {
-        document.getElementById('contactFormContainer').style.display = 'none';
-    }
+        document.getElementById('contactFormContainer').style.display = 'block'
+      } else {
+        document.getElementById('contactFormContainer').style.display = 'none'
+      }
+      
     
       
       //Lower layer
@@ -84,7 +85,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.ContactMeMap)
+    this.startMap(window.OverworldMaps.AboutMeMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

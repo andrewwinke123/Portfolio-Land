@@ -14,13 +14,13 @@
 
 .edu-container {
   display: flex;
-  justify-content: center; /* Change from space-between to center */
-  width: fit-content; /* Add this line to wrap content */
-  margin: auto; /* Add this line to center the container */
+  justify-content: center; 
+  width: fit-content;
+  margin: auto;
 }
 
 .edu-item {
-  width: auto; /* Change from 50% to auto */
+  width: auto; 
   text-align: center;
   margin: 0 10px;
 }

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/Racroom.css">
   <link rel="stylesheet" href="./css/Suggestion.css">
   <link rel="stylesheet" href="./css/Bard.css">
+  <link rel="stylesheet" href="./css/ContactMe.css">
   <link rel="stylesheet" href="./css/MoreInfo.css">
   <link rel="stylesheet" href="./css/SceneTransition.css">
   <script src="https://kit.fontawesome.com/bb4a09c347.js" crossorigin="anonymous"></script>
@@ -21,39 +22,12 @@
 <body>
   <div class="game-container">
     <canvas class="game-canvas" width="300" height="235"></canvas>
-  </div>
 
-
-  
-  <!-- Scripts -->
-  <script src="/js/utils.js"></script>
-  <script src="/js/DirectionInput.js"></script>
-  <script src="/js/GameObject.js"></script>
-  <script src="/js/Overworld.js"></script>
-  <script src="/js/Person.js"></script>
-  <script src="/js/Chest.js"></script>
-  <script src="/js/Sprite.js"></script>
-  <script src="/js/OverworldMap.js"></script>
-  <script src="/js/textMessages/TextMessage.js"></script>
-  <script src="/js/textMessages/AboutMe.js"></script>
-  <script src="/js/textMessages/Experience.js"></script>
-  <script src="/js/textMessages/Education.js"></script>
-  <script src="/js/textMessages/LaunchTracker.js"></script>
-  <script src="/js/textMessages/Racroom.js"></script>
-  <script src="/js/textMessages/Suggestion.js"></script>
-  <script src="/js/textMessages/Bard.js"></script>
-  <script src="/js/textMessages/MoreInfo.js"></script>
-  <script src="/js/OverworldEvent.js"></script>
-  <script src="/js/KeyPressListener.js"></script>
-  <script src="/js/RevealingText.js"></script>
-  <script src="/js/SceneTransition.js"></script>
-
-  <div id="contactFormContainer" style="display: none;">
+  <div id="contactFormContainer">
     <div id="contact">
       <div class="container">
         <div class="row">
-          <div class="contact-left">
-            <h1 class="sub-title">Contact Me</h1>
+          <div class="contact-info">
             <p><i class="fas fa-paper-plane"></i> Andrewwinke@gmail.com</p>
             <p><i class="fas fa-phone-square-alt"></i> 704-641-6956</p>
             <div class="social-icons">
@@ -61,21 +35,24 @@
             </div>
             <a href="images/andrew-wink-resume.pdf" download class="btn btn2">Download Resume</a>
           </div>
-          <div class="contact-right">
+          <div class="contact-form">
             <form id="submit-to-google-sheet" name="submit-to-google-sheet">
               <input type="text" name="Name" placeholder="Your Name" required>
               <input type="Email" name="Email" placeholder="Your Email" required>
               <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
               <button type="submit" class="btn btn2">Submit</button>
             </form>
-            <span id="msg"></span>
           </div>
+        </div>
+        <div class="contact-right">
+          <span id="msg"></span>
         </div>
       </div>
     </div>
+  </div>
+  
 
-          
-          
+
 
 <script>
 
@@ -110,7 +87,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzuoU4ImAWjTxvsTXfiF-nQDqptDnqKe7HybWtgDYJ7loS86tj1c32fI-vLrayQFnKH/exec'
-    const form = document.getElementById('submit-to-google-sheet');
+    const form = document.getElementById('submit-to-google-sheet')
     const msg = document.getElementById("msg")
 
     if (form) {
@@ -131,6 +108,35 @@
     }
 })
 </script>
+</div>
+
+
+  
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/DirectionInput.js"></script>
+  <script src="/js/GameObject.js"></script>
+  <script src="/js/Overworld.js"></script>
+  <script src="/js/Person.js"></script>
+  <script src="/js/Chest.js"></script>
+  <script src="/js/Sprite.js"></script>
+  <script src="/js/OverworldMap.js"></script>
+  <script src="/js/textMessages/TextMessage.js"></script>
+  <script src="/js/textMessages/AboutMe.js"></script>
+  <script src="/js/textMessages/Experience.js"></script>
+  <script src="/js/textMessages/Education.js"></script>
+  <script src="/js/textMessages/LaunchTracker.js"></script>
+  <script src="/js/textMessages/Racroom.js"></script>
+  <script src="/js/textMessages/Suggestion.js"></script>
+  <script src="/js/textMessages/Bard.js"></script>
+  <script src="/js/textMessages/ContactMe.js"></script>
+  <script src="/js/textMessages/MoreInfo.js"></script>
+  <script src="/js/OverworldEvent.js"></script>
+  <script src="/js/KeyPressListener.js"></script>
+  <script src="/js/RevealingText.js"></script>
+  <script src="/js/SceneTransition.js"></script>
+
+  
 
 
   <script src="/js/init.js"></script>

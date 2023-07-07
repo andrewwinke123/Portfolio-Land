@@ -25,7 +25,6 @@ body {
   margin: 0 auto;
   outline: 1px solid white;
   z-index: 1;
-
   transform: scale(3) translateY(35%);
 }
 
@@ -44,5 +43,22 @@ body {
 
 #contactFormContainer {
   position: absolute;
+  top: 50%; 
+  right: 10%; 
+  transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+#contact .row {
+  display: flex;
+}
+
+.contact-form {
+  flex: 0.1; /* reduce the space taken by the form */
+  padding-right: 5px; /* reduce the padding */
+}
+
+.contact-info {
+  flex: 0.45; /* increase the space taken by the contact info */
+  padding-left: 5px; /* reduce the padding */
 }

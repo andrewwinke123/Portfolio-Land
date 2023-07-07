@@ -777,9 +777,9 @@ window.OverworldMaps = {
       [utils.asGridCoord(31,9)]: [
         {
           events: [
-            { type: 'textMessage3', text:`Watch out!` },
-            { type: 'textMessage3', text:`You almost fell over the edge there.` },
-            { type: 'textMessage3', text:`Please back up.` },
+            { type: 'textMessage', text:`Watch out!` },
+            { type: 'textMessage', text:`You almost fell over the edge there.` },
+            { type: 'textMessage', text:`Please back up.` },
             { who: 'hero', type: 'walk', direction: 'left'},
             { who: 'hero', type: 'walk', direction: 'left'},
             { who: 'hero', type: 'stand', direction: 'down'},
@@ -795,35 +795,37 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(9),
+        x: utils.widthGrid(12),
         y: utils.widthGrid(40),
       }),
       andrewTruck: new Person({
-        x: utils.widthGrid(15),
+        x: utils.widthGrid(18),
         y: utils.widthGrid(34),
         src: '/media/characters/people/andrew-truck-sheet.png',
       }),
       chest: new Person({
-        x: utils.widthGrid(23),
+        x: utils.widthGrid(26),
         y: utils.widthGrid(37.5),
         src: '/media/characters/chest.png'
       }),
       chest2: new Person({
-        x: utils.widthGrid(25),
+        x: utils.widthGrid(28),
         y: utils.widthGrid(37.5),
         src: '/media/characters/chest.png'
       }),
       chest3: new Person({
-        x: utils.widthGrid(27),
+        x: utils.widthGrid(30),
         y: utils.widthGrid(37.5),
         src: '/media/characters/chest.png'
+      }),
+      truck: new Person({
+        x: utils.widthGrid(36),
+        y: utils.widthGrid(39),
+        src: '/media/characters/people/truck.png'
       }),
     },
     walls: {
             //roof of ground
-            [utils.asGridCoord(9,39)]: true,
-            [utils.asGridCoord(10,39)]: true,
-            [utils.asGridCoord(11,39)]: true,
             [utils.asGridCoord(12,39)]: true,
             [utils.asGridCoord(13,39)]: true,
             [utils.asGridCoord(14,39)]: true,
@@ -833,22 +835,25 @@ window.OverworldMaps = {
             [utils.asGridCoord(18,39)]: true,
             [utils.asGridCoord(19,39)]: true,
             [utils.asGridCoord(20,39)]: true,
-            [utils.asGridCoord(21,38)]: true,
-            [utils.asGridCoord(22,38)]: true,
-            [utils.asGridCoord(23,38)]: true,
+            [utils.asGridCoord(21,39)]: true,
+            [utils.asGridCoord(22,39)]: true,
+            [utils.asGridCoord(23,39)]: true,
             [utils.asGridCoord(24,38)]: true,
             [utils.asGridCoord(25,38)]: true,
             [utils.asGridCoord(26,38)]: true,
             [utils.asGridCoord(27,38)]: true,
             [utils.asGridCoord(28,38)]: true,
-            [utils.asGridCoord(29,39)]: true,
-            [utils.asGridCoord(30,39)]: true,
-            [utils.asGridCoord(31,39)]: true,
+            [utils.asGridCoord(29,38)]: true,
+            [utils.asGridCoord(30,38)]: true,
+            [utils.asGridCoord(31,38)]: true,
             [utils.asGridCoord(32,39)]: true,
             [utils.asGridCoord(33,39)]: true,
+            [utils.asGridCoord(34,39)]: true,
+            [utils.asGridCoord(35,39)]: true,
+            [utils.asGridCoord(36,39)]: true,
             //walls of ground
-            [utils.asGridCoord(8,40)]: true,
-            [utils.asGridCoord(34,40)]: true,
+            [utils.asGridCoord(11,40)]: true,
+            [utils.asGridCoord(38,40)]: true,
             //floor of ground
             [utils.asGridCoord(8,41)]: true,
             [utils.asGridCoord(9,41)]: true,
@@ -876,9 +881,14 @@ window.OverworldMaps = {
             [utils.asGridCoord(31,41)]: true,
             [utils.asGridCoord(32,41)]: true,
             [utils.asGridCoord(33,41)]: true,
+            [utils.asGridCoord(34,41)]: true,
+            [utils.asGridCoord(35,41)]: true,
+            [utils.asGridCoord(36,41)]: true,
+            [utils.asGridCoord(37,41)]: true,
+            [utils.asGridCoord(38,41)]: true,
     },
     cutsceneSpaces: {
-      [utils.asGridCoord(22,39)]: [
+      [utils.asGridCoord(25,39)]: [
         {
           events: [
             { who: 'chest', type: 'stand', direction: 'left', time: 500},
@@ -889,7 +899,7 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(24,39)]: [
+      [utils.asGridCoord(27,39)]: [
         {
           events: [
             { who: 'chest2', type: 'stand', direction: 'left', time: 500},
@@ -900,7 +910,7 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(26,39)]: [
+      [utils.asGridCoord(29,39)]: [
         {
           events: [
             { who: 'chest3', type: 'stand', direction: 'left', time: 500},
@@ -912,15 +922,17 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(33,40)]: [
+      [utils.asGridCoord(37,40)]: [
         {
           requiresEnter: false,
           events: [
+            { who: 'truck', type: 'walk', direction: 'right'},
+            { who: 'truck', type: 'walk', direction: 'right'},
             { type: 'changeMap', map: 'ContactMeMap'}
           ]
         }
       ],
-      [utils.asGridCoord(9,40)]: [
+      [utils.asGridCoord(12,40)]: [
         {
           requiresEnter: false,
           events: [
@@ -932,18 +944,25 @@ window.OverworldMaps = {
     },
     ContactMeMap: {
       lowerSrc: '/media/maps/pixle-portfolio-page-3.png',
-      upperSrc: '',
+      upperSrc: '/media/maps/pixle-portfolio-page-3-upper.png',
       hasContactForm: true,
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.widthGrid(9),
+          x: utils.widthGrid(15),
           y: utils.widthGrid(40),
         }),
         wizard: new Person({
-          x: utils.widthGrid(9),
-          y: utils.widthGrid(7),
-          src: '/media/characters/people/wizard-large.png'
+          x: utils.widthGrid(16),
+          y: utils.widthGrid(36),
+          src: '/media/characters/people/little-goblin-large.png',
+          behaviorLoop: [
+            { who: 'wizard', type: 'stand', direction: 'right', time: 4000},
+            { who: 'wizard', type: 'stand', direction: 'down', time: 1000},
+            { who: 'wizard', type: 'stand', direction: 'right', time: 5000},
+            { who: 'wizard', type: 'stand', direction: 'down', time: 1000},
+            // { type: 'contactMe', text:' ' },
+          ]
         })
       },
       walls: {
@@ -975,7 +994,7 @@ window.OverworldMaps = {
         [utils.asGridCoord(33,39)]: true,
         //walls of ground
         [utils.asGridCoord(8,40)]: true,
-        [utils.asGridCoord(33,40)]: true,
+        [utils.asGridCoord(35,40)]: true,
         //floor of ground
         [utils.asGridCoord(8,41)]: true,
         [utils.asGridCoord(9,41)]: true,
@@ -1005,18 +1024,18 @@ window.OverworldMaps = {
         [utils.asGridCoord(33,41)]: true,
       },
       cutsceneSpaces: {
-        [utils.asGridCoord(31,40)]: [
+        [utils.asGridCoord(34,40)]: [
           {
             events: [
-              { type: 'textMessage3', text:`You think about all of the awesome things you saw in Andrew's portfolio.` },
-              { type: 'textMessage3', text:`You should probably contact him.` },
+              { type: 'textMessage', text:`You think about all of the awesome things you saw in Andrew's portfolio.` },
+              { type: 'textMessage', text:`You should probably contact him.` },
               { who: 'hero', type: 'walk', direction: 'left'},
               { who: 'hero', type: 'walk', direction: 'left'},
               { who: 'hero', type: 'stand', direction: 'down'},
             ]
           }
         ],
-        [utils.asGridCoord(9,40)]: [
+        [utils.asGridCoord(15,40)]: [
           {
             events: [
               { type: 'changeMap', map: 'AboutMeMap'}
@@ -1032,7 +1051,7 @@ window.OverworldMaps = {
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.widthGrid(21),
+          x: utils.widthGrid(24),
           y: utils.widthGrid(39),
         }),
         wizard: new Person({
@@ -1069,8 +1088,8 @@ window.OverworldMaps = {
         [utils.asGridCoord(32,38)]: true,
         [utils.asGridCoord(33,38)]: true,
         //walls of ground
-        [utils.asGridCoord(8,39)]: true,
-        [utils.asGridCoord(32,39)]: true,
+        [utils.asGridCoord(11,39)]: true,
+        [utils.asGridCoord(35,39)]: true,
         //floor of ground
         [utils.asGridCoord(8,40)]: true,
         [utils.asGridCoord(9,40)]: true,
@@ -1100,29 +1119,29 @@ window.OverworldMaps = {
         [utils.asGridCoord(33,40)]: true,
       },
       cutsceneSpaces: {
-        [utils.asGridCoord(21,39)]: [
+        [utils.asGridCoord(24,39)]: [
           {
             events: [
               { type: 'changeMap', map: 'MainMap'}
             ]
           }
         ],
-        [utils.asGridCoord(9,39)]: [
+        [utils.asGridCoord(12,39)]: [
           {
             events: [
-              { type: 'textMessage3', text:`There is nothing over here, yet.` },
-              { type: 'textMessage3', text:`But soon there will be games.` },
+              { type: 'textMessage', text:`There is nothing over here, yet.` },
+              { type: 'textMessage', text:`But soon there will be games.` },
               { who: 'hero', type: 'walk', direction: 'right'},
               { who: 'hero', type: 'walk', direction: 'right'},
               { who: 'hero', type: 'stand', direction: 'down'},
             ]
           }
         ],
-        [utils.asGridCoord(31,39)]: [
+        [utils.asGridCoord(34,39)]: [
           {
             events: [
-              { type: 'textMessage3', text:`There is nothing over here, yet.` },
-              { type: 'textMessage3', text:`But soon there will be games.` },
+              { type: 'textMessage', text:`There is nothing over here, yet.` },
+              { type: 'textMessage', text:`But soon there will be games.` },
               { who: 'hero', type: 'walk', direction: 'left'},
               { who: 'hero', type: 'walk', direction: 'left'},
               { who: 'hero', type: 'stand', direction: 'down'},

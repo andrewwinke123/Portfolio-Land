@@ -1,0 +1,59 @@
+
+.ContactMe_header {
+  font-size: 14px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+
+.ContactMe_p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.ContactMe span {
+  opacity: 0;
+}
+
+.ContactMe span.revealed {
+  opacity: 1;
+}
+
+.ContactMe_button {
+  margin: 0;
+  font-size: 8px;
+  padding: 0;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+}
+
+.contactBubble {
+  position: relative;
+  background: #ecdcd1;
+  padding: 10px;
+  color: #222;
+  border-radius: 9px;
+  margin-left: 0px;
+  left: 80%;
+  bottom: 48%;
+  width: 80px;
+}
+
+.contactBubble:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -15px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 15px solid #ecdcd1;
+}

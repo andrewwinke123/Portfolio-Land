@@ -137,6 +137,13 @@ class OverworldEvent {
     })
     bard.init(document.querySelector('.game-container'))
   }
+  contactMe(resolve) {
+    const contactMe = new ContactMe({
+      text: this.event.text,
+      onComplete: resolve,
+    })
+    contactMe.init(document.querySelector('.game-container'))
+  }
 
   
   
