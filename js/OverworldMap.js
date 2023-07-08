@@ -820,7 +820,7 @@ window.OverworldMaps = {
       }),
       truck: new Person({
         x: utils.widthGrid(36),
-        y: utils.widthGrid(39),
+        y: utils.widthGrid(41),
         src: '/media/characters/people/truck.png'
       }),
     },
@@ -883,9 +883,6 @@ window.OverworldMaps = {
             [utils.asGridCoord(33,41)]: true,
             [utils.asGridCoord(34,41)]: true,
             [utils.asGridCoord(35,41)]: true,
-            [utils.asGridCoord(36,41)]: true,
-            [utils.asGridCoord(37,41)]: true,
-            [utils.asGridCoord(38,41)]: true,
     },
     cutsceneSpaces: {
       [utils.asGridCoord(25,39)]: [
@@ -928,7 +925,9 @@ window.OverworldMaps = {
           events: [
             { who: 'truck', type: 'walk', direction: 'right'},
             { who: 'truck', type: 'walk', direction: 'right'},
-            { type: 'changeMap', map: 'ContactMeMap'}
+            { type: 'changeMap', map: 'ContactMeMap'},
+            { who: 'truck', type: 'walk', direction: 'left'},
+            { who: 'truck', type: 'walk', direction: 'left'},
           ]
         }
       ],

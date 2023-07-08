@@ -44,9 +44,11 @@ body {
 #contactFormContainer {
   position: absolute;
   top: 50%; 
-  right: 10%; 
-  transform: translate(-50%, -50%);
+  right: -55%; /* This was originally 10%, increasing it will move the form to the left */
+  transform: translate(-1355%, -1%) scale(0.4);
   z-index: 2;
+  width: 10%; /* adjust to desired width */
+  height: 10%;
 }
 
 #contact .row {
@@ -54,11 +56,11 @@ body {
 }
 
 .contact-form {
-  flex: 0.1; /* reduce the space taken by the form */
-  padding-right: 5px; /* reduce the padding */
+  flex: 0.55; /* reduce the space taken by the form, originally 0.1 */
+  padding-right: 10px; /* reduce the padding, originally 5px */
 }
 
 .contact-info {
-  flex: 0.45; /* increase the space taken by the contact info */
-  padding-left: 5px; /* reduce the padding */
+  flex: 0.85; /* increase the space taken by the contact info, originally 0.45 */
+  padding-left: 10px; /* reduce the padding, originally 5px */
 }

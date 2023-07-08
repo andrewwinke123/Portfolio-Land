@@ -42,7 +42,8 @@
   margin-left: 0px;
   left: 80%;
   bottom: 48%;
-  width: 80px;
+  width: 10px;  /* reduced from 80px */
+  font-size: 10px;
 }
 
 .contactBubble:after {
