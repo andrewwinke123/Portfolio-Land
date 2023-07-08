@@ -4,6 +4,7 @@ class Overworld {
     this.canvas = this.element.querySelector('.game-canvas')
     this.ctx = this.canvas.getContext('2d')
     this.map = null
+    window.game = this
   }
 
   startGameLoop() {
@@ -29,6 +30,15 @@ class Overworld {
         // On all other maps, the camera follows the hero.
         cameraPerson = this.map.gameObjects.hero
       }
+
+
+
+
+    //   // Here we control the panning.
+    // if (this.panningProgress > 0) {
+    //   cameraPerson.x -= 1
+    //   this.panningProgress -= 1
+    // }
       
 
 
@@ -86,10 +96,15 @@ startMap(mapConfig) {
   this.map = new OverworldMap(mapConfig)
   this.map.overworld = this
   this.map.mountObjects()
+  // If the current map is ContactMeMap, we start panning.
+  if (this.map.isContactMeMap()) {
+    this.panningProgress = 16 * 16 // 16 spaces to the left, each space is 16px.
+  }
 }
 
+
   init() {
-    this.startMap(window.OverworldMaps.ContactMeMap)
+    this.startMap(window.OverworldMaps.MainMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
@@ -114,5 +129,13 @@ startMap(mapConfig) {
   }
 })
 
+  }
+}
+
+
+// the function to change the map via the tabs
+function changeMap(mapName) {
+  if (window.game && window.OverworldMaps[mapName]) {
+    window.game.startMap(window.OverworldMaps[mapName]);
   }
 }

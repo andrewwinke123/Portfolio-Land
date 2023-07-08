@@ -1,7 +1,7 @@
 class InvisibleObject extends GameObject {
   constructor(config) {
-    super(config);
-    this.isVisible = false; // We don't want this object to be visible.
+    super(config)
+    this.isVisible = false // We don't want this object to be visible.
   }
 
   update() {

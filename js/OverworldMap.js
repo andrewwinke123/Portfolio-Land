@@ -919,10 +919,12 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(37,40)]: [
+      [utils.asGridCoord(36,40)]: [
         {
           requiresEnter: false,
           events: [
+            { who: 'hero', type: 'walk', direction: 'right'},
+            { who: 'hero', type: 'stand', direction: 'right', time: 500},
             { who: 'truck', type: 'walk', direction: 'right'},
             { who: 'truck', type: 'walk', direction: 'right'},
             { type: 'changeMap', map: 'ContactMeMap'},
@@ -948,8 +950,8 @@ window.OverworldMaps = {
       stationaryCamera: true,
       gameObjects: {
         cameraStationaryPoint: new InvisibleObject({
-          x: utils.widthGrid(15),  // Adjust these values
-          y: utils.widthGrid(40),     // to center the camera
+          x: utils.widthGrid(15), 
+          y: utils.widthGrid(40),  
         }),
         hero: new Person({
           isPlayerControlled: true,

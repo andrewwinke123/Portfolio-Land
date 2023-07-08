@@ -3,6 +3,7 @@ class ContactMe {
     this.text = text
     this.onComplete = onComplete
     this.element = null
+    this.cameraPerson = null
   }
   
   createElement() {
