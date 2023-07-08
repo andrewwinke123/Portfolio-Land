@@ -919,11 +919,10 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(36,40)]: [
+      [utils.asGridCoord(37,40)]: [
         {
           requiresEnter: false,
           events: [
-            { who: 'hero', type: 'walk', direction: 'right'},
             { who: 'hero', type: 'stand', direction: 'right', time: 500},
             { who: 'truck', type: 'walk', direction: 'right'},
             { who: 'truck', type: 'walk', direction: 'right'},
@@ -1028,6 +1027,10 @@ window.OverworldMaps = {
         [utils.asGridCoord(31,41)]: true,
         [utils.asGridCoord(32,41)]: true,
         [utils.asGridCoord(33,41)]: true,
+        
+        
+        [utils.asGridCoord(13,40)]: true,
+        [utils.asGridCoord(17,40)]: true,
       },
       cutsceneSpaces: {
         [utils.asGridCoord(34,40)]: [
