@@ -945,7 +945,12 @@ window.OverworldMaps = {
       lowerSrc: '/media/maps/pixle-portfolio-page-3.png',
       upperSrc: '/media/maps/pixle-portfolio-page-3-upper.png',
       hasContactForm: true,
+      stationaryCamera: true,
       gameObjects: {
+        cameraStationaryPoint: new InvisibleObject({
+          x: utils.widthGrid(15),  // Adjust these values
+          y: utils.widthGrid(40),     // to center the camera
+        }),
         hero: new Person({
           isPlayerControlled: true,
           x: utils.widthGrid(15),

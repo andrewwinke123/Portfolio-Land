@@ -22,14 +22,18 @@ class Overworld {
 
       //Establish camera person
       let cameraPerson
-      if (this.map.stationaryCamera) {
-        cameraPerson = {
-          x: 0,
-          y: 0,
-        }
+      if (this.map.gameObjects.cameraStationaryPoint) {
+        // If the current map has a cameraStationaryPoint, the camera follows it.
+        cameraPerson = this.map.gameObjects.cameraStationaryPoint
       } else {
+        // On all other maps, the camera follows the hero.
         cameraPerson = this.map.gameObjects.hero
       }
+      
+
+
+
+
 
       if (this.map.isContactMeMap()) {
         document.getElementById('contactFormContainer').style.display = 'block'
@@ -85,7 +89,7 @@ startMap(mapConfig) {
 }
 
   init() {
-    this.startMap(window.OverworldMaps.AboutMeMap)
+    this.startMap(window.OverworldMaps.ContactMeMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
