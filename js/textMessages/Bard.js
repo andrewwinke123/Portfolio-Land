@@ -12,7 +12,7 @@ class Bard {
     
     this.element.innerHTML = (`
     <p class='Bard_p'></p>
-    <a href="https://Bard-tracker.fly.dev/" target="_blank">Bard's Quest!</a>
+    <a href="https://bards-quest.netlify.app/" target="_blank">Bard's Quest!</a>
     <br></br>
     <h3 class='Bard_header'>Tools:</h3>
     <p>

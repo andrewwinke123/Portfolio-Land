@@ -12,7 +12,7 @@ class Suggestion {
     
     this.element.innerHTML = (`
     <p class='Suggestion_p'></p>
-    <a href="https://Suggestion-tracker.fly.dev/" target="_blank">Suggestion Board</a>
+    <a href="https://suggestions-board.fly.dev/" target="_blank">Suggestion Board</a>
     <br></br>
     <h3 class='Suggestion_header'>Tools:</h3>
     <p>

@@ -12,7 +12,7 @@ class Racroom {
     
     this.element.innerHTML = (`
     <p class='Racroom_p'></p>
-    <a href="https://racroom-tracker.fly.dev/" target="_blank">Racroom</a>
+    <a href="https://racroom.netlify.app/" target="_blank">Racroom</a>
     <br></br>
     <h3 class='Racroom_header'>Tools:</h3>
     <p>
