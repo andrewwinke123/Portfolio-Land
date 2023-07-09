@@ -66,7 +66,7 @@
 
 .eduBubble {
   position: relative;
-  background: #cfbdb1;
+  background: #ffccaa;
   padding: 10px;
   color: #222;
   border-radius: 9px;
@@ -86,7 +86,7 @@
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 15px solid #cfbdb1;
+  border-right: 15px solid #ffccaa;
 }
 
 .tech-badge {

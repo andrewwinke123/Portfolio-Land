@@ -957,15 +957,41 @@ window.OverworldMaps = {
           x: utils.widthGrid(15),
           y: utils.widthGrid(40),
         }),
-        wizard: new Person({
+        driver: new Person({
           x: utils.widthGrid(16),
           y: utils.widthGrid(36),
           src: '/media/characters/people/little-goblin-large.png',
           behaviorLoop: [
-            { who: 'wizard', type: 'stand', direction: 'right', time: 4000},
-            { who: 'wizard', type: 'stand', direction: 'down', time: 1000},
-            { who: 'wizard', type: 'stand', direction: 'right', time: 5000},
-            { who: 'wizard', type: 'stand', direction: 'down', time: 1000},
+            { who: 'driver', type: 'stand', direction: 'right', time: 4000},
+            { who: 'driver', type: 'stand', direction: 'down', time: 1000},
+            { who: 'driver', type: 'stand', direction: 'right', time: 5000},
+            { who: 'driver', type: 'stand', direction: 'down', time: 1000},
+            // { type: 'contactMe', text:' ' },
+          ]
+        }),
+        backWheel: new Person({
+          x: utils.widthGrid(6),
+          y: utils.widthGrid(39),
+          src: '/media/characters/people/back-wheel.png',
+          behaviorLoop: [
+            { who: 'backWheel', type: 'stand', direction: 'fifth-frame', time: 100},
+            { who: 'backWheel', type: 'stand', direction: 'left', time: 100},
+            { who: 'backWheel', type: 'stand', direction: 'up', time: 100},
+            { who: 'backWheel', type: 'stand', direction: 'right', time: 100},
+            { who: 'backWheel', type: 'stand', direction: 'down', time: 100},
+            // { type: 'contactMe', text:' ' },
+          ]
+        }),
+        frontWheel: new Person({
+          x: utils.widthGrid(17),
+          y: utils.widthGrid(39),
+          src: '/media/characters/people/back-wheel.png',
+          behaviorLoop: [
+            { who: 'frontWheel', type: 'stand', direction: 'fifth-frame', time: 100},
+            { who: 'frontWheel', type: 'stand', direction: 'left', time: 100},
+            { who: 'frontWheel', type: 'stand', direction: 'up', time: 100},
+            { who: 'frontWheel', type: 'stand', direction: 'right', time: 100},
+            { who: 'frontWheel', type: 'stand', direction: 'down', time: 100},
             // { type: 'contactMe', text:' ' },
           ]
         })
