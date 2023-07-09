@@ -960,12 +960,26 @@ window.OverworldMaps = {
         driver: new Person({
           x: utils.widthGrid(16),
           y: utils.widthGrid(36),
-          src: '/media/characters/people/little-goblin-large.png',
+          src: '/media/characters/people/little-goblin-large-extended.png',
           behaviorLoop: [
             { who: 'driver', type: 'stand', direction: 'right', time: 4000},
-            { who: 'driver', type: 'stand', direction: 'down', time: 1000},
-            { who: 'driver', type: 'stand', direction: 'right', time: 5000},
-            { who: 'driver', type: 'stand', direction: 'down', time: 1000},
+            { who: 'driver', type: 'stand', direction: 'fifth-frame', time: 3000},
+            { who: 'driver', type: 'stand', direction: 'right', time: 550},
+            { who: 'driver', type: 'stand', direction: 'down', time: 50},
+            { who: 'driver', type: 'stand', direction: 'sixth-frame', time: 3000},
+            // { type: 'contactMe', text:' ' },
+          ]
+        }),
+        driverRight: new Person({
+          x: utils.widthGrid(20),
+          y: utils.widthGrid(36),
+          src: '/media/characters/people/little-goblin-large-extended-right.png',
+          behaviorLoop: [
+            { who: 'driverRight', type: 'stand', direction: 'right', time: 4000},
+            { who: 'driverRight', type: 'stand', direction: 'fifth-frame', time: 3000},
+            { who: 'driverRight', type: 'stand', direction: 'right', time: 550},
+            { who: 'driverRight', type: 'stand', direction: 'down', time: 50},
+            { who: 'driverRight', type: 'stand', direction: 'sixth-frame', time: 3000},
             // { type: 'contactMe', text:' ' },
           ]
         }),
@@ -1055,8 +1069,8 @@ window.OverworldMaps = {
         [utils.asGridCoord(33,41)]: true,
         
         
-        [utils.asGridCoord(13,40)]: true,
-        [utils.asGridCoord(17,40)]: true,
+        [utils.asGridCoord(14,40)]: true,
+        [utils.asGridCoord(16,40)]: true,
       },
       cutsceneSpaces: {
         [utils.asGridCoord(34,40)]: [
