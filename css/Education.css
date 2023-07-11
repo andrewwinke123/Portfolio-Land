@@ -73,7 +73,7 @@
   margin-left: 0px;
   left: 25%;
   bottom: 60%;
-  width: 150px;
+  width: 200px;
 }
 
 .eduBubble:after {
@@ -104,5 +104,4 @@
 .category-button {
   font-size: 8px;
   border-radius: 5px;
-  background-color: rgb(191, 200, 226);
-}
+  background-color: rgb(191, 200, 226);}
