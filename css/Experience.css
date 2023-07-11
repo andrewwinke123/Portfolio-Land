@@ -3,18 +3,17 @@
   left: 0%;
   right: 5%;
   bottom: 80%;
-  width: 200px;
-  font-size: 12px;
+  width: 400px;
+  font-size: 24px;
   padding: 4px;
   color: black;
   box-sizing: border-box;
 }
 
 .Experience_header {
-  font-size: 14px;
-  margin-bottom: 0px;
+  font-size: 50px;
+  margin-bottom: -25px;
   margin-top: 0px;
-  
 }
 .experience-button {
   border-radius: 9px;
@@ -23,7 +22,7 @@
 
 .Experience_p {
   margin: 0;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .Experience span {
@@ -36,7 +35,7 @@
 
 .Experience_button {
   margin: 0;
-  font-size: 8px;
+  font-size: 16px;
   padding: 0;
   -webkit-appearance: none;
   background: none;
@@ -55,8 +54,8 @@
   color: #222;
   border-radius: 9px;
   margin-left: 0px;
-  left: 35%;
-  bottom: 75%;
+  left: 20%;
+  bottom: 72%;
 }
 
 .exBubble:after {
@@ -64,20 +63,12 @@
   display: block;
   position: absolute;
   left: -15px;
-  top: 40px;
+  top: 90px;
   width: 0;
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-right: 15px solid #ffccaa;
-}
-
-.tech-badge {
-  height: 8px;
-}
-
-.tech-badge[data-category] {
-  display: none;
 }
 
 .info-card {
@@ -87,8 +78,8 @@
   margin-top: 10px;
   border-radius: 5px;
   color: #222;
-  font-size: 10px;
-  width: 180px;
+  font-size: 28px!important;
+  width: 300px!important;
 }
 
 .info-link:hover {

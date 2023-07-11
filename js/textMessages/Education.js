@@ -15,7 +15,7 @@ class Education {
     this.element.classList.add('Education', 'eduBubble')
 
     this.element.innerHTML = (`
-    <h3 class='Experience_header'>Education:</h3>
+    <h3 class='Education'>Education:</h3>
     <p class='Education_p'></p>
     <button class='Education_button' id='educationButton'>close</button>
     <div class="edu-container">

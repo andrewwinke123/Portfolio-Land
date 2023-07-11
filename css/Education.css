@@ -17,6 +17,7 @@
   justify-content: center; 
   width: fit-content;
   margin: auto;
+  margin-top: 40px;
 }
 
 .edu-item {
@@ -27,11 +28,11 @@
 
 
 .description {
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .Education_header {
-  font-size: 14px;
+  font-size: 10px;
   margin-bottom: 0px;
   margin-top: 0px;
 }
@@ -73,7 +74,8 @@
   margin-left: 0px;
   left: 25%;
   bottom: 60%;
-  width: 200px;
+  width: 400px;
+  height: 200px;
 }
 
 .eduBubble:after {
@@ -89,19 +91,13 @@
   border-right: 15px solid #ffccaa;
 }
 
-.tech-badge {
-  height: 8px;
-}
 
 .category-button {
   margin-right: 5px;
 }
 
-.tech-badge[data-category] {
-  display: none;
-}
-
 .category-button {
   font-size: 8px;
   border-radius: 5px;
-  background-color: rgb(191, 200, 226);}
+  background-color: rgb(191, 200, 226);
+}

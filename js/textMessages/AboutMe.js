@@ -15,6 +15,7 @@ class AboutMe {
     <p class='AboutMe_categoryButtons'></p>
     <p class='AboutMe_p'></p>
     <p>
+    <div class="badge-wrapper">
     <img class="tech-badge" data-category="languages" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
     <img class="tech-badge" data-category="languages" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
     <img class="tech-badge" data-category="languages" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
@@ -38,6 +39,7 @@ class AboutMe {
     <img class="tech-badge" data-category="databases" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
     <img class="tech-badge" data-category="databases" src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white">
     <img class="tech-badge" data-category="databases" src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white">
+    </div>
 </p>
 
     <button class='AboutMe_button'>close</button>

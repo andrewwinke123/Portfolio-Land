@@ -146,7 +146,7 @@ body {
   width: fit-content;
   margin: auto;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   transform: translateY(15%);
 }
 

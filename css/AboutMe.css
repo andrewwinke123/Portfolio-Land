@@ -3,16 +3,17 @@
   left: 0%;
   right: 5%;
   bottom: 80%;
-  width: 200px;
-  font-size: 12px;
-  padding: 4px;
+  width: 450px; /* Doubled from 200px */
+  height: 340px; /* Doubled from 200px */
+  font-size: 24px; /* Doubled from 12px */
+  padding: 4px; /* Doubled from 4px */
   color: black;
   box-sizing: border-box;
 }
 
 .AboutMe_header {
-  font-size: 14px;
-  margin-bottom: 0px;
+  font-size: 50px;
+  margin-bottom: -25px;
   margin-top: 0px;
 }
 
@@ -32,7 +33,7 @@
 
 .AboutMe_button {
   margin: 0;
-  font-size: 8px;
+  font-size: 28px;
   padding: 0;
   -webkit-appearance: none;
   background: none;
@@ -51,8 +52,8 @@
   color: #222;
   border-radius: 9px;
   margin-left: 0px;
-  left: 35%;
-  bottom: 75%;
+  left: 30%;
+  bottom: 62%;
 }
 
 .bubble:after {
@@ -68,10 +69,6 @@
   border-right: 15px solid #ffccaa;
 }
 
-.tech-badge {
-  height: 8px;
-}
-
 .category-button {
   margin-right: 5px;
 }
@@ -81,7 +78,27 @@
 }
 
 .category-button {
-  font-size: 8px;
-  border-radius: 5px;
+  font-size: 25px !important;
+  border-radius: 20px;
   background-color: rgb(191, 200, 226);
+  padding: 10px 10px;
+  margin-right: 20px;
+}
+
+
+.badge-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  transform: scale(3); /* change this value to scale up or down */
+  max-width: 35%;
+  margin-left: 35%;
+  margin-top: 55px;
+}
+
+.tech-badge {
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  max-width: 50%;
 }
