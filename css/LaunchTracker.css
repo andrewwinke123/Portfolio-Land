@@ -56,8 +56,8 @@
   color: #222;
   border-radius: 9px;
   margin-left: 0px;
-  left: 55%;
-  bottom: 45%;
+  left: 54%;
+  bottom: 35%;
 }
 
 .launchBubble:after {
@@ -96,3 +96,7 @@
   cursor: pointer;
 }
 
+.LaunchTracker:hover {
+  background-color: #ffccaa;
+  transform: scale(5) translateY(-10px);
+}

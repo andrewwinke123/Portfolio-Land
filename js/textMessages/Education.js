@@ -14,35 +14,40 @@ class Education {
     this.element = document.createElement('div')
     this.element.classList.add('Education', 'eduBubble')
 
+    // Initialize the header text
+    let headerText = 'Education:'
+    
     this.element.innerHTML = (`
-    <h3 class='Education'>Education:</h3>
-    <p class='Education_p'></p>
-    <button class='Education_button' id='educationButton'>close</button>
-    <div class="edu-container">
-        <div class="edu-item">
-            <i class="fa-regular fa-floppy-disk">General Assembly</i>
-            <p class="description ga-description" style="display: none">General Assembly | Software Engineering Immersive Fellow | Remote
-            Completed 420+ hours of instruction in JavaScript, Python, MongoDB, Node, React, and other tools</p>
-        </div>
-        <div class="edu-item">
-            <i class="fa-solid fa-paint-roller"> CPCC</i>
-            <p class="description cp-description" style="display: none">Learned prepress and post-press SOP for flexography and screen printing, using tools from the Adobe suite including Illustrator, Photoshop, Indesign, and more.</p>
-        </div>
-    </div>
-`)
+      <h3 class='Education_header'>${headerText}</h3>
+      <p class='Education_p'></p>
+      <button class='Education_button' id='educationButton'>close</button>
+      <div class="edu-container">
+          <div class="edu-item">
+              <i class="fa-regular fa-floppy-disk">General Assembly</i>
+              <p class="description ga-description" style="display: none">General Assembly | Software Engineering Immersive Fellow | Remote
+              Completed 420+ hours of instruction in JavaScript, Python, MongoDB, Node, React, and other tools</p>
+          </div>
+          <div class="edu-item">
+              <i class="fa-solid fa-paint-roller"> CPCC</i>
+              <p class="description cp-description" style="display: none">Learned prepress and post-press SOP for flexography and screen printing, using tools from the Adobe suite including Illustrator, Photoshop, Indesign, and more.</p>
+          </div>
+      </div>
+  `)
 
-    const gaIcon = this.element.querySelector('.fa-floppy-disk')
-    const cpIcon = this.element.querySelector('.fa-paint-roller')
-    const gaDescription = this.element.querySelector('.ga-description')
-    const cpDescription = this.element.querySelector('.cp-description')
+  const gaIcon = this.element.querySelector('.fa-floppy-disk')
+  const cpIcon = this.element.querySelector('.fa-paint-roller')
+  const gaDescription = this.element.querySelector('.ga-description')
+  const cpDescription = this.element.querySelector('.cp-description')
 
-    gaIcon.addEventListener('click', () => {
-      this.toggleDescription(gaDescription, gaIcon)
-    })
+  gaIcon.addEventListener('click', () => {
+    this.toggleDescription(gaDescription, gaIcon)
+    this.updateHeaderText('General Assembly')
+  })
 
-    cpIcon.addEventListener('click', () => {
-      this.toggleDescription(cpDescription, cpIcon)
-    })
+  cpIcon.addEventListener('click', () => {
+    this.toggleDescription(cpDescription, cpIcon)
+    this.updateHeaderText('Central Piedmont Community College')
+  })
 
     // Initialize typewriter effect
     this.revealingText = new RevealingText({
@@ -61,6 +66,11 @@ class Education {
     this.actionListener = new KeyPressListener('Space', () => {
       this.done()
     })
+  }
+
+  updateHeaderText(text) {
+    const header = this.element.querySelector('.Education_header')
+    header.textContent = text
   }
 
   toggleDescription(description, icon) {

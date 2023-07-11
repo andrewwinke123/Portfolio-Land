@@ -34,16 +34,21 @@
 .AboutMe_button {
   margin: 0;
   font-size: 28px;
-  padding: 0;
+  padding: 5px 10px; /* Added padding for button size */
   -webkit-appearance: none;
-  background: none;
-  border: 0;
+  background-color: rgba(41, 29, 77, 0.5);
+  color: white;
+  border: none; /* Removed border */
   font-family: inherit;
   cursor: pointer;
   position: absolute;
   right: 5px;
   bottom: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
+
+
 
 .bubble {
   position: relative;
@@ -101,4 +106,9 @@
   padding: 0;
   line-height: 1;
   max-width: 50%;
+}
+
+.AboutMe:hover {
+  background-color: #ffccaa;
+  transform: scale(1.5) translateY(-50px);
 }

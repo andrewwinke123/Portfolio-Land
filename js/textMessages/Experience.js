@@ -23,7 +23,7 @@ class Experience {
     </p>
     </div>
 
-    <button class='Experience_button'>close</button>
+    <button class='Experience_button' id='experienceButton'>close</button>
   `)
 
   const icons = this.element.querySelectorAll('i')
