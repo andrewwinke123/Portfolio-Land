@@ -18,7 +18,7 @@ body {
   overflow: hidden;
 }
 
-.game-container {
+/* .game-container {
   position: relative;
   width: 300px;
   height: 235px;
@@ -26,10 +26,12 @@ body {
   outline: 1px solid white;
   z-index: 1;
   transform: scale(3) translateY(35%);
-}
+} */
 
 .game-container canvas {
   image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
 }
 
 .clickable-link {
@@ -43,13 +45,14 @@ body {
 
 #contactFormContainer {
   position: absolute;
-  top: 50%; 
-  right: -55%; /* This was originally 10%, increasing it will move the form to the left */
-  transform: translate(-1355%, -1%) scale(0.4);
+  top: 50%;
+  right: -55%;
+  transform: translate(-1355%, 16%) scale(0.8); /* scale up by factor of 2 */
   z-index: 2;
-  width: 10%; /* adjust to desired width */
+  width: 10%;
   height: 10%;
 }
+
 
 #contact .row {
   display: flex;
@@ -112,4 +115,61 @@ body {
     left: -70px;
     top: 100px;
   }
+}
+
+
+#msgNote {
+  width: 80px;
+  height: 80px; 
+  background: #fefdca;
+  position: absolute;
+  top: 100px; 
+  left: 100px; 
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+  border: 1px solid #fefd88;
+  border-radius: 10px;
+  padding: 2px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: .5em;
+  text-align: center;
+  line-height: normal;
+  transform: rotate(-6deg);
+  z-index: 500;
+}
+
+
+.monitor-frame {
+  background: #000; /* color of monitor border */
+  padding: 60px; /* width of monitor border */
+  border-radius: 60px; /* roundness of monitor edges */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* shadow behind the monitor */
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(15%);
+}
+
+.monitor-frame:before {
+  content: '';
+  position: absolute;
+  top: 20px; /* distance from the top of the monitor frame */
+  bottom: 20px; /* distance from the bottom of the monitor frame */
+  left: 20px; /* distance from the left of the monitor frame */
+  right: 20px; /* distance from the right of the monitor frame */
+  border: 4px solid rgba(255,255,255,0.1); /* inner glow of the monitor */
+  box-shadow: 0 0 20px 4px rgba(255,255,255,0.2); /* more inner glow */
+  border-radius: 60px; /* roundness of inner glow */
+  pointer-events: none; /* allows clicks to pass through */
+  z-index: 1;
+}
+
+.game-container {
+  position: relative;
+  width: 600px; /* originally 300px */
+  height: 470px; /* originally 235px */
+  margin: 0 auto;
+  outline: 1px solid white;
+  z-index: 2;
+  transform: scale(1); /* increased scale */
 }
