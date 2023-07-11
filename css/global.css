@@ -84,3 +84,32 @@ body {
   text-align: center;
   cursor: pointer;
 }
+
+
+@media only screen and (max-width: 500px) {
+  .game-container {
+    width: 300px; /* adjust to fit mobile screen */
+    height: 235px; /* adjust to fit mobile screen */
+    transform: scale(1.25) translateY(50%) translateX(15%); /* adjust as needed */
+    left: -70px;
+  }
+}
+
+@media only screen and (min-width: 500px) and(max-width: 768px) {
+  .game-container {
+    width: 300px; /* adjust to fit mobile screen */
+    height: 235px; /* adjust to fit mobile screen */
+    transform: scale(2) translateY(50%) translateX(15%); /* adjust as needed */
+    left: -100px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  .game-container {
+    width: 300px; /* adjust to fit small laptop screen */
+    height: 235px; /* adjust to fit small laptop screen */
+    transform: scale(2.5) translateY(20%); /* adjust as needed */
+    left: -70px;
+    top: 100px;
+  }
+}

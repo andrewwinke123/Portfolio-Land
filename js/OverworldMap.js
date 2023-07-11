@@ -890,7 +890,7 @@ window.OverworldMaps = {
           y: utils.widthGrid(36),
           src: '/media/characters/people/little-goblin-large-extended.png',
           behaviorLoop: [
-            { who: 'driver', type: 'stand', direction: 'right', time: 4000},
+            { who: 'driver', type: 'stand', direction: 'right', time: 3000},
             { who: 'driver', type: 'stand', direction: 'fifth-frame', time: 3000},
             { who: 'driver', type: 'stand', direction: 'right', time: 550},
             { who: 'driver', type: 'stand', direction: 'down', time: 50},
@@ -903,7 +903,7 @@ window.OverworldMaps = {
           y: utils.widthGrid(36),
           src: '/media/characters/people/little-goblin-large-extended-right.png',
           behaviorLoop: [
-            { who: 'driverRight', type: 'stand', direction: 'right', time: 4000},
+            { who: 'driverRight', type: 'stand', direction: 'right', time: 3000},
             { who: 'driverRight', type: 'stand', direction: 'fifth-frame', time: 3000},
             { who: 'driverRight', type: 'stand', direction: 'right', time: 550},
             { who: 'driverRight', type: 'stand', direction: 'down', time: 50},
