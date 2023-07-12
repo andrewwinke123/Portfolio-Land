@@ -12,7 +12,13 @@ class LaunchTracker {
     
     this.element.innerHTML = (`
     <p class='LaunchTracker_p'></p>
-    <a href="https://launch-tracker.fly.dev/" target="_blank">Launch Tracker</a>
+  <a href="https://launch-tracker.fly.dev/" target="_blank" class="info-link">
+    Launch Tracker
+    <div class="tooltip">
+      <img src="media/characters/work-1.png" alt="website">
+    </div>
+  </a>
+
     <br></br>
     <h3 class='LaunchTracker_header'>Tools:</h3>
     <p>

@@ -9,6 +9,7 @@
   padding: 4px;
   color: black;
   box-sizing: border-box;
+  z-index: 9999;
 }
 
 .LaunchTracker_header {
@@ -37,16 +38,19 @@
 
 .LaunchTracker_button {
   margin: 0;
-  font-size: 8px;
-  padding: 0;
+  font-size: 7px;
+  padding: 5px 10px;
   -webkit-appearance: none;
-  background: none;
-  border: 0;
+  background-color: rgba(41, 29, 77, 0.5);
+  color: white;
+  border: none;
   font-family: inherit;
   cursor: pointer;
   position: absolute;
   right: 5px;
   bottom: 0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .launchBubble {
@@ -56,8 +60,9 @@
   color: #222;
   border-radius: 9px;
   margin-left: 0px;
-  left: 54%;
-  bottom: 35%;
+  left: 55%;
+  bottom: 45%;
+  z-index: 9999;
 }
 
 .launchBubble:after {
@@ -96,7 +101,40 @@
   cursor: pointer;
 }
 
+.info-link {
+  position: relative;
+  display: inline-block;
+}
+
+.info-link .tooltip {
+  visibility: hidden;
+  width: 120px;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 80%;
+  transform: translateY(-50%);
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.info-link .tooltip img {
+  width: 80px;  /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  object-fit: cover; /* Ensures that the aspect ratio of the image is maintained */
+}
+
+.info-link:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .LaunchTracker:hover {
-  background-color: #ffccaa;
   transform: scale(5) translateY(-10px);
 }

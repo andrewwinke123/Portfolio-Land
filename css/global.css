@@ -18,6 +18,41 @@ body {
   overflow: hidden;
 }
 
+.game-container {
+  position: relative;
+  width: 615px; 
+  height: 450px;
+  margin: 0 auto;
+  outline: 1px solid white;
+  z-index: 2;
+  transform: scale(1);
+  border-radius: 20px 20px 20px 20px;
+  top: -140px;
+  right: 29px;
+}
+
+.game-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/media/computer-background.webp");
+  background-repeat: no-repeat;
+  background-position: center center; 
+  z-index: -1;
+}
+
 /* .game-container {
   position: relative;
   width: 300px;
@@ -32,6 +67,7 @@ body {
   image-rendering: pixelated;
   width: 100%;
   height: 100%;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .clickable-link {
@@ -47,7 +83,7 @@ body {
   position: absolute;
   top: 50%;
   right: -55%;
-  transform: translate(-1355%, 16%) scale(0.8); /* scale up by factor of 2 */
+  transform: translate(-1355%, 16%) scale(0.8);
   z-index: 2;
   width: 10%;
   height: 10%;
@@ -59,13 +95,13 @@ body {
 }
 
 .contact-form {
-  flex: 0.55; /* reduce the space taken by the form, originally 0.1 */
-  padding-right: 10px; /* reduce the padding, originally 5px */
+  flex: 0.55; 
+  padding-right: 10px;
 }
 
 .contact-info {
-  flex: 0.85; /* increase the space taken by the contact info, originally 0.45 */
-  padding-left: 10px; /* reduce the padding, originally 5px */
+  flex: 0.85; 
+  padding-left: 10px;
 }
 
 .tab-container {
@@ -73,7 +109,7 @@ body {
   right: -25px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: -100;
+  z-index: 9000;
   font-size: 5px;
   width: 25px;
 }
@@ -89,33 +125,33 @@ body {
 }
 
 
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 500px) {
   .game-container {
-    width: 300px; /* adjust to fit mobile screen */
-    height: 235px; /* adjust to fit mobile screen */
-    transform: scale(1.25) translateY(50%) translateX(15%); /* adjust as needed */
+    width: 300px; 
+    height: 235px; 
+    transform: scale(1.25) translateY(50%) translateX(15%); 
     left: -70px;
   }
 }
 
 @media only screen and (min-width: 500px) and(max-width: 768px) {
   .game-container {
-    width: 300px; /* adjust to fit mobile screen */
-    height: 235px; /* adjust to fit mobile screen */
-    transform: scale(2) translateY(50%) translateX(15%); /* adjust as needed */
+    width: 300px;
+    height: 235px;
+    transform: scale(2) translateY(50%) translateX(15%); 
     left: -100px;
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
   .game-container {
-    width: 300px; /* adjust to fit small laptop screen */
-    height: 235px; /* adjust to fit small laptop screen */
-    transform: scale(2.5) translateY(20%); /* adjust as needed */
+    width: 300px;
+    height: 235px;
+    transform: scale(2.5) translateY(20%);
     left: -70px;
     top: 100px;
   }
-}
+} */
 
 
 #msgNote {
@@ -146,7 +182,6 @@ body {
   width: fit-content;
   margin: auto;
   position: relative;
-  /* overflow: hidden; */
   transform: translateY(15%);
 }
 
@@ -162,14 +197,4 @@ body {
   border-radius: 60px; /* roundness of inner glow */
   pointer-events: none; /* allows clicks to pass through */
   z-index: 1;
-}
-
-.game-container {
-  position: relative;
-  width: 600px; /* originally 300px */
-  height: 470px; /* originally 235px */
-  margin: 0 auto;
-  outline: 1px solid white;
-  z-index: 2;
-  transform: scale(1); /* increased scale */
 }

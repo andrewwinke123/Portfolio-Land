@@ -3,10 +3,10 @@
   left: 0%;
   right: 5%;
   bottom: 80%;
-  width: 450px; /* Doubled from 200px */
-  height: 340px; /* Doubled from 200px */
-  font-size: 24px; /* Doubled from 12px */
-  padding: 4px; /* Doubled from 4px */
+  width: 450px;
+  height: 340px;
+  font-size: 24px; 
+  padding: 4px; 
   color: black;
   box-sizing: border-box;
 }
@@ -34,11 +34,11 @@
 .AboutMe_button {
   margin: 0;
   font-size: 28px;
-  padding: 5px 10px; /* Added padding for button size */
+  padding: 5px 10px;
   -webkit-appearance: none;
   background-color: rgba(41, 29, 77, 0.5);
   color: white;
-  border: none; /* Removed border */
+  border: none;
   font-family: inherit;
   cursor: pointer;
   position: absolute;
@@ -94,7 +94,7 @@
 .badge-wrapper {
   display: flex;
   flex-wrap: wrap;
-  transform: scale(3); /* change this value to scale up or down */
+  transform: scale(3);
   max-width: 35%;
   margin-left: 35%;
   margin-top: 55px;
@@ -106,9 +106,4 @@
   padding: 0;
   line-height: 1;
   max-width: 50%;
-}
-
-.AboutMe:hover {
-  background-color: #ffccaa;
-  transform: scale(1.5) translateY(-50px);
 }
