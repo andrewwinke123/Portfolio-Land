@@ -374,7 +374,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(26,19)]: true,
       [utils.asGridCoord(26,20)]: true,
       [utils.asGridCoord(26,21)]: true,
-      [utils.asGridCoord(26,23)]: true,
+      [utils.asGridCoord(26,22)]: true,
       [utils.asGridCoord(26,24)]: true,
       [utils.asGridCoord(26,25)]: true,
       [utils.asGridCoord(26,26)]: true,
@@ -414,15 +414,15 @@ window.OverworldMaps = {
 
 
       //suggestion board
-      [utils.asGridCoord(26,23)]: true,
-      [utils.asGridCoord(25,23)]: true,
-      [utils.asGridCoord(24,23)]: true,
+      [utils.asGridCoord(26,24)]: true,
+      [utils.asGridCoord(25,24)]: true,
+      [utils.asGridCoord(24,24)]: true,
 
-      [utils.asGridCoord(26,21)]: true,
-      [utils.asGridCoord(25,21)]: true,
-      [utils.asGridCoord(24,21)]: true,
+      [utils.asGridCoord(26,22)]: true,
+      [utils.asGridCoord(25,22)]: true,
+      [utils.asGridCoord(24,22)]: true,
 
-      [utils.asGridCoord(23,22)]: true,
+      [utils.asGridCoord(23,23)]: true,
 
 
 
@@ -530,7 +530,7 @@ window.OverworldMaps = {
           ]
         }
       ],
-      [utils.asGridCoord(26,22)]: [
+      [utils.asGridCoord(26,23)]: [
         {
           events: [
             { who: 'hero', type: 'walk', direction: 'left'},
