@@ -114,3 +114,11 @@
 .info-link:hover {
   cursor: pointer;
 }
+
+.Bard:hover .infoDump {
+  display: block;
+}
+
+.Bard:hover .techLogo {
+  display: none;
+}

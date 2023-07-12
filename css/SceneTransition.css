@@ -6,6 +6,7 @@
   bottom: 0;
   background: white;
   opacity: 0;
+  border-radius: 20px;
   animation: scene-transition-fade-in 0.5s forwards;
 }
 

@@ -115,3 +115,10 @@
   cursor: pointer;
 }
 
+.Suggestion:hover .infoDump {
+  display: block;
+}
+
+.Suggestion:hover .techLogo {
+  display: none;
+}

@@ -116,3 +116,10 @@
   cursor: pointer;
 }
 
+.Racroom:hover .infoDump {
+  display: block;
+}
+
+.Racroom:hover .techLogo {
+  display: none;
+}

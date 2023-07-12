@@ -12,7 +12,6 @@
   z-index: 9999;
 }
 
-
 .LaunchTracker_header {
   font-size: 9px;
   margin-bottom: -10px;
@@ -146,6 +145,26 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+.techLogo {
+  display: block;
+}
+
+.infoDump {
+  display: none;
+  margin-top: -20px;
+
+}
+
+.LaunchTracker:hover .infoDump {
+  display: block;
+}
+
+.LaunchTracker:hover .techLogo {
+  display: none;
+}
+
 
 @keyframes slide-up {
   0% { transform: translateY(100%); }

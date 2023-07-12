@@ -136,6 +136,6 @@ startMap(mapConfig) {
 // the function to change the map via the tabs
 function changeMap(mapName) {
   if (window.game && window.OverworldMaps[mapName]) {
-    window.game.startMap(window.OverworldMaps[mapName]);
+    window.game.startMap(window.OverworldMaps[mapName])
   }
 }
