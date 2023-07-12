@@ -12,7 +12,12 @@ class Racroom {
     
     this.element.innerHTML = (`
     <p class='Racroom_p'></p>
-    <a href="https://racroom.netlify.app/" target="_blank">Racroom</a>
+    <a href="https://racroom.netlify.app/" target="_blank" class="info-link">
+    Racroom
+    <div class="tooltip">
+      <img src="media/portfolio/work-2.png" alt="website">
+    </div>
+    </a>
     <br></br>
     <h3 class='Racroom_header'>Tools:</h3>
     <p>

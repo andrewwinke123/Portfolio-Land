@@ -17,11 +17,6 @@
   font-size: 9px;
   margin-bottom: -10px;
   margin-top: -10px;
-  
-}
-.LaunchTracker-button {
-  border-radius: 9px;
-  background-color: rgb(255, 221, 199);
 }
 
 .LaunchTracker_p {
@@ -56,7 +51,6 @@
 
 .launchBubble {
   position: relative;
-  background: #ffccaa;
   padding: 10px;
   color: #222;
 
@@ -78,7 +72,7 @@
   background-color: #fff; /* paper color */
   background-image: linear-gradient(0deg, transparent 24%, rgba(0,0,0,.05) 25%, rgba(0,0,0,.05) 26%, transparent 27%, transparent 74%, rgba(0,0,0,.05) 75%, rgba(0,0,0,.05) 76%, transparent 77%, transparent);
   background-size: 100% 15px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 1);
   border: 1px solid #ddd;
   transform: scale(5);
 }
@@ -151,4 +145,9 @@
 .info-link:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
 }
