@@ -60,6 +60,13 @@ class Education {
       this.done()
     })
 
+    document.addEventListener('click', (event) => {
+			// Ignore clicks on the element itself
+			if (!this.element.contains(event.target)) {
+				this.done()
+			}
+		})
+
     this.actionListener = new KeyPressListener('Enter', () => {
       this.done()
     })
