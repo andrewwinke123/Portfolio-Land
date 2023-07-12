@@ -26,7 +26,7 @@ body {
   outline: 3px solid rgb(15, 15, 15);
   z-index: 2;
   transform: scale(1);
-  border-radius: 20px;
+  border-radius: 20px 20px 20px 20px;
   top: -75px;
   right: -75px;
 }
@@ -161,13 +161,21 @@ body {
   .background-image {
     transform: scale(.75) translateY(-4%) translateX(-10%);
   }
+  #contactFormContainer {
+    position: absolute;
+    top: 50%;
+    right: -55%;
+    transform: scale(0.45)translate(-3100%, 16%);
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+  }  
   .tab-container {
-    right: auto;
-    left: 0;
+    transform: scale(0.55) translate(-80%, -100%);
   }
 }
 
- @media only screen and (min-width: 501px) and(max-width: 768px) {
+  @media only screen and (min-width: 501px) and(max-width: 768px) {
   .game-container {
     width: 300px;
     height: 235px;
@@ -190,6 +198,18 @@ body {
   .background-image {
     transform: scale(.85) translateY(-2%) translateX(-16%);
   }
+  #contactFormContainer {
+    position: absolute;
+    top: 50%;
+    right: -55%;
+    transform: scale(0.55)translate(-2600%, 16%);
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+  }  
+  .tab-container {
+    transform: scale(0.55) translate(-80%, -100%);
+  }
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1200px) {
@@ -202,6 +222,18 @@ body {
   }
   .background-image {
     transform: scale(.85) translateY(-2%) translateX(-14%);
+  }
+  #contactFormContainer {
+    position: absolute;
+    top: 50%;
+    right: -55%;
+    transform: scale(0.55)translate(-2600%, 16%);
+    z-index: 2;
+    width: 10%;
+    height: 10%;
+  }  
+  .tab-container {
+    transform: scale(0.55) translate(-80%, -100%);
   }
 }
 

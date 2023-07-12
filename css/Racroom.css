@@ -123,3 +123,9 @@
 .Racroom:hover .techLogo {
   display: none;
 }
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  .racroomBubble {
+    transform: scale(2.5) translateY(-2%) translateX(-14%);
+  }
+}

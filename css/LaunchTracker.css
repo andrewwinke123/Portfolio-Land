@@ -170,3 +170,10 @@
   0% { transform: translateY(100%); }
   100% { transform: translateY(0); }
 }
+
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  .launchBubble {
+    transform: scale(2.5) translateY(-2%) translateX(-14%);
+  }
+}
