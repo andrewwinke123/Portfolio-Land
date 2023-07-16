@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/snake.css">
   <link rel="stylesheet" href="./css/TextMessage.css">
   <link rel="stylesheet" href="./css/AboutMe.css">
   <link rel="stylesheet" href="./css/Experience.css">
@@ -20,13 +21,16 @@
   <title>Andrew Winkenwerder</title>
 </head>
 <body>
-  <body>
+  <div class="snake-game-container">
+    <canvas id="snake-game-canvas" width="400" height="400"></canvas>
+    <button id="start-game">Start game</button>
+  </div>
     <div class="game-wrapper">
       <div class="background-image"></div>
       <div class="game-container">
         <div id="msgNote" style="display: none;">
           <p>Thank you!</p>
-          <p>Navigate to some mini-games on the right.</p>
+          <p>Navigate to some mini-games on the left.</p>
         </div>
         <canvas class="game-canvas" width="300" height="235"></canvas>
         
@@ -148,6 +152,7 @@
   <script src="/js/textMessages/ContactMe.js"></script>
   <script src="/js/textMessages/MoreInfo.js"></script>
   <script src="/js/OverworldEvent.js"></script>
+  <script src="./js/snake.js"></script>
   <script src="/js/KeyPressListener.js"></script>
   <script src="/js/RevealingText.js"></script>
   <script src="/js/SceneTransition.js"></script>

@@ -100,11 +100,19 @@ startMap(mapConfig) {
   if (this.map.isContactMeMap()) {
     this.panningProgress = 16 * 16 // 16 spaces to the left, each space is 16px.
   }
+
+  // If the current map is SnakeMap, we show the snake game canvas.
+  if (mapConfig === window.OverworldMaps.SnakeMap) {
+    document.querySelector('.snake-game-container').style.display = 'block';
+  } else {
+    document.querySelector('.snake-game-container').style.display = 'none';
+  }
+
 }
 
 
   init() {
-    this.startMap(window.OverworldMaps.MainMap)
+    this.startMap(window.OverworldMaps.SnakeMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
