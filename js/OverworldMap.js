@@ -1024,15 +1024,10 @@ window.OverworldMaps = {
       }
   },
     SnakeMap: {
-      lowerSrc: '/media/maps/pixle-portfolio-construction.png',
+      lowerSrc: '',
       upperSrc: '',
       hasContactForm: false,
       gameObjects: {
-        hero: new Person({
-          isPlayerControlled: true,
-          x: utils.widthGrid(24),
-          y: utils.widthGrid(39),
-        }),
       },
       walls: {
       },
