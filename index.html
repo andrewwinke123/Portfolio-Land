@@ -23,8 +23,14 @@
 <body>
   <div class="game-wrapper">
   <div class="snake-game-container">
-    <canvas id="snake-game-canvas" width="530" height="380"></canvas>
+    <canvas id="snake-game-canvas" width="540" height="380"></canvas>
     <button id="start">Start game</button>
+    <div class="tab-container">
+      <div class="tab-link" onclick="changeMap('MainMap')">Portfolio Hub</div>
+      <div class="tab-link" onclick="changeMap('AboutMeMap')">About Me</div>
+      <div class="tab-link" onclick="changeMap('ContactMeMap')">Contact Me</div>
+      <div class="tab-link" onclick="changeMap('ConstructionMap')">Mini-Games</div>
+    </div>
   </div>
       <div class="background-image"></div>
       <div class="game-container">

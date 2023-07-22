@@ -103,9 +103,11 @@ startMap(mapConfig) {
 
   // If the current map is SnakeMap, we show the snake game canvas.
   if (mapConfig === window.OverworldMaps.SnakeMap) {
-    document.querySelector('.snake-game-container').style.display = 'block';
+    document.querySelector('.snake-game-container').style.display = 'block'
+    document.querySelector('.game-container').style.display = 'none'
   } else {
-    document.querySelector('.snake-game-container').style.display = 'none';
+    document.querySelector('.snake-game-container').style.display = 'none'
+    document.querySelector('.game-container').style.display = 'block'
   }
 
 }
