@@ -999,6 +999,13 @@ window.OverworldMaps = {
             ]
           }
         ],
+        [utils.asGridCoord(28,39)]: [
+          {
+            events: [
+              { type: 'changeMap', map: 'SnakeMap'}
+            ]
+          }
+        ],
         [utils.asGridCoord(12,39)]: [
           {
             events: [

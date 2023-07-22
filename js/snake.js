@@ -45,6 +45,11 @@ function draw(){
     if(d == "RIGHT") snakeX += box
     if(d == "DOWN") snakeY += box
 
+    // Wall collision detection here
+    if(snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height){
+        reset()
+    }
+
     if(snakeX == food.x && snakeY == food.y){
         food = {
             x : Math.floor(Math.random()*17+1) * box,
