@@ -56,7 +56,7 @@ function draw(){
 
     if(snakeX == food.x && snakeY == food.y){
         score++
-        scoreElement.innerText = 'Score: ' + score
+        scoreElement.innerText = score
         food = {
             x : Math.floor(Math.random()*17+1) * box,
             y : Math.floor(Math.random()*15+3) * box
@@ -99,8 +99,16 @@ function reset() {
 
 
 function endGame() {
+
+    food = {
+        x : Math.floor(Math.random()*17+1) * box,
+        y : Math.floor(Math.random()*15+3) * box
+    }
+
+    d = undefined
+
     clearInterval(game) // stop the current game
-    scoreElement.innerText = 'Score: ' + score
+    scoreElement.innerText = score
     scoreElement.style.display = 'block' // Display the score
     game = setInterval(draw,100)
 }
