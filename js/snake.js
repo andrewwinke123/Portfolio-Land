@@ -75,6 +75,7 @@ function draw(){
 
 let game = setInterval(draw,100)
 
+let gameOver = false
 
 function reset() {
     clearInterval(game) // stop the current game
@@ -93,6 +94,8 @@ function reset() {
 
     d = undefined
 
+    gameOver = false
+
     // start a new game
     game = setInterval(draw,100)
 }
@@ -110,8 +113,16 @@ function endGame() {
     clearInterval(game) // stop the current game
     scoreElement.innerText = score
     scoreElement.style.display = 'block' // Display the score
+    gameOver = true
     game = setInterval(draw,100)
 }
 
 
 document.getElementById('start').addEventListener('click', reset)
+
+document.addEventListener("keydown", function(event){
+    let key = event.keyCode
+    if((key == 13 || key == 37 || key == 38 || key == 39 || key == 40) && gameOver){
+        reset()
+    }
+})
