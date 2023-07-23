@@ -4,6 +4,9 @@ const box = 20
 let snake = []
 snake[0] = {x : 10 * box, y : 10 * box}
 
+let score = 0
+const scoreElement = document.getElementById('score')
+
 let food = {
     x : Math.floor(Math.random()*17+1) * box,
     y : Math.floor(Math.random()*15+3) * box
@@ -27,7 +30,7 @@ function direction(event){
 }
 
 function draw(){
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height)
     
     for(let i = 0; i < snake.length ; i++){
         context.fillStyle = (i == 0)? "green" : "green"
@@ -47,10 +50,13 @@ function draw(){
 
     // Wall collision detection here
     if(snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height){
-        reset()
+        endGame()
     }
+    
 
     if(snakeX == food.x && snakeY == food.y){
+        score++
+        scoreElement.innerText = 'Score: ' + score
         food = {
             x : Math.floor(Math.random()*17+1) * box,
             y : Math.floor(Math.random()*15+3) * box
@@ -76,6 +82,10 @@ function reset() {
     snake = []
     snake[0] = {x : 10 * box, y : 10 * box}
 
+    score = 0
+    scoreElement.innerText = ''
+    scoreElement.style.display = 'none' // Hide the score
+
     food = {
         x : Math.floor(Math.random()*17+1) * box,
         y : Math.floor(Math.random()*15+3) * box
@@ -86,5 +96,14 @@ function reset() {
     // start a new game
     game = setInterval(draw,100)
 }
+
+
+function endGame() {
+    clearInterval(game) // stop the current game
+    scoreElement.innerText = 'Score: ' + score
+    scoreElement.style.display = 'block' // Display the score
+    game = setInterval(draw,100)
+}
+
 
 document.getElementById('start').addEventListener('click', reset)
