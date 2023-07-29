@@ -1006,6 +1006,13 @@ window.OverworldMaps = {
             ]
           }
         ],
+        [utils.asGridCoord(14,39)]: [
+          {
+            events: [
+              { type: 'changeMap', map: 'PlatformerMap'}
+            ]
+          }
+        ],
         [utils.asGridCoord(12,39)]: [
           {
             events: [
