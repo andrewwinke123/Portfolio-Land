@@ -1,5 +1,7 @@
 const platformerCanvas = document.getElementById('platformerGameCanvas')
 const platformerContext = platformerCanvas.getContext('2d')
+const scoreElement = document.getElementById('platformerScore')
+
 
 // Constants for game elements
 const GRAVITY = 1
@@ -52,12 +54,14 @@ function gameLoop() {
   }
 
   // Collision detection with coins
-  for (let coin of coins) {
-    if (!coin.collected && player.x < coin.x + 10 && player.x + PLAYER_WIDTH > coin.x && player.y < coin.y + 10 && player.y + PLAYER_HEIGHT > coin.y) {
-      player.score += COIN_VALUE
-      coin.collected = true
-    }
+for (let coin of coins) {
+  if (!coin.collected && player.x < coin.x + 10 && player.x + PLAYER_WIDTH > coin.x && player.y < coin.y + 10 && player.y + PLAYER_HEIGHT > coin.y) {
+    player.score += COIN_VALUE
+    coin.collected = true
+    scoreElement.innerText = "Score: " + player.score
   }
+}
+
 
   // Floor collision
   if (player.y >= FLOOR_Y) {
@@ -106,8 +110,10 @@ document.getElementById('resetButton').addEventListener('click', function() {
   player.dx = 0
   player.score = 0
   player.grounded = true
+  scoreElement.innerText = "Score: " + player.score
 
   for (let coin of coins) {
     coin.collected = false
   }
 })
+
