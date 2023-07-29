@@ -1,5 +1,5 @@
-const canvas = document.getElementById('snake-game-canvas')
-const context = canvas.getContext('2d')
+const snakeCanvas = document.getElementById('snake-game-canvas')
+const snakeContext = snakeCanvas.getContext('2d')
 const box = 20
 let snake = []
 snake[0] = {x : 10 * box, y : 10 * box}
@@ -30,15 +30,15 @@ function direction(event){
 }
 
 function draw(){
-    context.clearRect(0, 0, canvas.width, canvas.height)
+    snakeContext.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height)
     
     for(let i = 0; i < snake.length ; i++){
-        context.fillStyle = (i == 0)? "green" : "green"
-        context.fillRect(snake[i].x,snake[i].y,box,box)
+        snakeContext.fillStyle = (i == 0)? "green" : "green"
+        snakeContext.fillRect(snake[i].x,snake[i].y,box,box)
     }
     
-    context.fillStyle = "red"
-    context.fillRect(food.x, food.y, box, box)
+    snakeContext.fillStyle = "red"
+    snakeContext.fillRect(food.x, food.y, box, box)
     
     let snakeX = snake[0].x
     let snakeY = snake[0].y
@@ -49,7 +49,7 @@ function draw(){
     if(d == "DOWN") snakeY += box
 
     // Wall collision detection here
-    if(snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height){
+    if(snakeX < 0 || snakeY < 0 || snakeX >= snakeCanvas.width || snakeY >= snakeCanvas.height){
         endGame()
     }
     

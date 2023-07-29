@@ -110,11 +110,21 @@ startMap(mapConfig) {
     document.querySelector('.game-container').style.display = 'block'
   }
 
+
+  // If the current map is PlatformerMap, we show the snake game canvas.
+  if (mapConfig === window.OverworldMaps.PlatformerMap) {
+    document.querySelector('.platformer-game-container').style.display = 'block'
+    document.querySelector('.game-container').style.display = 'none'
+  } else {
+    document.querySelector('.platformer-game-container').style.display = 'none'
+    document.querySelector('.game-container').style.display = 'block'
+  }
+
 }
 
 
   init() {
-    this.startMap(window.OverworldMaps.SnakeMap)
+    this.startMap(window.OverworldMaps.PlatformerMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
