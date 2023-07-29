@@ -12,12 +12,11 @@
 }
 
 #resetButton {
-  margin-top: 10px;
+  margin-top: 700px;
 }
 
 #platformerScore {
   font-size: 1.5em;
   text-align: center;
-  margin: 10px 0;
-}
+  margin: -350px 0;}
 

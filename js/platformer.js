@@ -21,6 +21,33 @@ let player = {
   grounded: true
 }
 
+// Platforms
+let platforms = [
+  { x: 50, y: 300, width: 100, height: 10 },
+  { x: 200, y: 200, width: 100, height: 10 },
+  { x: 380, y: 150, width: 100, height: 10 }
+]
+
+// Check for collisions with any platform
+function checkPlatformCollision() {
+  for(let platform of platforms) {
+    if (
+      player.x < platform.x + platform.width &&
+      player.x + PLAYER_WIDTH > platform.x &&
+      player.y < platform.y + platform.height &&
+      player.y + PLAYER_HEIGHT > platform.y
+    ) {
+      // move the player to the top of the platform and stop the downward movement
+      player.y = platform.y - PLAYER_HEIGHT;
+      player.dy = 0;
+      player.grounded = true;
+      return
+    }
+  }
+  player.grounded = false; // If we're not colliding with any platform, we're in the air
+}
+
+// Coins
 let coins = [
   { x: 100, y: 200, collected: false },
   { x: 300, y: 400, collected: false }
@@ -30,6 +57,15 @@ let coins = [
 function gameLoop() {
   // Clear the platformerCanvas
   platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
+
+  // Check for platform collisions
+  let onPlatform = checkPlatformCollision();
+  if (onPlatform && player.dy > 0) { // If we're moving down, stop at the platform
+    player.dy = 0;
+    player.grounded = true;
+  } else if (!onPlatform && player.y < FLOOR_Y) { // If we're not on a platform and above the floor, we're in the air
+    player.grounded = false;
+  }
 
   // Apply gravity
   if (!player.grounded) {
@@ -43,6 +79,10 @@ function gameLoop() {
   // Draw player
   platformerContext.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT)
 
+  // Draw platforms
+  for(let platform of platforms) {
+    platformerContext.fillRect(platform.x, platform.y, platform.width, platform.height);
+  }
   // Draw coins
   for (let coin of coins) {
     if (!coin.collected) {
@@ -51,6 +91,16 @@ function gameLoop() {
       platformerContext.closePath()
       platformerContext.fill()
     }
+  }
+
+  // Check for platform collisions
+  checkPlatformCollision()
+
+  // Apply gravity
+  if (!player.grounded) {
+    player.dy += GRAVITY;
+  } else {
+    player.dy = 0;
   }
 
   // Collision detection with coins
