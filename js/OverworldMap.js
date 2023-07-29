@@ -1046,4 +1046,20 @@ window.OverworldMaps = {
       cutsceneSpaces: {
       }
   },
+    PlatformerMap: {
+      lowerSrc: '',
+      upperSrc: '',
+      hasContactForm: false,
+      gameObjects: {
+        hero: new Person({
+          isPlayerControlled: true,
+          x: utils.widthGrid(24),
+          y: utils.widthGrid(39),
+        }),
+      },
+      walls: {
+      },
+      cutsceneSpaces: {
+      }
+  },
 }

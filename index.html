@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/snake.css">
+  <link rel="stylesheet" href="./css/platformer.css">
   <link rel="stylesheet" href="./css/TextMessage.css">
   <link rel="stylesheet" href="./css/AboutMe.css">
   <link rel="stylesheet" href="./css/Experience.css">
@@ -32,6 +33,11 @@
       <div class="tab-link" onclick="changeMap('ContactMeMap')">Contact Me</div>
       <div class="tab-link" onclick="changeMap('ConstructionMap')">Mini-Games</div>
     </div>
+  </div>
+  <div class="platformer-game-container">
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <button id="resetButton">Reset Game</button>
+    <script src="platformer.js"></script>
   </div>
       <div class="background-image"></div>
       <div class="game-container">
