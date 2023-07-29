@@ -1,17 +1,19 @@
-const platformCanvas = document.getElementById('gameCanvas')
-const platformerContext = platformCanvas.getContext('2d')
+const platformerCanvas = document.getElementById('platformerGameCanvas')
+const platformerContext = platformerCanvas.getContext('2d')
 
 // Constants for game elements
 const GRAVITY = 1
 const PLAYER_WIDTH = 20
 const PLAYER_HEIGHT = 20
-const FLOOR_Y = platformCanvas.height - PLAYER_HEIGHT;
+const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
+const PLAYER_SPEED = 5
 
 let player = {
-  x: platformCanvas.width / 2,
+  x: platformerCanvas.width / 2,
   y: FLOOR_Y,
+  dx: 0,
   dy: 0,
   score: 0,
   grounded: true
@@ -24,8 +26,8 @@ let coins = [
 
 // Game loop
 function gameLoop() {
-  // Clear the platformCanvas
-  platformerContext.clearRect(0, 0, platformCanvas.width, platformCanvas.height)
+  // Clear the platformerCanvas
+  platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
 
   // Apply gravity
   if (!player.grounded) {
@@ -33,10 +35,10 @@ function gameLoop() {
   }
 
   // Move player
+  player.x += player.dx
   player.y += player.dy
 
   // Draw player
-  platformerContext.fillStyle = '#000';  // or any color
   platformerContext.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT)
 
   // Draw coins
@@ -69,19 +71,39 @@ function gameLoop() {
 
 gameLoop()
 
-// Event listener for jumping
+// Event listeners for controls
 window.addEventListener('keydown', function(event) {
-  if (event.key === ' ' && player.grounded) {
-    player.dy = -JUMP_FORCE
-    player.grounded = false
+  switch(event.key) {
+    case 'ArrowUp':
+      if (player.grounded) {
+        player.dy = -JUMP_FORCE
+        player.grounded = false
+      }
+      break
+    case 'ArrowLeft':
+      player.dx = -PLAYER_SPEED
+      break
+    case 'ArrowRight':
+      player.dx = PLAYER_SPEED
+      break
+  }
+})
+
+window.addEventListener('keyup', function(event) {
+  switch(event.key) {
+    case 'ArrowLeft':
+    case 'ArrowRight':
+      player.dx = 0
+      break
   }
 })
 
 // Event listener for reset button
 document.getElementById('resetButton').addEventListener('click', function() {
-  player.x = platformCanvas.width / 2
+  player.x = platformerCanvas.width / 2
   player.y = FLOOR_Y
   player.dy = 0
+  player.dx = 0
   player.score = 0
   player.grounded = true
 
