@@ -6,7 +6,7 @@
   z-index: 9999;
   outline: 3px solid rgb(15, 15, 15);
   background-color: white;
-  border-radius: 20px 20px 20px 20px;
+  /* border-radius: 20px 20px 20px 20px; */
   top: -75px; 
   left: 74px; 
 }
