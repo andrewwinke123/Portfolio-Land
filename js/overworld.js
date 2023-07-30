@@ -124,7 +124,7 @@ startMap(mapConfig) {
 
 
   init() {
-    this.startMap(window.OverworldMaps.PlatformerMap)
+    this.startMap(window.OverworldMaps.MainMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

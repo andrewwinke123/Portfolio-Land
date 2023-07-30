@@ -22,9 +22,9 @@ let currentLevel = 0
 const levels = [
   {
     platforms: [
-      // Platforms
-      { x: 50, y: 300, width: 100, height: 10 },
-      { x: 200, y: 200, width: 100, height: 10 },
+      // Platforms 0
+      { x: 50, y: 300, width: 200, height: 10 },
+      { x: 200, y: 200, width: 125, height: 10 },
       { x: 380, y: 150, width: 100, height: 10 },
       { x: 380, y: 150, width: 400, height: 500 },
       // Border
@@ -41,15 +41,32 @@ const levels = [
   },
   {
     platforms: [
-      // Platforms
-      { x: 50, y: 300, width: 100, height: 10 },
-      { x: 200, y: 200, width: 100, height: 10 },
+      // Platforms 1
+      { x: 50, y: 300, width: 300, height: 10 },
+      { x: 180, y: 200, width: 100, height: 10 },
+      { x: 0, y: 150, width: 100, height: 500 },
       // Border
-      { x: 10, y: 0, width: 550, height: 10 },
+      { x: 0, y: 0, width: 550, height: 10 },
       { x: 0, y: 382, width: 550, height: 10 },
     ],
     coins: [
-      { x: 100, y: 200, collected: false },
+      { x: 200, y: 150, collected: false },
+      { x: 150, y: 350, collected: false },
+    ],
+  },
+  {
+    platforms: [
+      // Platforms 2
+      { x: 250, y: 300, width: 300, height: 10 },
+      { x: 180, y: 200, width: 100, height: 10 },
+      // Border
+      { x: 0, y: 0, width: 550, height: 10 },
+      { x: 0, y: 382, width: 550, height: 10 },
+      { x: 530, y: 0, width: 10, height: 550 },
+    ],
+    coins: [
+      { x: 200, y: 150, collected: false },
+      { x: 450, y: 350, collected: false },
     ],
   },
   // Additional levels
@@ -64,7 +81,7 @@ let player = {
   dx: 0,
   dy: 0,
   score: 0,
-  grounded: true
+  grounded: true,
 }
 
 
