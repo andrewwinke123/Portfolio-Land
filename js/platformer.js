@@ -31,26 +31,68 @@ let platforms = [
 // Check for collisions with any platform
 function checkPlatformCollision() {
   for(let platform of platforms) {
+    // Define the sides of the player and the platform for readability
+    const playerLeft = player.x;
+    const playerRight = player.x + PLAYER_WIDTH;
+    const playerTop = player.y;
+    const playerBottom = player.y + PLAYER_HEIGHT;
+    const platformLeft = platform.x;
+    const platformRight = platform.x + platform.width;
+    const platformTop = platform.y;
+    const platformBottom = platform.y + platform.height;
+
     if (
-      player.x < platform.x + platform.width &&
-      player.x + PLAYER_WIDTH > platform.x &&
-      player.y < platform.y + platform.height &&
-      player.y + PLAYER_HEIGHT > platform.y
+      playerRight > platformLeft &&
+      playerLeft < platformRight &&
+      playerBottom > platformTop &&
+      playerTop < platformBottom
     ) {
-      // move the player to the top of the platform and stop the downward movement
-      player.y = platform.y - PLAYER_HEIGHT;
-      player.dy = 0;
-      player.grounded = true;
-      return
+      // Player is colliding with the platform
+      // Calculate the collision depth on all four sides
+      const collisionDepthTop = playerBottom - platformTop;
+      const collisionDepthBottom = platformBottom - playerTop;
+      const collisionDepthLeft = playerRight - platformLeft;
+      const collisionDepthRight = platformRight - playerLeft;
+
+      // Determine which side had the shallowest collision
+      const minCollisionDepth = Math.min(collisionDepthTop, collisionDepthBottom, collisionDepthLeft, collisionDepthRight);
+
+      switch (minCollisionDepth) {
+        case collisionDepthTop:
+          // Top collision
+          player.y = platformTop - PLAYER_HEIGHT;
+          player.dy = 0;
+          player.grounded = true;
+          break;
+        case collisionDepthBottom:
+          // Bottom collision
+          player.y = platformBottom;
+          player.dy = 0;
+          break;
+        case collisionDepthLeft:
+          // Left collision
+          player.x = platformLeft - PLAYER_WIDTH;
+          player.dx = 0;
+          break;
+        case collisionDepthRight:
+          // Right collision
+          player.x = platformRight;
+          player.dx = 0;
+          break;
+      }
+
+      return;
     }
   }
   player.grounded = false; // If we're not colliding with any platform, we're in the air
 }
 
+
 // Coins
 let coins = [
   { x: 100, y: 200, collected: false },
-  { x: 300, y: 400, collected: false }
+  { x: 350, y: 250, collected: false },
+  { x: 450, y: 100, collected: false }
 ]
 
 // Game loop
@@ -59,22 +101,29 @@ function gameLoop() {
   platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
 
   // Check for platform collisions
-  let onPlatform = checkPlatformCollision();
-  if (onPlatform && player.dy > 0) { // If we're moving down, stop at the platform
-    player.dy = 0;
-    player.grounded = true;
-  } else if (!onPlatform && player.y < FLOOR_Y) { // If we're not on a platform and above the floor, we're in the air
-    player.grounded = false;
-  }
+let onPlatform = checkPlatformCollision();
+if (onPlatform && player.dy > 0) { // If we're moving down, stop at the platform
+  player.dy = 0;
+  player.grounded = true;
+} else if (!onPlatform && player.y < FLOOR_Y) { // If we're not on a platform and above the floor, we're in the air
+  player.grounded = false;
+}
 
-  // Apply gravity
-  if (!player.grounded) {
-    player.dy += GRAVITY
-  }
+// Apply gravity
+if (!player.grounded) {
+  player.dy += GRAVITY
+}
 
-  // Move player
-  player.x += player.dx
-  player.y += player.dy
+// Limit falling speed
+const MAX_FALL_SPEED = 15; // Adjust as necessary
+if (player.dy > MAX_FALL_SPEED) {
+  player.dy = MAX_FALL_SPEED;
+}
+
+// Move player
+player.x += player.dx
+player.y += player.dy
+
 
   // Draw player
   platformerContext.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT)
