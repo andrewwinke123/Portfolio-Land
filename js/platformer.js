@@ -11,8 +11,9 @@ const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
 const PLAYER_SPEED = 5
+let gameRunning = false
 
-let currentLevel = 0
+let currentLevel = 2
 
 // // Calculate player's vertical position ratio
 // let playerYRatio = player.y / platformerCanvas.height
@@ -65,15 +66,17 @@ const levels = [
       { x: 530, y: 0, width: 10, height: 550 },
     ],
     coins: [
-      { x: 200, y: 150, collected: false },
+      { x: 225, y: 150, collected: false },
       { x: 450, y: 350, collected: false },
     ],
+    flag: { x: 200, y: 140, width: 20, height: 60, isReached: false },
   },
   // Additional levels
 ]
 
 let platforms = levels[currentLevel].platforms
 let coins = levels[currentLevel].coins
+let flag = levels[currentLevel].flag
 
 let player = {
   x: platformerCanvas.width / 2,
@@ -152,7 +155,7 @@ function checkPlatformCollision() {
 //   { x: 450, y: 100, collected: false }
 // ]
 
-// Game loop
+
 // Game loop
 function gameLoop() {
   // Clear the platformerCanvas
@@ -179,20 +182,28 @@ function gameLoop() {
   }
 
   // Move player
-  player.x += player.dx
-  player.y += player.dy
+player.x += player.dx
+player.y += player.dy
+
+// Check for win condition
+let flag = levels[currentLevel].flag
+if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - flag.y) < PLAYER_HEIGHT){
+  endGame()
+}
+
 
   // Calculate player's vertical position ratio
-  let playerYRatio = player.y / platformerCanvas.height;
+  let playerYRatio = player.y / platformerCanvas.height
 
   // Check for level transition
   if (player.x < 0) {
+    flag = levels[currentLevel].flag
     // Player has moved off the left side of the screen
     if (currentLevel > 0) {
       currentLevel--
       // Reset player position and load new level data
       player.x = platformerCanvas.width - PLAYER_WIDTH // Player enters from the right side
-      player.y = playerYRatio * platformerCanvas.height; // Maintain the same height ratio
+      player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
       platforms = levels[currentLevel].platforms
       coins = levels[currentLevel].coins
     } else {
@@ -204,13 +215,18 @@ function gameLoop() {
       currentLevel++
       // Reset player position and load new level data
       player.x = 0 // Player enters from the left side
-      player.y = playerYRatio * platformerCanvas.height; // Maintain the same height ratio
+      player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
       platforms = levels[currentLevel].platforms
       coins = levels[currentLevel].coins
+      flag = levels[currentLevel].flag
     } else {
       player.x = platformerCanvas.width - PLAYER_WIDTH
     }
+
+    // Update flag for current level
+  flag = levels[currentLevel].flag
   }
+  
 
   // Draw player
   platformerContext.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT)
@@ -230,8 +246,19 @@ function gameLoop() {
     }
   }
 
+  // Draw flag
+  if (flag && !flag.isReached) {
+    platformerContext.fillStyle = "red"
+    platformerContext.fillRect(flag.x, flag.y, flag.width, flag.height)
+    platformerContext.fillStyle = "black"
+  }
+
+
   // Check for platform collisions
   checkPlatformCollision()
+
+  // Check for flag collisions
+  checkFlagCollision()
 
   // Apply gravity
   if (!player.grounded) {
@@ -258,6 +285,7 @@ function gameLoop() {
 
   requestAnimationFrame(gameLoop)
 }
+
 
 gameLoop()
 
@@ -291,6 +319,7 @@ window.addEventListener('keyup', function(event) {
 
 // Event listener for reset button
 document.getElementById('resetButton').addEventListener('click', function() {
+  gameRunning = true
   player.x = platformerCanvas.width / 2
   player.y = FLOOR_Y
   player.dy = 0
@@ -298,6 +327,7 @@ document.getElementById('resetButton').addEventListener('click', function() {
   player.score = 0
   player.grounded = true
   platformerScoreElement.innerText = "Score: " + player.score
+  flag = levels[currentLevel].flag
   
   currentLevel = 0
   platforms = levels[currentLevel].platforms
@@ -306,6 +336,49 @@ document.getElementById('resetButton').addEventListener('click', function() {
   for (let coin of coins) {
     coin.collected = false
   }
+
+  requestAnimationFrame(gameLoop)
 })
 
+function checkFlagCollision() {
+  if (flag) {
+    const playerLeft = player.x
+    const playerRight = player.x + PLAYER_WIDTH
+    const playerTop = player.y
+    const playerBottom = player.y + PLAYER_HEIGHT
+    const flagLeft = flag.x
+    const flagRight = flag.x + flag.width
+    const flagTop = flag.y
+    const flagBottom = flag.y + flag.height
 
+    if (
+      playerRight > flagLeft &&
+      playerLeft < flagRight &&
+      playerBottom > flagTop &&
+      playerTop < flagBottom
+    ) {
+      // Player is colliding with the flag
+      flag.isReached = true
+      // Call the function to end the game
+      endGame()
+    }
+  }
+}
+
+
+
+
+function endGame(){
+  gameRunning = false // stop game loop
+
+  // Display score
+  platformerContext.font = '50px Arial'
+  platformerContext.fillStyle = 'red'
+  platformerContext.textAlign = 'center'
+  platformerContext.fillText('Score: ' + player.score, platformerCanvas.width / 2, platformerCanvas.height / 2)
+
+  // Confetti
+  var confettiSettings = { target: 'platformerGameCanvas' }
+  var confetti = new ConfettiGenerator(confettiSettings)
+  confetti.render()
+}
