@@ -2,7 +2,6 @@ const platformerCanvas = document.getElementById('platformerGameCanvas')
 const platformerContext = platformerCanvas.getContext('2d')
 const platformerScoreElement = document.getElementById('platformerScore')
 
-
 // Constants for game elements
 const GRAVITY = 1
 const PLAYER_WIDTH = 20
@@ -10,12 +9,7 @@ const PLAYER_HEIGHT = 20
 const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
-const PLAYER_SPEED = 12
-
-
-// // Calculate player's vertical position ratio
-// let playerYRatio = player.y / platformerCanvas.height
-
+const PLAYER_SPEED = 5
 
 // Levels
 const levels = [
@@ -88,7 +82,6 @@ let player = {
   grounded: true,
 }
 
-
 // Check for collisions with any platform
 function checkPlatformCollision() {
   for(let platform of platforms) {
@@ -148,13 +141,6 @@ function checkPlatformCollision() {
   player.grounded = false // If we're not colliding with any platform, we're in the air
 }
 
-
-// // Coins
-// let coins = [
-//   { x: 100, y: 200, collected: false },
-//   { x: 350, y: 250, collected: false },
-//   { x: 450, y: 100, collected: false }
-// ]
 
 
 let animationId // Keep track of the animation frame id
@@ -340,6 +326,38 @@ window.addEventListener('keyup', function(event) {
 })
 
 
+// Event listener for previous level button
+document.getElementById('previousLevel').addEventListener('click', function() {
+  if (currentLevel > 0) {
+    let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
+    let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
+    currentLevel--
+    console.log(`Moved to previous level: ${currentLevel}`)
+    player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = levels[currentLevel].platforms
+    coins = levels[currentLevel].coins
+    flag = levels[currentLevel].flag
+  }
+})
+
+// Event listener for next level button
+document.getElementById('nextLevel').addEventListener('click', function() {
+  if (currentLevel < levels.length - 1) {
+    let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
+    let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
+    currentLevel++
+    console.log(`Moved to next level: ${currentLevel}`)
+    player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = levels[currentLevel].platforms
+    coins = levels[currentLevel].coins
+    flag = levels[currentLevel].flag
+  }
+})
+
+
+
 // Event listener for reset button
 document.getElementById('resetButton').addEventListener('click', function() {
   gameRunning = true
@@ -363,10 +381,6 @@ document.getElementById('resetButton').addEventListener('click', function() {
     }
     if(level.flag) level.flag.isReached = false //reset flags also
   }
-
-  // Cancel previous game loop and start a new one
-  cancelAnimationFrame(animationId)
-  animationId = requestAnimationFrame(gameLoop)
 })
 
 function checkFlagCollision() {
