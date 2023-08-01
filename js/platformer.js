@@ -11,9 +11,7 @@ const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
 const PLAYER_SPEED = 5
-let gameRunning = false
 
-let currentLevel = 2
 
 // // Calculate player's vertical position ratio
 // let playerYRatio = player.y / platformerCanvas.height
@@ -74,6 +72,9 @@ const levels = [
   // Additional levels
 ]
 
+
+let currentLevel = 0
+let gameRunning = true
 let platforms = levels[currentLevel].platforms
 let coins = levels[currentLevel].coins
 let flag = levels[currentLevel].flag
@@ -156,8 +157,13 @@ function checkPlatformCollision() {
 // ]
 
 
+let animationId; // Keep track of the animation frame id
+
 // Game loop
 function gameLoop() {
+  if (!gameRunning) {
+    return // Stop the loop
+  }
   // Clear the platformerCanvas
   platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
 
@@ -186,7 +192,6 @@ player.x += player.dx
 player.y += player.dy
 
 // Check for win condition
-let flag = levels[currentLevel].flag
 if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - flag.y) < PLAYER_HEIGHT){
   endGame()
 }
@@ -283,7 +288,7 @@ if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - fla
     player.grounded = true
   }
 
-  requestAnimationFrame(gameLoop)
+  animationId = requestAnimationFrame(gameLoop)
 }
 
 
@@ -327,14 +332,18 @@ document.getElementById('resetButton').addEventListener('click', function() {
   player.score = 0
   player.grounded = true
   platformerScoreElement.innerText = "Score: " + player.score
-  flag = levels[currentLevel].flag
   
   currentLevel = 0
   platforms = levels[currentLevel].platforms
   coins = levels[currentLevel].coins
-  
-  for (let coin of coins) {
-    coin.collected = false
+  flag = levels[currentLevel].flag
+
+  // Reset coins for all levels
+  for (let level of levels) {
+    for (let coin of level.coins) {
+      coin.collected = false
+    }
+    if(level.flag) level.flag.isReached = false; //reset flags also
   }
 
   requestAnimationFrame(gameLoop)
@@ -370,6 +379,7 @@ function checkFlagCollision() {
 
 function endGame(){
   gameRunning = false // stop game loop
+  cancelAnimationFrame(animationId) // Stop the game loop
 
   // Display score
   platformerContext.font = '50px Arial'
@@ -378,7 +388,5 @@ function endGame(){
   platformerContext.fillText('Score: ' + player.score, platformerCanvas.width / 2, platformerCanvas.height / 2)
 
   // Confetti
-  var confettiSettings = { target: 'platformerGameCanvas' }
-  var confetti = new ConfettiGenerator(confettiSettings)
-  confetti.render()
+  confetti({ particleCount: 100, spread: 70, target: 'platformerGameCanvas' })
 }
