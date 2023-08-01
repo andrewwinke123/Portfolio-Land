@@ -10,7 +10,7 @@ const PLAYER_HEIGHT = 20
 const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
-const PLAYER_SPEED = 5
+const PLAYER_SPEED = 12
 
 
 // // Calculate player's vertical position ratio
@@ -157,7 +157,13 @@ function checkPlatformCollision() {
 // ]
 
 
-let animationId; // Keep track of the animation frame id
+let animationId // Keep track of the animation frame id
+
+// Key states
+let keyStates = {
+  ArrowLeft: false,
+  ArrowRight: false,
+}
 
 // Game loop
 function gameLoop() {
@@ -288,6 +294,15 @@ if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - fla
     player.grounded = true
   }
 
+  // Update dx based on key states
+  if(keyStates.ArrowLeft) {
+    if(player.dx > -PLAYER_SPEED) player.dx -= 1
+  } else if(keyStates.ArrowRight) {
+    if(player.dx < PLAYER_SPEED) player.dx += 1
+  } else {
+    player.dx = 0
+  }
+
   animationId = requestAnimationFrame(gameLoop)
 }
 
@@ -305,10 +320,10 @@ window.addEventListener('keydown', function(event) {
       }
       break
     case 'ArrowLeft':
-      player.dx = -PLAYER_SPEED
+      keyStates.ArrowLeft = true // Set left key state to true
       break
     case 'ArrowRight':
-      player.dx = PLAYER_SPEED
+      keyStates.ArrowRight = true // Set right key state to true
       break
   }
 })
@@ -316,11 +331,14 @@ window.addEventListener('keydown', function(event) {
 window.addEventListener('keyup', function(event) {
   switch(event.key) {
     case 'ArrowLeft':
+      keyStates.ArrowLeft = false // Set left key state to false
+      break
     case 'ArrowRight':
-      player.dx = 0
+      keyStates.ArrowRight = false // Set right key state to false
       break
   }
 })
+
 
 // Event listener for reset button
 document.getElementById('resetButton').addEventListener('click', function() {
@@ -343,10 +361,12 @@ document.getElementById('resetButton').addEventListener('click', function() {
     for (let coin of level.coins) {
       coin.collected = false
     }
-    if(level.flag) level.flag.isReached = false; //reset flags also
+    if(level.flag) level.flag.isReached = false //reset flags also
   }
 
-  requestAnimationFrame(gameLoop)
+  // Cancel previous game loop and start a new one
+  cancelAnimationFrame(animationId)
+  animationId = requestAnimationFrame(gameLoop)
 })
 
 function checkFlagCollision() {
