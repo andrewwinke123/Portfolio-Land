@@ -582,7 +582,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(12,39)]: [
         {
           events: [
-            { type: 'changeMap', map: 'ConstructionMap'}
+            { type: 'changeMap', map: 'GameShackMap'}
           ]
         }
       ],
@@ -917,8 +917,8 @@ window.OverworldMaps = {
         ]
       }
   },
-    ConstructionMap: {
-      lowerSrc: '/media/maps/pixle-portfolio-construction.png',
+    GameShackMap: {
+      lowerSrc: '/media/maps/pixle-portfolio-game-shack.png',
       upperSrc: '',
       hasContactForm: false,
       gameObjects: {

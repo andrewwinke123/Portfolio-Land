@@ -120,11 +120,11 @@ startMap(mapConfig) {
     document.querySelector('.game-container').style.display = 'block'
   }
 
-}
+} 
 
 
   init() {
-    this.startMap(window.OverworldMaps.PlatformerMap)
+    this.startMap(window.OverworldMaps.GameShackMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

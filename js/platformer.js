@@ -337,13 +337,21 @@ document.getElementById('previousLevel').addEventListener('click', function() {
     player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
     platforms = levels[currentLevel].platforms
     coins = levels[currentLevel].coins
-    flag = levels[currentLevel].flag
+    if(levels[currentLevel].flag) {
+      flag = levels[currentLevel].flag
+      flag.isReached = false  // Reset the flag's state
+    }
   }
 })
+
 
 // Event listener for next level button
 document.getElementById('nextLevel').addEventListener('click', function() {
   if (currentLevel < levels.length - 1) {
+    if (levels[currentLevel].flag && !levels[currentLevel].flag.isReached) {
+      console.log(`Can't move to next level. Reach the flag first.`);
+      return; // if the flag is not reached, then don't navigate to the next level
+    }
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
     currentLevel++
