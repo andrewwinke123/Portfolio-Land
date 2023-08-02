@@ -11,8 +11,8 @@ const JUMP_FORCE = 20
 const COIN_VALUE = 10
 const PLAYER_SPEED = 5
 
-// Levels
-const levels = [
+// screens
+const screens = [
   {
     platforms: [
       // Platforms 0
@@ -87,16 +87,16 @@ const levels = [
       { x: 100, y: 350, collected: false },
     ],
   },
-  // Additional levels
+  // Additional screens
 ]
 
 
-let currentLevel = 3
+let currentscreen = 0
 
 let gameRunning = true
-let platforms = levels[currentLevel].platforms
-let coins = levels[currentLevel].coins
-let flag = levels[currentLevel].flag
+let platforms = screens[currentscreen].platforms
+let coins = screens[currentscreen].coins
+let flag = screens[currentscreen].flag
 
 let player = {
   x: platformerCanvas.width / 2,
@@ -174,6 +174,7 @@ let animationId // Keep track of the animation frame id
 let keyStates = {
   ArrowLeft: false,
   ArrowRight: false,
+  
 }
 
 // Game loop
@@ -217,37 +218,35 @@ player.y += player.dy
   // Calculate player's vertical position ratio
   let playerYRatio = player.y / platformerCanvas.height
 
-  // Check for level transition
-  if (player.x < 0) {
-    flag = levels[currentLevel].flag
-    // Player has moved off the left side of the screen
-    if (currentLevel > 0) {
-      currentLevel--
-      // Reset player position and load new level data
-      player.x = platformerCanvas.width - PLAYER_WIDTH // Player enters from the right side
-      player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-      platforms = levels[currentLevel].platforms
-      coins = levels[currentLevel].coins
-    } else {
-      player.x = 0
-    }
-  } else if (player.x + PLAYER_WIDTH > platformerCanvas.width) {
-    // Player has moved off the right side of the screen
-    if (currentLevel < levels.length - 1) {
-      currentLevel++
-      // Reset player position and load new level data
-      player.x = 0 // Player enters from the left side
-      player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-      platforms = levels[currentLevel].platforms
-      coins = levels[currentLevel].coins
-      flag = levels[currentLevel].flag
-    } else {
-      player.x = platformerCanvas.width - PLAYER_WIDTH
-    }
-
-    // Update flag for current level
-  flag = levels[currentLevel].flag
+// Check for screen transition
+if (player.x < 0) {
+  // Player has moved off the left side of the screen
+  if (currentscreen > 0) {
+    currentscreen--
+    // Reset player position and load new screen data
+    player.x = platformerCanvas.width - PLAYER_WIDTH // Player enters from the right side
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+  } else {
+    player.x = 0
   }
+} else if (player.x + PLAYER_WIDTH > platformerCanvas.width) {
+  // Player has moved off the right side of the screen
+  if (currentscreen < 2) {
+    currentscreen++
+    // Reset player position and load new screen data
+    player.x = 0 // Player enters from the left side
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+    flag = screens[currentscreen].flag
+  } else {
+    player.x = platformerCanvas.width - PLAYER_WIDTH
+  }
+}
+
+
   
 
   // Draw player
@@ -273,6 +272,12 @@ player.y += player.dy
     platformerContext.fillStyle = "red"
     platformerContext.fillRect(flag.x, flag.y, flag.width, flag.height)
     platformerContext.fillStyle = "black"
+  }
+
+  // Render the image when screen 3 is loaded
+  if (currentscreen === 3) {
+    const screen3Image = document.getElementById("screen3Image")
+    platformerContext.drawImage(screen3Image, -100, -400) // Adjust the coordinates as needed
   }
 
 
@@ -313,6 +318,7 @@ player.y += player.dy
   } else {
     player.dx = 0
   }
+  
 
   animationId = requestAnimationFrame(gameLoop)
 }
@@ -336,6 +342,18 @@ window.addEventListener('keydown', function(event) {
     case 'ArrowRight':
       keyStates.ArrowRight = true // Set right key state to true
       break
+      case '<':
+      loadPreviousscreen()
+      break
+    case '>':
+      loadNextscreen()
+      break
+      case ',':
+      loadPreviousscreen()
+      break
+    case '.':
+      loadNextscreen()
+      break
   }
 })
 
@@ -351,37 +369,70 @@ window.addEventListener('keyup', function(event) {
 })
 
 
-// Event listener for previous level button
-document.getElementById('previousLevel').addEventListener('click', function() {
-  if (currentLevel > 0) {
+function loadPreviousscreen() {
+  if (currentscreen > 0) {
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
-    currentLevel--
-    console.log(`Moved to previous level: ${currentLevel}`)
+    currentscreen--
+    console.log(`Moved to previous screen: ${currentscreen}`)
     player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
     player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-    platforms = levels[currentLevel].platforms
-    coins = levels[currentLevel].coins
-    if(levels[currentLevel].flag) {
-      flag = levels[currentLevel].flag
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+    if (screens[currentscreen].flag) {
+      flag = screens[currentscreen].flag
+      flag.isReached = false // Reset the flag's state
+    }
+  }
+}
+
+function loadNextscreen() {
+  if (currentscreen < 2) {
+    let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
+    let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
+    currentscreen++
+    console.log(`Moved to next screen: ${currentscreen}`)
+    player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+    flag = screens[currentscreen].flag
+  }
+}
+
+
+
+// Event listener for previous screen button
+document.getElementById('previousscreen').addEventListener('click', function() {
+  if (currentscreen > 0) {
+    let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
+    let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
+    currentscreen--
+    console.log(`Moved to previous screen: ${currentscreen}`)
+    player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
+    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+    if(screens[currentscreen].flag) {
+      flag = screens[currentscreen].flag
       flag.isReached = false  // Reset the flag's state
     }
   }
 })
 
 
-// Event listener for next level button
-document.getElementById('nextLevel').addEventListener('click', function() {
-  if (currentLevel < levels.length - 1) {
+// Event listener for next screen button
+document.getElementById('nextscreen').addEventListener('click', function() {
+  if (currentscreen < 2) {
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
-    currentLevel++
-    console.log(`Moved to next level: ${currentLevel}`)
+    currentscreen++
+    console.log(`Moved to next screen: ${currentscreen}`)
     player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
     player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-    platforms = levels[currentLevel].platforms
-    coins = levels[currentLevel].coins
-    flag = levels[currentLevel].flag
+    platforms = screens[currentscreen].platforms
+    coins = screens[currentscreen].coins
+    flag = screens[currentscreen].flag
   }
 })
 
@@ -398,17 +449,17 @@ document.getElementById('resetButton').addEventListener('click', function() {
   player.grounded = true
   platformerScoreElement.innerText = "Score: " + player.score
   
-  currentLevel = 0
-  platforms = levels[currentLevel].platforms
-  coins = levels[currentLevel].coins
-  flag = levels[currentLevel].flag
+  currentscreen = 0
+  platforms = screens[currentscreen].platforms
+  coins = screens[currentscreen].coins
+  flag = screens[currentscreen].flag
 
-  // Reset coins for all levels
-  for (let level of levels) {
-    for (let coin of level.coins) {
+  // Reset coins for all screens
+  for (let screen of screens) {
+    for (let coin of screen.coins) {
       coin.collected = false
     }
-    if(level.flag) level.flag.isReached = false //reset flags also
+    if(screen.flag) screen.flag.isReached = false //reset flags also
   }
 })
 
@@ -430,14 +481,14 @@ function checkFlagCollision() {
     playerTop < flagBottom
   ) {
     // Player is colliding with the flag
-    flag.isReached = true;
-    if (currentLevel === 0) {
-      currentLevel = 3;
-      player.x = 0; // Reset player's position for the new level
-      player.y = FLOOR_Y;
-      platforms = levels[currentLevel].platforms;
-      coins = levels[currentLevel].coins;
-      flag = levels[currentLevel].flag;
+    flag.isReached = true
+    if (currentscreen === 0) {
+      currentscreen = 3
+      player.x = 0 // Reset player's position for the new screen
+      player.y = FLOOR_Y
+      platforms = screens[currentscreen].platforms
+      coins = screens[currentscreen].coins
+      flag = screens[currentscreen].flag
     }
   }
 }
@@ -449,15 +500,20 @@ function checkFlagCollision() {
 
 
 
+
+
+
+
+
 function endGame() {
   // Stop the game
-  gameRunning = false;
+  gameRunning = false
   // Cancel the animation frame request
-  cancelAnimationFrame(animationId);
+  cancelAnimationFrame(animationId)
   // Show the score
-  alert('Congratulations! Your score is ' + player.score);
+  alert('Congratulations! Your score is ' + player.score)
   // Clear the platformerCanvas
-  platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height);
+  platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
   // Confetti
   confetti({
     particleCount: 100,
@@ -467,5 +523,5 @@ function endGame() {
       x: Math.random(),
       y: Math.random()
     }
-  });
+  })
 }
