@@ -17,28 +17,35 @@ const levels = [
     platforms: [
       // Platforms 0
       { x: 50, y: 300, width: 200, height: 10 },
-      { x: 200, y: 200, width: 125, height: 10 },
-      { x: 380, y: 150, width: 100, height: 10 },
-      { x: 380, y: 150, width: 400, height: 500 },
+      { x: 450, y: 80, width: 100, height: 10 },
       // Border
       { x: 0, y: 0, width: 10, height: 550 },
       { x: 0, y: 50, width: 10, height: 550 },
-      { x: 10, y: 0, width: 550, height: 10 },
       { x: 0, y: 382, width: 550, height: 10 },
+      { x: 10, y: 0, width: 550, height: 10 },
+      { x: 530, y: 0, width: 10, height: 550 },
     ],
     coins: [
       { x: 100, y: 200, collected: false },
-      { x: 350, y: 250, collected: false },
-      { x: 450, y: 100, collected: false }
+      { x: 350, y: 300, collected: false },
     ],
+    flag: {
+      x: 500,
+      y: 40,
+      width: 20,
+      height: 40,
+      isReached: false
+    }
   },
   {
     platforms: [
       // Platforms 1
       { x: 50, y: 300, width: 300, height: 10 },
       { x: 180, y: 200, width: 100, height: 10 },
-      { x: 0, y: 150, width: 100, height: 500 },
+      { x: 450, y: 80, width: 100, height: 10 },
       // Border
+      { x: 0, y: 0, width: 10, height: 550 },
+      { x: 530, y: 0, width: 10, height: 550 },
       { x: 0, y: 0, width: 550, height: 10 },
       { x: 0, y: 382, width: 550, height: 10 },
     ],
@@ -50,24 +57,42 @@ const levels = [
   {
     platforms: [
       // Platforms 2
-      { x: 250, y: 300, width: 300, height: 10 },
       { x: 180, y: 200, width: 100, height: 10 },
+      { x: 350, y: 150, width: 100, height: 10 },
+      { x: 450, y: 80, width: 100, height: 10 },
       // Border
+      { x: 0, y: 0, width: 10, height: 550 },
+      { x: 530, y: 0, width: 10, height: 550 },
       { x: 0, y: 0, width: 550, height: 10 },
       { x: 0, y: 382, width: 550, height: 10 },
-      { x: 530, y: 0, width: 10, height: 550 },
     ],
     coins: [
       { x: 225, y: 150, collected: false },
       { x: 450, y: 350, collected: false },
+      { x: 500, y: 40, collected: false },
     ],
-    flag: { x: 200, y: 140, width: 20, height: 60, isReached: false },
+  },
+  {
+    platforms: [
+      // Platforms 3
+      // Border
+      { x: 0, y: 0, width: 10, height: 550 },
+      { x: 530, y: 0, width: 10, height: 550 },
+      { x: 0, y: 0, width: 550, height: 10 },
+      { x: 0, y: 382, width: 550, height: 10 },
+    ],
+    coins: [
+      { x: 225, y: 350, collected: false },
+      { x: 450, y: 350, collected: false },
+      { x: 100, y: 350, collected: false },
+    ],
   },
   // Additional levels
 ]
 
 
-let currentLevel = 0
+let currentLevel = 3
+
 let gameRunning = true
 let platforms = levels[currentLevel].platforms
 let coins = levels[currentLevel].coins
@@ -183,10 +208,10 @@ function gameLoop() {
 player.x += player.dx
 player.y += player.dy
 
-// Check for win condition
-if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - flag.y) < PLAYER_HEIGHT){
-  endGame()
-}
+// // Check for win condition
+// if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - flag.y) < PLAYER_HEIGHT){
+//   endGame()
+// }
 
 
   // Calculate player's vertical position ratio
@@ -255,7 +280,7 @@ if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - fla
   checkPlatformCollision()
 
   // Check for flag collisions
-  checkFlagCollision()
+  if (flag) checkFlagCollision()
 
   // Apply gravity
   if (!player.grounded) {
@@ -348,10 +373,6 @@ document.getElementById('previousLevel').addEventListener('click', function() {
 // Event listener for next level button
 document.getElementById('nextLevel').addEventListener('click', function() {
   if (currentLevel < levels.length - 1) {
-    if (levels[currentLevel].flag && !levels[currentLevel].flag.isReached) {
-      console.log(`Can't move to next level. Reach the flag first.`);
-      return; // if the flag is not reached, then don't navigate to the next level
-    }
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
     currentLevel++
@@ -392,26 +413,31 @@ document.getElementById('resetButton').addEventListener('click', function() {
 })
 
 function checkFlagCollision() {
-  if (flag) {
-    const playerLeft = player.x
-    const playerRight = player.x + PLAYER_WIDTH
-    const playerTop = player.y
-    const playerBottom = player.y + PLAYER_HEIGHT
-    const flagLeft = flag.x
-    const flagRight = flag.x + flag.width
-    const flagTop = flag.y
-    const flagBottom = flag.y + flag.height
+  // Define the sides of the player and the flag for readability
+  const playerLeft = player.x
+  const playerRight = player.x + PLAYER_WIDTH
+  const playerTop = player.y
+  const playerBottom = player.y + PLAYER_HEIGHT
+  const flagLeft = flag.x
+  const flagRight = flag.x + flag.width
+  const flagTop = flag.y
+  const flagBottom = flag.y + flag.height
 
-    if (
-      playerRight > flagLeft &&
-      playerLeft < flagRight &&
-      playerBottom > flagTop &&
-      playerTop < flagBottom
-    ) {
-      // Player is colliding with the flag
-      flag.isReached = true
-      // Call the function to end the game
-      endGame()
+  if (
+    playerRight > flagLeft &&
+    playerLeft < flagRight &&
+    playerBottom > flagTop &&
+    playerTop < flagBottom
+  ) {
+    // Player is colliding with the flag
+    flag.isReached = true;
+    if (currentLevel === 0) {
+      currentLevel = 3;
+      player.x = 0; // Reset player's position for the new level
+      player.y = FLOOR_Y;
+      platforms = levels[currentLevel].platforms;
+      coins = levels[currentLevel].coins;
+      flag = levels[currentLevel].flag;
     }
   }
 }
@@ -419,16 +445,27 @@ function checkFlagCollision() {
 
 
 
-function endGame(){
-  gameRunning = false // stop game loop
-  cancelAnimationFrame(animationId) // Stop the game loop
 
-  // Display score
-  platformerContext.font = '50px Arial'
-  platformerContext.fillStyle = 'red'
-  platformerContext.textAlign = 'center'
-  platformerContext.fillText('Score: ' + player.score, platformerCanvas.width / 2, platformerCanvas.height / 2)
 
+
+
+function endGame() {
+  // Stop the game
+  gameRunning = false;
+  // Cancel the animation frame request
+  cancelAnimationFrame(animationId);
+  // Show the score
+  alert('Congratulations! Your score is ' + player.score);
+  // Clear the platformerCanvas
+  platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height);
   // Confetti
-  confetti({ particleCount: 100, spread: 70, target: 'platformerGameCanvas' })
+  confetti({
+    particleCount: 100,
+    startVelocity: 30,
+    spread: 360,
+    origin: {
+      x: Math.random(),
+      y: Math.random()
+    }
+  });
 }
