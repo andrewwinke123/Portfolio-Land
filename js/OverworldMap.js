@@ -964,32 +964,32 @@ window.OverworldMaps = {
         [utils.asGridCoord(11,39)]: true,
         [utils.asGridCoord(35,39)]: true,
         //floor of ground
-        [utils.asGridCoord(8,41)]: true,
-        [utils.asGridCoord(9,41)]: true,
-        [utils.asGridCoord(10,41)]: true,
-        [utils.asGridCoord(11,41)]: true,
-        [utils.asGridCoord(12,41)]: true,
-        [utils.asGridCoord(13,41)]: true,
-        [utils.asGridCoord(14,41)]: true,
-        [utils.asGridCoord(15,41)]: true,
-        [utils.asGridCoord(16,41)]: true,
-        [utils.asGridCoord(17,41)]: true,
-        [utils.asGridCoord(18,41)]: true,
-        [utils.asGridCoord(19,41)]: true,
-        [utils.asGridCoord(20,41)]: true,
-        [utils.asGridCoord(21,41)]: true,
-        [utils.asGridCoord(22,41)]: true,
-        [utils.asGridCoord(23,41)]: true,
-        [utils.asGridCoord(24,41)]: true,
-        [utils.asGridCoord(25,41)]: true,
-        [utils.asGridCoord(26,41)]: true,
-        [utils.asGridCoord(27,41)]: true,
-        [utils.asGridCoord(28,41)]: true,
-        [utils.asGridCoord(29,41)]: true,
-        [utils.asGridCoord(30,41)]: true,
-        [utils.asGridCoord(31,41)]: true,
-        [utils.asGridCoord(32,41)]: true,
-        [utils.asGridCoord(33,41)]: true,
+        [utils.asGridCoord(8,42)]: true,
+        [utils.asGridCoord(9,42)]: true,
+        [utils.asGridCoord(10,42)]: true,
+        [utils.asGridCoord(11,42)]: true,
+        [utils.asGridCoord(12,42)]: true,
+        [utils.asGridCoord(13,42)]: true,
+        [utils.asGridCoord(14,42)]: true,
+        [utils.asGridCoord(15,42)]: true,
+        [utils.asGridCoord(16,42)]: true,
+        [utils.asGridCoord(17,42)]: true,
+        [utils.asGridCoord(18,42)]: true,
+        [utils.asGridCoord(19,42)]: true,
+        [utils.asGridCoord(20,42)]: true,
+        [utils.asGridCoord(21,42)]: true,
+        [utils.asGridCoord(22,42)]: true,
+        [utils.asGridCoord(23,42)]: true,
+        [utils.asGridCoord(24,42)]: true,
+        [utils.asGridCoord(25,42)]: true,
+        [utils.asGridCoord(26,42)]: true,
+        [utils.asGridCoord(27,42)]: true,
+        [utils.asGridCoord(28,42)]: true,
+        [utils.asGridCoord(29,42)]: true,
+        [utils.asGridCoord(30,42)]: true,
+        [utils.asGridCoord(31,42)]: true,
+        [utils.asGridCoord(32,42)]: true,
+        [utils.asGridCoord(33,42)]: true,
       },
       cutsceneSpaces: {
         [utils.asGridCoord(24,39)]: [
@@ -999,7 +999,7 @@ window.OverworldMaps = {
             ]
           }
         ],
-        [utils.asGridCoord(21,39)]: [
+        [utils.asGridCoord(21,40)]: [
           {
             events: [
               { who: 'hero', type: 'stand', direction: 'up'},
@@ -1008,7 +1008,7 @@ window.OverworldMaps = {
             ]
           }
         ],
-        [utils.asGridCoord(18,39)]: [
+        [utils.asGridCoord(18,40)]: [
           {
             events: [
               { who: 'hero', type: 'stand', direction: 'up'},
