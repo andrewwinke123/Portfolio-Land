@@ -11,12 +11,48 @@
   left: 74px; 
 }
 
-#resetButton {
-  margin-top: 700px;
-}
-
 #platformerScore {
   font-size: 1.5em;
   text-align: center;
-  margin: -350px 0;}
+  margin: -350px 0;
+}
 
+.screenButtonContainer {
+  position: absolute;
+  right: -40px;
+  top: 70%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  font-size: 48px;
+  width: 70px;
+}
+
+.screenButtonContainer > * {
+  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.5);
+}
+
+.screenButton {
+  display: block;
+  margin-bottom: 2px;
+  padding: 3px;
+  background-color: #ee80f8;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+#resetButton {
+  font-size: medium;
+}
+
+.screenButton:nth-child(1) {
+  transform: rotate(-6deg);
+}
+
+.screenButton:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.screenButton:nth-child(3) {
+  transform: rotate(-2deg);
+}

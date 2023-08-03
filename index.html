@@ -40,17 +40,18 @@
   <div class="platformer-game-container">
     <canvas id="platformerGameCanvas" width="540" height="390"></canvas>
     <div id="platformerScore">Score: 0</div>
-    <button id="resetButton">Reset Game</button>
-    <button id="previousscreen">&lt;</button>
-    <button id="nextscreen">&gt;</button>
-    <img id="screen3Image" class="screen3-image" src="/media/maps/canvas-platformer-win-screen.png" style="display: none;" />
+    <div class="screenButtonContainer">
+      <div class="screenButton" id="resetButton">Reset Game</div>
+      <div class="screenButton" id="previousscreen">&lt;</div>
+      <div class="screenButton" id="nextscreen">&gt;</div>
+    </div>
+      <img id="screen3Image" class="screen3-image" src="/media/maps/canvas-platformer-win-screen.png" style="display: none;" />
     <div class="tab-container">
       <div class="tab-link" onclick="changeMap('MainMap')">Portfolio Hub</div>
       <div class="tab-link" onclick="changeMap('AboutMeMap')">About Me</div>
       <div class="tab-link" onclick="changeMap('ContactMeMap')">Contact Me</div>
       <div class="tab-link" onclick="changeMap('GameShackMap')">Mini-Games</div>
     </div>
-    <script src="/js/platformer.js"></script>
   </div>
 
   
@@ -180,6 +181,7 @@
   <script src="/js/textMessages/ContactMe.js"></script>
   <script src="/js/textMessages/MoreInfo.js"></script>
   <script src="/js/OverworldEvent.js"></script>
+  <script src="/js/platformer.js"></script>
   <script src="./js/snake.js"></script>
   <script src="/js/KeyPressListener.js"></script>
   <script src="/js/RevealingText.js"></script>
