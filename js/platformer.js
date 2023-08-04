@@ -2,6 +2,9 @@ const platformerCanvas = document.getElementById('platformerGameCanvas')
 const platformerContext = platformerCanvas.getContext('2d')
 const platformerScoreElement = document.getElementById('platformerScore')
 
+let hasShownWelcomeMessage = false
+
+
 // Constants for game elements
 const GRAVITY = 1
 const PLAYER_WIDTH = 20
@@ -10,6 +13,8 @@ const FLOOR_Y = platformerCanvas.height - PLAYER_HEIGHT
 const JUMP_FORCE = 20
 const COIN_VALUE = 10
 const PLAYER_SPEED = 5
+
+
 
 // screens
 const screens = [
@@ -177,11 +182,24 @@ let keyStates = {
   
 }
 
+
+// Event listener for the "Open Welcome Message" button
+document.getElementById('openWelcomeMessageButton').addEventListener('click', function () {
+  showWelcomeMessage()
+})
+
 // Game loop
 function gameLoop() {
   if (!gameRunning) {
     return // Stop the loop
   }
+
+// Call the function to show the welcome message
+if (!hasShownWelcomeMessage) {
+  hasShownWelcomeMessage = true
+  showWelcomeMessage()
+}
+
   // Clear the platformerCanvas
   platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
 
@@ -208,11 +226,6 @@ function gameLoop() {
   // Move player
 player.x += player.dx
 player.y += player.dy
-
-// // Check for win condition
-// if(flag && Math.abs(player.x - flag.x) < PLAYER_WIDTH && Math.abs(player.y - flag.y) < PLAYER_HEIGHT){
-//   endGame()
-// }
 
 
   // Calculate player's vertical position ratio
@@ -280,7 +293,6 @@ if (player.x < 0) {
     platformerContext.drawImage(screen3Image, -100, -400) // Adjust the coordinates as needed
   }
 
-
   // Check for platform collisions
   checkPlatformCollision()
 
@@ -324,6 +336,48 @@ if (player.x < 0) {
 }
 
 
+// Function to check if the game has been played before
+function checkIfGamePlayed() {
+  const hasPlayed = localStorage.getItem("hasPlayedPlatformer")
+  if (!hasPlayed) {
+    // Show the welcome message
+    showWelcomeMessage()
+    // Set the flag to indicate that the game has been played
+    localStorage.setItem("hasPlayedPlatformer", true)
+  }
+}
+
+
+// Call this function to check if the game has been played
+checkIfGamePlayed()
+
+
+
+// Function to show the welcome message
+function showWelcomeMessage() {
+  const alertMessage = document.getElementById('alertMessage')
+  const closeButton = document.getElementById('closeButton')
+  const closeButton2 = document.getElementById('closeButton2') // New close button for the second message
+
+  alertMessage.style.display = 'block'
+
+  // Hide the message after 3 seconds
+  closeButton.addEventListener('click', function () {
+    alertMessage.style.display = 'none'
+  })
+
+  // Show the second message after the first message is closed
+  closeButton.addEventListener('click', function () {
+    const alertMessage2 = document.getElementById('alertMessage2')
+    alertMessage2.style.display = 'block'
+  })
+
+  // Hide the second message when the closeButton2 is clicked
+  closeButton2.addEventListener('click', function () {
+    const alertMessage2 = document.getElementById('alertMessage2')
+    alertMessage2.style.display = 'none'
+  })
+}
 gameLoop()
 
 
@@ -495,12 +549,30 @@ function checkFlagCollision() {
 
 
 
+function showWelcomeMessage() {
+  const alertMessage = document.getElementById('alertMessage')
+  const closeButton = document.getElementById('closeButton')
+  const closeButton2 = document.getElementById('closeButton2') // New close button for the second message
 
+  alertMessage.style.display = 'block'
 
+  // Hide the message after 3 seconds
+  closeButton.addEventListener('click', function () {
+    alertMessage.style.display = 'none'
+  })
 
+  // Show the second message after the first message is closed
+  closeButton.addEventListener('click', function () {
+    const alertMessage2 = document.getElementById('alertMessage2')
+    alertMessage2.style.display = 'block'
+  })
 
-
-
+  // Hide the second message when the closeButton2 is clicked
+  closeButton2.addEventListener('click', function () {
+    const alertMessage2 = document.getElementById('alertMessage2')
+    alertMessage2.style.display = 'none'
+  })
+}
 
 
 

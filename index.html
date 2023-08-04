@@ -40,8 +40,23 @@
   <div class="platformer-game-container">
     <canvas id="platformerGameCanvas" width="540" height="390"></canvas>
     <div id="platformerScore">Score: 0</div>
+    <div id="alertMessage" class="alert-message" style="display: none;">
+      <h2>Objective:</h2>
+      <h4>use the &lt; and &gt; buttons to cycle through the platforms and reach the goal at the top right of page one!</h4>
+      <button id="closeButton">Close</button>
+    </div>
+    <div id="alertMessage2" class="alert-message" style="display: none;">
+      <h1>Controls</h1>
+      <h4>← move left</h4>
+      <h4>→ move right</h4>
+      <h4>↑ move up</h4>
+      <h4>, or &lt; previous page</h4>
+      <h4>. or &gt; next page</h4>
+      <button id="closeButton2">Close</button>
+    </div>
     <div class="screenButtonContainer">
       <div class="screenButton" id="resetButton">Reset Game</div>
+      <div class="screenButton" id="openWelcomeMessageButton">Need Help?</div>
       <div class="screenButton" id="previousscreen">&lt;</div>
       <div class="screenButton" id="nextscreen">&gt;</div>
     </div>
@@ -51,9 +66,11 @@
       <div class="tab-link" onclick="changeMap('AboutMeMap')">About Me</div>
       <div class="tab-link" onclick="changeMap('ContactMeMap')">Contact Me</div>
       <div class="tab-link" onclick="changeMap('GameShackMap')">Mini-Games</div>
+      
+      
     </div>
   </div>
-
+  
   
       <div class="background-image"></div>
       <div class="game-container">
