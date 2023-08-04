@@ -717,6 +717,7 @@ window.OverworldMaps = {
             { type: 'aboutMe', text:'  '},
             { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
             { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
+            { who: 'chest', type: 'stand', direction: 'down'},
           ]
         }
       ],
@@ -728,6 +729,7 @@ window.OverworldMaps = {
             { type: 'experience', text:' ' },
             { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
             { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
+            { who: 'chest2', type: 'stand', direction: 'down'},
           ]
         }
       ],
@@ -740,6 +742,7 @@ window.OverworldMaps = {
             { who: 'hero', type: 'stand', direction: 'right'},
             { who: 'andrewTruck', type: 'stand', direction: 'right', time: 150},
             { who: 'andrewTruck', type: 'stand', direction: 'down', time: 100},
+            { who: 'chest3', type: 'stand', direction: 'down'},
           ]
         }
       ],
