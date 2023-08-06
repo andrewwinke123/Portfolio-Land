@@ -23,7 +23,7 @@
   top: 40%;
   transform: translateY(-50%);
   z-index: 9999;
-  font-size: 48px;
+  font-size: 32px;
   width: 70px;
 }
 
@@ -95,7 +95,24 @@
   position: relative;
   top: 50px;
 }
-#closeButton2 {
+#moveButton {
   position: relative;
   top: 50px;
+}
+
+.alert-message.left {
+  left: -35%;
+  transition: left 1s;
+}
+
+/* sliding animation */
+.alert-message.slide-left {
+  animation: slideLeft 1s forwards;
+}
+
+/* Define the slideLeft animation */
+@keyframes slideLeft {
+  100% {
+    transform: translateX(-260%) translateY(-50%);
+  }
 }

@@ -3,6 +3,8 @@ const platformerContext = platformerCanvas.getContext('2d')
 const platformerScoreElement = document.getElementById('platformerScore')
 
 let hasShownWelcomeMessage = false
+let messageMovedToRight = false
+
 
 
 // Constants for game elements
@@ -357,27 +359,34 @@ checkIfGamePlayed()
 function showWelcomeMessage() {
   const alertMessage = document.getElementById('alertMessage')
   const closeButton = document.getElementById('closeButton')
-  const closeButton2 = document.getElementById('closeButton2') // New close button for the second message
+  const moveButton = document.getElementById('moveButton');
+  const alertMessage2 = document.getElementById('alertMessage2');
 
   alertMessage.style.display = 'block'
 
-  // Hide the message after 3 seconds
   closeButton.addEventListener('click', function () {
-    alertMessage.style.display = 'none'
+    if (!messageMovedToRight) {
+
+      // Hide alertMessage and show alertMessage2
+      alertMessage.style.display = 'none'
+      alertMessage2.style.display = 'block'
+    } else {
+      // Move alertMessage2 to the left
+      alertMessage2.classList.add('left')
+      // Hide the message after it has been moved to the left
+      alertMessage2.style.display = 'none'
+    }
   })
 
-  // Show the second message after the first message is closed
-  closeButton.addEventListener('click', function () {
-    const alertMessage2 = document.getElementById('alertMessage2')
-    alertMessage2.style.display = 'block'
-  })
+moveButton.addEventListener('click', function () {
+  // Add the slide-left class to trigger the animation
+  alertMessage2.classList.add('slide-left')
+})
 
-  // Hide the second message when the closeButton2 is clicked
-  closeButton2.addEventListener('click', function () {
-    const alertMessage2 = document.getElementById('alertMessage2')
-    alertMessage2.style.display = 'none'
-  })
 }
+
+
+
 gameLoop()
 
 
@@ -552,25 +561,28 @@ function checkFlagCollision() {
 function showWelcomeMessage() {
   const alertMessage = document.getElementById('alertMessage')
   const closeButton = document.getElementById('closeButton')
-  const closeButton2 = document.getElementById('closeButton2') // New close button for the second message
+  const moveButton = document.getElementById('moveButton');
+  const alertMessage2 = document.getElementById('alertMessage2');
 
   alertMessage.style.display = 'block'
 
-  // Hide the message after 3 seconds
   closeButton.addEventListener('click', function () {
-    alertMessage.style.display = 'none'
+    if (!messageMovedToRight) {
+
+      // Hide alertMessage and show alertMessage2
+      alertMessage.style.display = 'none'
+      alertMessage2.style.display = 'block'
+    } else {
+      // Move alertMessage2 to the left
+      alertMessage2.classList.add('left')
+      // Hide the message after it has been moved to the left
+      alertMessage2.style.display = 'none'
+    }
   })
 
-  // Show the second message after the first message is closed
-  closeButton.addEventListener('click', function () {
-    const alertMessage2 = document.getElementById('alertMessage2')
-    alertMessage2.style.display = 'block'
-  })
-
-  // Hide the second message when the closeButton2 is clicked
-  closeButton2.addEventListener('click', function () {
-    const alertMessage2 = document.getElementById('alertMessage2')
-    alertMessage2.style.display = 'none'
+  moveButton.addEventListener('click', function () {
+    // Add the slide-left class to trigger the animation
+    alertMessage2.classList.add('slide-left')
   })
 }
 
