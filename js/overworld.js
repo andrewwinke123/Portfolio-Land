@@ -1,7 +1,7 @@
 class Overworld {
   constructor(config) {
     this.element = config.element
-    this.canvas = this.element.querySelector('.game-canvas')
+    this.canvas = this.element.querySelector('.portfolio-canvas')
     this.ctx = this.canvas.getContext('2d')
     this.map = null
     window.game = this
@@ -101,30 +101,28 @@ startMap(mapConfig) {
     this.panningProgress = 16 * 16 // 16 spaces to the left, each space is 16px.
   }
 
-  // If the current map is SnakeMap, we show the snake game canvas.
-  if (mapConfig === window.OverworldMaps.SnakeMap) {
-    document.querySelector('.snake-game-container').style.display = 'block'
-    document.querySelector('.game-container').style.display = 'none'
-  } else {
-    document.querySelector('.snake-game-container').style.display = 'none'
-    document.querySelector('.game-container').style.display = 'block'
-  }
 
-
-  // If the current map is PlatformerMap, we show the snake game canvas.
-  if (mapConfig === window.OverworldMaps.PlatformerMap) {
-    document.querySelector('.platformer-game-container').style.display = 'block'
-    document.querySelector('.game-container').style.display = 'none'
-  } else {
-    document.querySelector('.platformer-game-container').style.display = 'none'
-    document.querySelector('.game-container').style.display = 'block'
-  }
+    // Hide the platformer-canvas based on what is shown
+    if (mapConfig === window.OverworldMaps.PlatformerMap) {
+      document.querySelector('.platformer-game-container').style.display = 'block'
+      document.querySelector('.snake-game-container').style.display = 'none'
+      document.querySelector('.game-container').style.display = 'none'
+    } else if (mapConfig === window.OverworldMaps.SnakeMap) {
+        document.querySelector('.snake-game-container').style.display = 'block'
+        document.querySelector('.platformer-game-container').style.display = 'none'
+        document.querySelector('.game-container').style.display = 'none'
+    } else {
+        document.querySelector('.platformer-game-container').style.display = 'none'
+        document.querySelector('.snake-game-container').style.display = 'none'
+        document.querySelector('.game-container').style.display = 'block'
+    }
+  
 
 }
 
 
   init() {
-    this.startMap(window.OverworldMaps.PlatformerMap)
+    this.startMap(window.OverworldMaps.MainMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

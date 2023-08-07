@@ -3,13 +3,14 @@
   width: 540px; 
   height: 390px;
   display: none;
-  z-index: 9999;
+  z-index: 100000; /* Updated z-index value to ensure it renders on top */
   outline: 3px solid rgb(15, 15, 15);
   background-color: rgb(88, 88, 88);
   border-radius: 20px 20px 20px 20px;
   top: -75px; 
   left: 74px; 
 }
+
 
 #start-game {
   position: relative;
