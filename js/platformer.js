@@ -359,8 +359,8 @@ checkIfGamePlayed()
 function showWelcomeMessage() {
   const alertMessage = document.getElementById('alertMessage')
   const closeButton = document.getElementById('closeButton')
-  const moveButton = document.getElementById('moveButton');
-  const alertMessage2 = document.getElementById('alertMessage2');
+  const moveButton = document.getElementById('moveButton')
+  const alertMessage2 = document.getElementById('alertMessage2')
 
   alertMessage.style.display = 'block'
 
@@ -377,12 +377,15 @@ function showWelcomeMessage() {
       alertMessage2.style.display = 'none'
     }
   })
-
-moveButton.addEventListener('click', function () {
-  // Add the slide-left class to trigger the animation
-  alertMessage2.classList.add('slide-left')
-})
-
+  
+  moveButton.addEventListener('click', function () {
+    // Add the slide-left class to trigger the animation
+    alertMessage2.classList.add('slide-left')
+    // After the animation is done, remove the button from the DOM
+    alertMessage2.addEventListener('animationend', function () {
+      moveButton.remove()
+    })
+  })
 }
 
 
@@ -561,8 +564,8 @@ function checkFlagCollision() {
 function showWelcomeMessage() {
   const alertMessage = document.getElementById('alertMessage')
   const closeButton = document.getElementById('closeButton')
-  const moveButton = document.getElementById('moveButton');
-  const alertMessage2 = document.getElementById('alertMessage2');
+  const moveButton = document.getElementById('moveButton')
+  const alertMessage2 = document.getElementById('alertMessage2')
 
   alertMessage.style.display = 'block'
 
@@ -579,10 +582,14 @@ function showWelcomeMessage() {
       alertMessage2.style.display = 'none'
     }
   })
-
+  
   moveButton.addEventListener('click', function () {
     // Add the slide-left class to trigger the animation
     alertMessage2.classList.add('slide-left')
+    // After the animation is done, remove the button from the DOM
+    alertMessage2.addEventListener('animationend', function () {
+      moveButton.remove()
+    })
   })
 }
 
