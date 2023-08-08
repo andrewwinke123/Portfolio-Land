@@ -1,10 +1,11 @@
-const alertMessage = document.getElementById('alertMessage');
-const alertMessage2 = document.getElementById('alertMessage2');
-const resetButton = document.getElementById('resetButton');
+const alertMessageSnake = document.getElementById('alertMessageSnake')
+const alertMessage2Snake = document.getElementById('alertMessage2Snake')
+const startButton = document.getElementById('startButton')
 const snakeCanvas = document.getElementById('snake-game-canvas')
 const snakeContext = snakeCanvas.getContext('2d')
 const box = 20
 let snake = []
+let hasShownWelcomeMessageSnake = false
 snake[0] = {x : 10 * box, y : 10 * box}
 
 let score = 0
@@ -40,7 +41,7 @@ function direction(event) {
 function draw(){
     snakeContext.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height)
     
-    for(let i = 0; i < snake.length ; i++){
+    for(let i = 0; i < snake.length;  i++){
         snakeContext.fillStyle = (i == 0)? "green" : "green"
         snakeContext.fillRect(snake[i].x,snake[i].y,box,box)
     }
@@ -85,9 +86,9 @@ let game
 
 let gameOver = false
 
-resetButton.addEventListener('click', () => {
-    alertMessage.style.display = 'none';
-    alertMessage2.style.display = 'none';
+startButton.addEventListener('click', () => {
+    alertMessageSnake.style.display = 'none'
+    alertMessage2Snake.style.display = 'none'
 })
 
 function reset() {
@@ -111,6 +112,7 @@ function reset() {
 
     // start a new game
     game = setInterval(draw,100)
+    
 }
 
 
@@ -134,7 +136,7 @@ function endGame() {
 }
 
 
-document.getElementById('resetButton').addEventListener('click', reset)
+document.getElementById('startButton').addEventListener('click', reset)
 
 document.addEventListener("keydown", function(event){
     let key = event.keyCode
@@ -142,3 +144,41 @@ document.addEventListener("keydown", function(event){
         reset()
     }
 })
+
+function showWelcomeMessageSnake() {
+    const alertMessageSnake = document.getElementById('alertMessageSnake')
+    const closeButtonSnake = document.getElementById('closeButtonSnake')
+    const moveButtonSnake = document.getElementById('moveButtonSnake')
+    const alertMessage2Snake = document.getElementById('alertMessage2Snake')
+
+    alertMessageSnake.style.display = 'block'
+
+    closeButtonSnake.addEventListener('click', function () {
+    if (!messageMovedToRight) {
+
+        // Hide alertMessageSnake and show alertMessage2Snake
+        alertMessageSnake.style.display = 'none'
+        alertMessage2Snake.style.display = 'block'
+    } else {
+        // Move alertMessage2Snake to the left
+        alertMessage2Snake.classList.add('left')
+        // Hide the message after it has been moved to the left
+        alertMessage2Snake.style.display = 'none'
+    }
+    })
+    
+    moveButtonSnake.addEventListener('click', function () {
+      // Add the slide-left class to trigger the animation
+    alertMessage2Snake.classList.add('slide-left')
+      // After the animation is done, remove the button from the DOM
+    alertMessage2Snake.addEventListener('animationend', function () {
+        moveButtonSnake.remove()
+    })
+    })
+}
+
+// Call the function to show the welcome message
+if (!hasShownWelcomeMessageSnake) {
+    hasShownWelcomeMessageSnake = true
+    showWelcomeMessageSnake()
+  }

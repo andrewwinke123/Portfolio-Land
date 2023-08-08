@@ -12,12 +12,8 @@
 }
 
 
-#start-game {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
+#startButton {
+  font-size: medium;
 }
 
 #score {
