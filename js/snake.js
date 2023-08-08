@@ -1,3 +1,6 @@
+const alertMessage = document.getElementById('alertMessage');
+const alertMessage2 = document.getElementById('alertMessage2');
+const resetButton = document.getElementById('resetButton');
 const snakeCanvas = document.getElementById('snake-game-canvas')
 const snakeContext = snakeCanvas.getContext('2d')
 const box = 20
@@ -13,11 +16,16 @@ let food = {
 }
 
 let d
+let gameStarted = false
 
 document.addEventListener("keydown", direction)
 
-function direction(event){
+function direction(event) {
     let key = event.keyCode
+    if (!gameStarted) { // If the game hasn't started yet
+      gameStarted = true // Set the gameStarted flag to true
+      game = setInterval(draw, 100) // Start the game
+    }
     if( key == 37 && d != "RIGHT"){
         d = "LEFT"
     } else if(key == 38 && d != "DOWN"){
@@ -73,13 +81,18 @@ function draw(){
     snake.unshift(newHead)
 }
 
-let game = setInterval(draw,100)
+let game
 
 let gameOver = false
 
+resetButton.addEventListener('click', () => {
+    alertMessage.style.display = 'none';
+    alertMessage2.style.display = 'none';
+})
+
 function reset() {
-    clearInterval(game) // stop the current game
-    // re-initialize all variables
+    clearInterval(game)
+    game = undefined
     snake = []
     snake[0] = {x : 10 * box, y : 10 * box}
 
@@ -101,7 +114,10 @@ function reset() {
 }
 
 
+
 function endGame() {
+    clearInterval(game)
+    game = undefined
 
     food = {
         x : Math.floor(Math.random()*17+1) * box,
@@ -118,7 +134,7 @@ function endGame() {
 }
 
 
-document.getElementById('start').addEventListener('click', reset)
+document.getElementById('resetButton').addEventListener('click', reset)
 
 document.addEventListener("keydown", function(event){
     let key = event.keyCode

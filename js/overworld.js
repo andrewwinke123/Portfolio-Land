@@ -122,7 +122,7 @@ startMap(mapConfig) {
 
 
   init() {
-    this.startMap(window.OverworldMaps.MainMap)
+    this.startMap(window.OverworldMaps.GameShackMap)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()

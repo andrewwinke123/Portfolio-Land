@@ -1,4 +1,4 @@
-.snake-game-container {
+.snake-game-Container {
   position: relative;
   width: 540px; 
   height: 390px;
@@ -28,4 +28,49 @@
   font-size: 50px;
   color: red;
   display: none;
+}
+
+.screenButtonContainerSnake {
+  position: absolute;
+  right: 480px;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  font-size: 32px;
+  width: 70px;
+}
+
+.screenButtonContainerSnake > * {
+  box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.5);
+}
+
+.screenButtonSnake {
+  display: block;
+  margin-bottom: 2px;
+  padding: 3px;
+  background-color: #ee80f8;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+#resetButtonSnake {
+  font-size: medium;
+  width: 70px;
+}
+
+.screenButtonSnake:nth-child(1) {
+  transform: rotate(-6deg);
+}
+
+.screenButtonSnake:nth-child(2) {
+  transform: rotate(4deg);
+  font-size: medium;
+  width: 70px;
+}
+
+.screenButtonSnake:nth-child(3) {
+  transform: rotate(-2deg);
+  width: 70px;
+  font-size: medium;
 }
