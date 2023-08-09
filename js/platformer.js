@@ -402,7 +402,7 @@ function showWelcomeMessage() {
 
   alertMessage.style.display = 'block'
 
-  closeButton.addEventListener('click', function () {
+  closeButton.addEventListener('click', closeAlertMessages, function () {
     if (!messageMovedToRight) {
 
       // Hide alertMessage and show alertMessage2
@@ -424,6 +424,24 @@ function showWelcomeMessage() {
       moveButton.remove()
     })
   })
+}
+
+window.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    closeAlertMessages();
+  }
+});
+
+function closeAlertMessages() {
+  const alertMessage = document.getElementById('alertMessage');
+  const alertMessage2 = document.getElementById('alertMessage2');
+  
+  // Hide alertMessage and alertMessage2
+  alertMessage.style.display = 'none';
+  alertMessage2.style.display = 'none';
+  
+  // Reset any animations
+  alertMessage2.classList.remove('left', 'slide-left');
 }
 
 
