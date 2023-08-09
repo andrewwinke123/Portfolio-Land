@@ -5,6 +5,7 @@ const platformerScoreElement = document.getElementById('platformerScore')
 let hasShownWelcomeMessage = false
 let messageMovedToRight = false
 
+let maxAllowedX = platformerCanvas.width
 
 
 // Constants for game elements
@@ -81,10 +82,9 @@ const screens = [
   },
   {
     platforms: [
-      // Platforms 3
+      // Platforms 3, win screen
       // Border
       { x: 0, y: 0, width: 10, height: 550 },
-      { x: 530, y: 0, width: 10, height: 550 },
       { x: 0, y: 0, width: 550, height: 10 },
       { x: 0, y: 382, width: 550, height: 10 },
     ],
@@ -92,6 +92,36 @@ const screens = [
       { x: 225, y: 350, collected: false },
       { x: 450, y: 350, collected: false },
       { x: 100, y: 350, collected: false },
+    ],
+  },
+  {
+    platforms: [
+      // Platforms 4, post game
+      // Border
+      // { x: 0, y: 0, width: 10, height: 550 },
+      // { x: 530, y: 0, width: 10, height: 550 },
+      { x: 0, y: 0, width: 550, height: 10 },
+      { x: 0, y: 382, width: 550, height: 10 },
+    ],
+    coins: [
+      { x: 425, y: 350, collected: false },
+      { x: 550, y: 350, collected: false },
+      { x: 400, y: 350, collected: false },
+    ],
+  },
+  {
+    platforms: [
+      // Platforms 5, post game
+      // Border
+      // { x: 0, y: 0, width: 10, height: 550 },
+      { x: 530, y: 0, width: 10, height: 550 },
+      { x: 0, y: 0, width: 550, height: 10 },
+      { x: 0, y: 382, width: 550, height: 10 },
+    ],
+    coins: [
+      { x: 125, y: 350, collected: false },
+      { x: 250, y: 350, collected: false },
+      { x: 200, y: 350, collected: false },
     ],
   },
   // Additional screens
@@ -226,8 +256,8 @@ if (!hasShownWelcomeMessage) {
   }
 
   // Move player
-player.x += player.dx
-player.y += player.dy
+  player.x += player.dx
+  player.y += player.dy
 
 
   // Calculate player's vertical position ratio
@@ -238,6 +268,10 @@ if (player.x < 0) {
   // Player has moved off the left side of the screen
   if (currentscreen > 0) {
     currentscreen--
+    // Update maxAllowedX after screen change
+    if (currentscreen === 2) {
+      maxAllowedX = platformerCanvas.width
+    }
     // Reset player position and load new screen data
     player.x = platformerCanvas.width - PLAYER_WIDTH // Player enters from the right side
     player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
@@ -246,10 +280,14 @@ if (player.x < 0) {
   } else {
     player.x = 0
   }
-} else if (player.x + PLAYER_WIDTH > platformerCanvas.width) {
+} else if (player.x + PLAYER_WIDTH > maxAllowedX) {
   // Player has moved off the right side of the screen
   if (currentscreen < 2) {
     currentscreen++
+    // Update maxAllowedX after screen change
+    if (currentscreen === 2) {
+      maxAllowedX = platformerCanvas.width
+    }
     // Reset player position and load new screen data
     player.x = 0 // Player enters from the left side
     player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
@@ -257,7 +295,7 @@ if (player.x < 0) {
     coins = screens[currentscreen].coins
     flag = screens[currentscreen].flag
   } else {
-    player.x = platformerCanvas.width - PLAYER_WIDTH
+    player.x = maxAllowedX - PLAYER_WIDTH
   }
 }
 
@@ -325,10 +363,10 @@ if (player.x < 0) {
   }
 
   // Update dx based on key states
-  if(keyStates.ArrowLeft) {
-    if(player.dx > -PLAYER_SPEED) player.dx -= 1
-  } else if(keyStates.ArrowRight) {
-    if(player.dx < PLAYER_SPEED) player.dx += 1
+  if (keyStates.ArrowLeft) {
+    if (player.dx > -PLAYER_SPEED) player.dx -= 1
+  } else if (keyStates.ArrowRight) {
+    if (player.dx < PLAYER_SPEED && player.x < maxAllowedX) player.dx += 1 // Check player's position
   } else {
     player.dx = 0
   }
@@ -407,14 +445,8 @@ window.addEventListener('keydown', function(event) {
       break
     case 'ArrowRight':
       keyStates.ArrowRight = true // Set right key state to true
-      break
-      case '<':
-      loadPreviousscreen()
-      break
-    case '>':
-      loadNextscreen()
-      break
-      case ',':
+      break 
+    case ',':
       loadPreviousscreen()
       break
     case '.':
@@ -422,6 +454,7 @@ window.addEventListener('keydown', function(event) {
       break
   }
 })
+
 
 window.addEventListener('keyup', function(event) {
   switch(event.key) {
@@ -436,7 +469,7 @@ window.addEventListener('keyup', function(event) {
 
 
 function loadPreviousscreen() {
-  if (currentscreen > 0) {
+  if (currentscreen > 0 && currentscreen !== 3) {
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
     currentscreen--
@@ -452,8 +485,9 @@ function loadPreviousscreen() {
   }
 }
 
+
 function loadNextscreen() {
-  if (currentscreen < 2) {
+  if (currentscreen < 2 || currentscreen > 2) {
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
     currentscreen++
@@ -463,8 +497,15 @@ function loadNextscreen() {
     platforms = screens[currentscreen].platforms
     coins = screens[currentscreen].coins
     flag = screens[currentscreen].flag
+    
+    // Update maxAllowedX after screen change
+    if (currentscreen === 3) {
+      maxAllowedX = platformerCanvas.width
+    }
   }
 }
+
+
 
 
 
@@ -489,17 +530,7 @@ document.getElementById('previousscreen').addEventListener('click', function() {
 
 // Event listener for next screen button
 document.getElementById('nextscreen').addEventListener('click', function() {
-  if (currentscreen < 2) {
-    let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
-    let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
-    currentscreen++
-    console.log(`Moved to next screen: ${currentscreen}`)
-    player.x = playerXRatio * platformerCanvas.width // Maintain the same width ratio
-    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-    platforms = screens[currentscreen].platforms
-    coins = screens[currentscreen].coins
-    flag = screens[currentscreen].flag
-  }
+  loadNextscreen()
 })
 
 
@@ -590,29 +621,5 @@ function showWelcomeMessage() {
     alertMessage2.addEventListener('animationend', function () {
       moveButton.remove()
     })
-  })
-}
-
-
-
-
-function endGame() {
-  // Stop the game
-  gameRunning = false
-  // Cancel the animation frame request
-  cancelAnimationFrame(animationId)
-  // Show the score
-  alert('Congratulations! Your score is ' + player.score)
-  // Clear the platformerCanvas
-  platformerContext.clearRect(0, 0, platformerCanvas.width, platformerCanvas.height)
-  // Confetti
-  confetti({
-    particleCount: 100,
-    startVelocity: 30,
-    spread: 360,
-    origin: {
-      x: Math.random(),
-      y: Math.random()
-    }
   })
 }
