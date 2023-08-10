@@ -332,6 +332,16 @@ if (player.x < 0) {
     const screen3Image = document.getElementById("screen3Image")
     platformerContext.drawImage(screen3Image, -100, -400) // Adjust the coordinates as needed
   }
+  // Render the image when screen 4 is loaded
+  if (currentscreen === 4) {
+    const screen4Image = document.getElementById("screen4Image")
+    platformerContext.drawImage(screen4Image, -100, -400) // Adjust the coordinates as needed
+  }
+  // Render the image when screen 5 is loaded
+  if (currentscreen === 5) {
+    const screen5Image = document.getElementById("screen5Image")
+    platformerContext.drawImage(screen5Image, -100, -400) // Adjust the coordinates as needed
+  }
   // Render the image when screen 0 is loaded
   if (currentscreen === 0) {
     const screen0Image = document.getElementById("screen0Image")
