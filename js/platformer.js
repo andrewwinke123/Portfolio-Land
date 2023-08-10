@@ -332,6 +332,11 @@ if (player.x < 0) {
     const screen3Image = document.getElementById("screen3Image")
     platformerContext.drawImage(screen3Image, -100, -400) // Adjust the coordinates as needed
   }
+  // Render the image when screen 0 is loaded
+  if (currentscreen === 0) {
+    const screen0Image = document.getElementById("screen0Image")
+    platformerContext.drawImage(screen0Image, -100, -400) // Adjust the coordinates as needed
+  }
 
   // Check for platform collisions
   checkPlatformCollision()
@@ -428,20 +433,27 @@ function showWelcomeMessage() {
 
 window.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
-    closeAlertMessages();
+    toggleWelcomeMessages();
   }
 });
 
-function closeAlertMessages() {
+
+function toggleWelcomeMessages() {
   const alertMessage = document.getElementById('alertMessage');
   const alertMessage2 = document.getElementById('alertMessage2');
-  
-  // Hide alertMessage and alertMessage2
-  alertMessage.style.display = 'none';
-  alertMessage2.style.display = 'none';
-  
-  // Reset any animations
-  alertMessage2.classList.remove('left', 'slide-left');
+
+  if (alertMessage.style.display === 'block') {
+    // Hide alertMessage and show alertMessage2
+    alertMessage.style.display = 'none';
+    alertMessage2.style.display = 'block';
+  } else if (alertMessage2.style.display === 'block') {
+    // Move alertMessage2 to the left
+    alertMessage2.classList.add('left');
+    // After the animation is done, remove the button from the DOM
+    alertMessage2.addEventListener('animationend', function () {
+      moveButton.remove()
+    })
+  }
 }
 
 
