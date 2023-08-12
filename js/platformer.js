@@ -280,23 +280,22 @@ if (player.x < 0) {
   } else {
     player.x = 0
   }
-} else if (player.x + PLAYER_WIDTH > maxAllowedX) {
+} else if (player.x + PLAYER_WIDTH > maxAllowedX && currentscreen < screens.length - 1) {
   // Player has moved off the right side of the screen
-  if (currentscreen < 2) {
-    currentscreen++
-    // Update maxAllowedX after screen change
-    if (currentscreen === 2) {
-      maxAllowedX = platformerCanvas.width
-    }
-    // Reset player position and load new screen data
-    player.x = 0 // Player enters from the left side
-    player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
-    platforms = screens[currentscreen].platforms
-    coins = screens[currentscreen].coins
-    flag = screens[currentscreen].flag
-  } else {
-    player.x = maxAllowedX - PLAYER_WIDTH
+  currentscreen++
+  // Update maxAllowedX after screen change
+  if (currentscreen === 2) {
+    maxAllowedX = platformerCanvas.width
   }
+  // Reset player position and load new screen data
+  player.x = 0 // Player enters from the left side
+  player.y = playerYRatio * platformerCanvas.height // Maintain the same height ratio
+  platforms = screens[currentscreen].platforms
+  coins = screens[currentscreen].coins
+  flag = screens[currentscreen].flag
+} else if (player.x + PLAYER_WIDTH > maxAllowedX && currentscreen === screens.length - 1) {
+  // Player has reached the end of the last screen
+  player.x = maxAllowedX - PLAYER_WIDTH // Keep the player within the screen
 }
 
 
@@ -527,7 +526,7 @@ function loadPreviousscreen() {
 
 
 function loadNextscreen() {
-  if (currentscreen < 2 || currentscreen > 2) {
+  if (currentscreen < screens.length - 1) {
     let playerYRatio = player.y / platformerCanvas.height // Save the height ratio
     let playerXRatio = player.x / platformerCanvas.width // Save the width ratio
     currentscreen++
@@ -544,6 +543,7 @@ function loadNextscreen() {
     }
   }
 }
+
 
 
 
